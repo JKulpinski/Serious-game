@@ -1,0 +1,38 @@
+body {
+    background-color: #dbe0ff;
+    color: #209915;
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 340%;
+}
+
+#pojemnik {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#title {
+    display: block;
+    text-align: center;
+    margin: auto;
+    font-size: 100%;
+}
+
+#picture {
+    display: block;
+    text-align: center;
+    margin: auto;
+}
+
+#word {
+    display: block;
+    text-align: center;
+    margin: auto;
+    font-size: x-large;
+}
+
+#error {
+    color: red;
+    font-size: xx-large;
+}

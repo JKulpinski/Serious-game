@@ -9,6 +9,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class NoteController {
 
+    @GetMapping("/pictures")
+    public String showPictures(Model model) {
+        return "pictures";
+    }
+
     @GetMapping("/rebus")
     public String showRebuses(Model model) {
         return "rebus";
