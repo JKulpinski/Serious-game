@@ -1,0 +1,7 @@
+pl\edu\utp\po\domain\Note.class
+pl\edu\utp\po\Lab3JpaAppcilation.class
+pl\edu\utp\po\repositories\NoteRepo.class
+pl\edu\utp\po\controllers\NoteController.class
+pl\edu\utp\po\domain\ImportanceEnum.class
+pl\edu\utp\po\services\NoteService.class
+pl\edu\utp\po\services\NoteServiceImp.class
