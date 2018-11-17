@@ -9,8 +9,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class NoteController {
 
-    @GetMapping("/list")
-    public String readersNotes(Model model) {
-        return "notes";
+    @GetMapping("/rebus")
+    public String showRebuses(Model model) {
+        return "rebus";
+    }
+
+    @GetMapping("/hangman")
+    public String showHangman(Model model) {
+        return "hangman";
     }
 }
