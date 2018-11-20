@@ -13,6 +13,11 @@ public class NoteController {
     @Autowired
     private RebusService rebusService;
 
+    @GetMapping("/register")
+    public String showRegister(Model model) {
+        return "register";
+    }
+
     @GetMapping("/pictures")
     public String showPictures(Model model) {
         return "pictures";
