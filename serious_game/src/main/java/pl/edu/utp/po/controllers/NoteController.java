@@ -5,9 +5,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import pl.edu.utp.po.services.RebusService;
 
 @Controller
 public class NoteController {
+
+    @Autowired
+    private RebusService rebusService;
 
     @GetMapping("/pictures")
     public String showPictures(Model model) {
@@ -16,6 +20,7 @@ public class NoteController {
 
     @GetMapping("/rebus")
     public String showRebuses(Model model) {
+        model.addAttribute("rebus", rebusService.listofRebuses());
         return "rebus";
     }
 
