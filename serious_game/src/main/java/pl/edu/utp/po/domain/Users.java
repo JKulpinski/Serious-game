@@ -7,6 +7,14 @@ import javax.persistence.Id;
 
 @Entity
 public class Users {
+    public Users(String login, String email, String pass) {
+        this.login = login;
+        this.email = email;
+        this.pass = pass;
+        this.points = 0;
+        this.id_level = 1L;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
