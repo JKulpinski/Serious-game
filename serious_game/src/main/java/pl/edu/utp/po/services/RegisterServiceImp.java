@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import pl.edu.utp.po.domain.Users;
 import pl.edu.utp.po.repositories.RegisterRepo;
 
+import java.util.List;
+
 @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
 @Service
 public class RegisterServiceImp implements RegisterService {
@@ -15,5 +17,10 @@ public class RegisterServiceImp implements RegisterService {
     @Override
     public void addUser(Users n) {
         registerRepo.save(n);
+    }
+
+    @Override
+    public List<Users> findByLogin(String login) {
+        return registerRepo.findByLogin(login);
     }
 }

@@ -7,6 +7,11 @@ import javax.persistence.Id;
 
 @Entity
 public class Users {
+    public Users(){
+        this.points = 0;
+        this.id_level = 1L;
+    }
+
     public Users(String login, String email, String pass) {
         this.login = login;
         this.email = email;

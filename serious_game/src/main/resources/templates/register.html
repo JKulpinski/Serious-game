@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en-EN">
+<html lang="en-EN" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Registration</title>
@@ -9,6 +9,9 @@
     Registration
 </div>
 <br>
+
+<p th:text="${alert1}"></p>
+
 <form method="POST">
     <div><label> User Name : <input type="text" name="login"/> </label></div>
     <br>
