@@ -43,4 +43,9 @@ public class GameController {
     public String showHangman(Model model) {
         return "hangman";
     }
+
+    @GetMapping("/login")
+    public String showLogin(Model model) {
+        return "login";
+    }
 }
