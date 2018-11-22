@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface RegisterRepo extends JpaRepository<Users,Long> {
     List<Users> findByLogin(String login);
+    List<Users> findByEmail(String email);
 }

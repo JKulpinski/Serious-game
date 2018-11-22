@@ -7,4 +7,5 @@ import java.util.List;
 public interface RegisterService {
     void addUser(Users n);
     List<Users> findByLogin(String login);
+    List<Users> findByEmail(String email);
 }
