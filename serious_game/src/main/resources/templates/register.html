@@ -9,13 +9,9 @@
     Registration
 </div>
 <br>
+
 <div id="alerts">
-    <p th:text="${alert1}"></p>
-    <p th:text="${alert2}"></p>
-    <p th:text="${alert3}"></p>
-    <p th:text="${alert4}"></p>
-    <p th:text="${alert5}"></p>
-    <p th:text="${alert6}"></p>
+    <p th:utext="${#strings.replace(#strings.escapeJava(alert1),'\n','&lt;br /&gt;')}"></p>
 </div>
 
 <form method="POST">
