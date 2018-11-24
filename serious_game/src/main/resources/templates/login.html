@@ -20,7 +20,8 @@
     <h1> Login</h1>
     <div id="board">
         <p th:text="${alert}"></p>
-        <form>
+        <p th:text="${error_pass}"></p>
+        <form method="POST">
             Login:<br>
             <input type="text" name="login">
             <br>
