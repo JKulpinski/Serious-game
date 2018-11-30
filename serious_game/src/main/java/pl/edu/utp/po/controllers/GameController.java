@@ -17,12 +17,6 @@ public class GameController {
         return "pictures";
     }
 
-    @GetMapping("/rebus")
-    public String showRebuses(Model model) {
-        model.addAttribute("rebus", rebusService.listofRebuses());
-        return "rebus";
-    }
-
     @GetMapping("/hangman")
     public String showHangman(Model model) {
         return "hangman";
