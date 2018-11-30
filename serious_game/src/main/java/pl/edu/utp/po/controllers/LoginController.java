@@ -19,8 +19,19 @@ public class LoginController {
     @Autowired
     private LoginRepo loginRepo;
 
+    @GetMapping("/")
+    public String redirect() {
+        return "redirect:/login";
+    }
+
     @GetMapping("/login")
-    public String showLogin(Model model, @ModelAttribute("log_after_registry") String log_after_reg_info) {
+    public String showLogin(Model model, @ModelAttribute("log_after_registry") String log_after_reg_info,
+                            HttpServletRequest req) {
+        HttpSession session = req.getSession();
+        Users user = (Users) session.getAttribute("user");
+        if (user != null) {
+            return "redirect:/jurney";
+        }
         model.addAttribute("alert", log_after_reg_info);
         return "login";
     }
@@ -30,12 +41,9 @@ public class LoginController {
         Users user = loginRepo.findByLogin(login);
         if (user != null && user.getPass().equals(password)) {
             HttpSession session = req.getSession();
-            session.setAttribute("login", login);
-            session.setAttribute("password", password);
-            session.setAttribute("email", user.getEmail());
-            session.setAttribute("points", user.getPoints());
-            session.setAttribute("level", user.getId_level());
-            return "redirect:/rebus";
+
+            session.setAttribute("user", user);
+            return "redirect:/jurney";
         }
         model.addAttribute("error_pass", "Wrong login or password");
 

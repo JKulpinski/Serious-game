@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<SCRIPT type="text/javascript">
+    window.history.forward();
+
+    function noBack() {
+        window.history.forward();
+    }
+</SCRIPT>
+
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Choose Game</title>
+</head>
+<body>
+<div id="main" align="center">
+    <div id="title">
+        <h1>Your Journey</h1>
+    </div>
+    <div id="user_info">
+        Logged as: <p th:text="${login}"></p>
+        Points: <p th:text="${points}"></p>
+        <a href="logout" class="btn btn-danger">Logout</a><br><br>
+    </div>
+    <div id="games">
+        <br><a href="pictures" class="btn btn-success btn-lg">Pictures</a><br>
+        <br><a href="hangman" class="btn btn-success btn-lg">Hangman</a><br>
+        <br><a href="rebus" class="btn btn-success btn-lg">Rebus</a><br>
+    </div>
+</div>
+</body>
+</html>

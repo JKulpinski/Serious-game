@@ -9,6 +9,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import pl.edu.utp.po.domain.Users;
 import pl.edu.utp.po.services.RegisterService;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -19,7 +21,12 @@ public class RegistrationController {
     private RegisterService registerService;
 
     @GetMapping("/register")
-    public String showRegister(Model model) {
+    public String showRegister(HttpServletRequest req) {
+        HttpSession session = req.getSession();
+        Users user = (Users) session.getAttribute("user");
+        if (user != null) {
+            return "redirect:/jurney";
+        }
         return "register";
     }
 
