@@ -5,7 +5,7 @@ body {
     font-size: 340%;
 }
 
-#pojemnik {
+#container {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -35,4 +35,10 @@ body {
 #error {
     color: red;
     font-size: xx-large;
+}
+
+#info {
+    color: red;
+    font-size: large;
+    text-align: center;
 }

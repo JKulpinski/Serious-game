@@ -19,8 +19,7 @@
         <h1>Your Journey</h1>
     </div>
     <div id="user_info">
-        Logged as: <p th:text="${login}"></p>
-        Points: <p th:text="${points}"></p>
+        Logged as: <span th:text="${login}"></span> / Total Points: <span th:text="${points}"></span> <br><br>
         <a href="logout" class="btn btn-danger">Logout</a><br><br>
     </div>
     <div id="games">
