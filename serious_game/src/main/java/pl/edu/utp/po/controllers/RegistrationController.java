@@ -25,7 +25,7 @@ public class RegistrationController {
         HttpSession session = req.getSession();
         Users user = (Users) session.getAttribute("user");
         if (user != null) {
-            return "redirect:/jurney";
+            return "redirect:/journey";
         }
         return "register";
     }

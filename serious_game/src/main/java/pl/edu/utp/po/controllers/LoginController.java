@@ -30,7 +30,7 @@ public class LoginController {
         HttpSession session = req.getSession();
         Users user = (Users) session.getAttribute("user");
         if (user != null) {
-            return "redirect:/jurney";
+            return "redirect:/journey";
         }
         model.addAttribute("alert", log_after_reg_info);
         return "login";
@@ -43,7 +43,7 @@ public class LoginController {
             HttpSession session = req.getSession();
 
             session.setAttribute("user", user);
-            return "redirect:/jurney";
+            return "redirect:/journey";
         }
         model.addAttribute("error_pass", "Wrong login or password");
 

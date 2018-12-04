@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Controller
-public class JurneyController {
-    @GetMapping("/jurney")
-    public String showJurneyPlan(Model model, HttpServletRequest req) {
+public class JourneyController {
+    @GetMapping("/journey")
+    public String showJourneyPlan(Model model, HttpServletRequest req) {
         HttpSession session = req.getSession();
         Users user = (Users) session.getAttribute("user");
         if (user == null) {
@@ -20,7 +20,7 @@ public class JurneyController {
         model.addAttribute("login", user.getLogin());
         model.addAttribute("points", user.getPoints());
 
-        return "jurney";
+        return "journey";
     }
 
     @GetMapping(value = "/logout")

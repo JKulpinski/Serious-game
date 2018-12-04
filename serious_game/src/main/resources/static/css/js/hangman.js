@@ -117,7 +117,7 @@ function clickBackButton() {
 }
 
 function buttonBack(){
-    if(confirm("You have unsaved game. Do you want to continue?")) window.location.href = 'jurney';
+    if(confirm("You have unsaved game. Do you want to continue?")) window.location.href = 'journey';
 }
 window.addEventListener("load", function(){
     showLetters();
