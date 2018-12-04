@@ -83,11 +83,11 @@ function checkAll(nr) {
 
 function resetGame() {
     if (queue.length>0) {
-        document.getElementById("button").style.visibility = "visible";
-        document.getElementById("button").style.cursor = "pointer";
+        document.getElementById("newGame").style.visibility = "visible";
+        document.getElementById("newGame").style.cursor = "pointer";
     }
     else {
-        document.getElementById("button").removeEventListener("click", buttonNewGame);
+        document.getElementById("newGame").removeEventListener("click", buttonNewGame);
         document.getElementById("board").innerHTML = "This is the end of the game ";
     }
 }
@@ -101,19 +101,27 @@ function showCorrectAnswers(){
 }
 
 function clickNewGameButton() {
-    document.getElementById("button").addEventListener("click", buttonNewGame);
+    document.getElementById("newGame").addEventListener("click", buttonNewGame);
 }
 
 function buttonNewGame(){
-    document.getElementById("button").style.visibility = "hidden";
+    document.getElementById("newGame").style.visibility = "hidden";
     showLetters();
     showSentence();
     document.getElementById("gallows").innerHTML = '<img src="images/s0.jpg" alt=""/>';
     text.howManyMiss = 0;
 }
 
+function clickBackButton() {
+    document.getElementById("back").addEventListener("click", buttonBack);
+}
+
+function buttonBack(){
+    if(confirm("You have unsaved game. Do you want to continue?")) window.location.href = 'jurney';
+}
 window.addEventListener("load", function(){
     showLetters();
     showSentence();
     clickNewGameButton();
+    clickBackButton();
 });

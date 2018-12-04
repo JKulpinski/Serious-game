@@ -49,7 +49,7 @@ img {
     background-color: #5f639c;
     border: 3px solid white;
 }
-button{
+#newGame{
     visibility: hidden;
     display: block;
     margin-left: auto;
@@ -60,7 +60,7 @@ button{
     -webkit-transition-duration: 0.2s; /* Safari */
     transition-duration: 0.2s;
 }
-button:hover{
+#newGame:hover{
     background-color: #5f639c;
 }
 #correct{
