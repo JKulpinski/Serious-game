@@ -4,9 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import pl.edu.utp.po.domain.Rebus;
 import pl.edu.utp.po.domain.Users;
 import pl.edu.utp.po.services.RebusService;
+import pl.edu.utp.po.services.RegisterService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -18,6 +20,9 @@ public class RebusController {
 
     @Autowired
     private RebusService rebusService;
+
+    @Autowired
+    private RegisterService registerService;
 
     @GetMapping("/rebus")
     public String showRebuses(Model model, HttpServletRequest req) {
@@ -37,6 +42,15 @@ public class RebusController {
         model.addAttribute("answers", answers);
         //System.out.println(user.getLogin());
         return "rebus";
+    }
+
+    @PostMapping("/rebus")
+    public String addPoints(HttpServletRequest req, String point) {
+        HttpSession session = req.getSession();
+        Users user = (Users) session.getAttribute("user");
+        user.setPoints(user.getPoints() + Integer.valueOf(point));
+        registerService.addUser(user);
+        return "redirect:/journey";
     }
 
 }

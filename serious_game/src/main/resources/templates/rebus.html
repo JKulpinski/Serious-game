@@ -1,36 +1,121 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <title>Rebus</title>
     <link rel="stylesheet" type="text/css" href="css/rebus_style.css"/>
-    <script src ="css/js/rebus.js"></script>
 </head>
 <body>
 <div id="container">
-    <script id="ert" th:inline="javascript">
-        var filenames = [[${filenames}]];
-        var answers = [[${answers}]];
-        var du = 1;
-    </script>
-    <button id="newGame" onclick="buttonBack()"> BACK </button>
-        <div id = "title">
-            Rebus
-        </div>
+
+    <button id="newGame" onclick="buttonBack()"> BACK</button>
+    <div id="title">
+        Rebus
+    </div>
     <div id="info">
         Current points: 0
     </div>
-        <div id = "picture">
-            <img style="width: 50% " src="images/1111.jpg" alt =""/>
-        </div>
-        <div id = "word">
-            Answer: <input style="font-size:80%" type = "text" id = "odp" size="15" ><br>
-            <div id = "error"></div>
-            <span style="font-size:large">Press Enter to check</span>
-        </div>
-        <div style="clear:both;"></div>
+    <div id="picture">
+        <!--<img style="width: 50% " src="images/1111.jpg" alt=""/>-->
     </div>
-
+    <div id="word">
+        Answer: <input style="font-size:80%" type="text" id="odp" size="15"><br>
+        <div id="error"></div>
+        <span style="font-size:large">Press Enter to check</span>
+    </div>
+    <div style="clear:both;"></div>
+</div>
 
 </body>
 </html>
+
+<script xmlns:th="http://www.w3.org/1999/xhtml" th:inline="javascript">
+    var filenames = [[${filenames}]];
+    var answers = [[${answers}]];
+    var len = filenames.length;
+
+    var game = {
+        words: answers,
+        img: filenames,
+        run: true,
+        points: 0,
+        win: answers.length / 2,
+        a_word: function (w) {
+            this.words.push(w);
+        },
+        t_word: function () {
+            return this.words.pop();
+        },
+        update_points: function () {
+            document.getElementById("info").innerHTML = 'Current points: ' + this.points;
+        }
+    };
+    var wordlist = [];
+    var guess_word;
+    var pic = "images/" + game.img.pop();
+    document.getElementById("picture").innerHTML = '<img style="width: 50% " src="' + pic + '"" alt =""/>';
+
+    document.addEventListener('keydown', function (event) {
+        //var cos =  [${filenames}];
+        //alert(event.key);
+        if (event.key === "Enter" && game.run === true) {
+            guess_word = document.getElementById('odp').value.toUpperCase();
+            guess_word = guess_word.split(' ').join('');
+            if (guess_word === game.words[game.words.length - 1].toUpperCase()) {
+                alert("Good answer :)");
+                game.points += 1;
+                game.update_points();
+
+                //nie wiadomo czy ma byc lista wszystkich czy tylko zgadnietych
+                wordlist.push(game.t_word());
+            }
+            else {
+                alert("Bad answer!!!");
+                game.t_word();
+            }
+
+            if (game.words.length === 0) {
+                game.run = false;
+                if (game.points > game.win) {
+                    document.getElementById("container").innerHTML = '<br>Congratulations! <br>' +
+                        '<div id = "word">Next level!<br>Your score: ' + game.points + '/' + len + '<br>Found answers:</div>' +
+                        '<span style="font-size:x-large;text-align:left">' +
+                        '<ul id = "list">' +
+                        '</ul></span>' +
+                        '<form method="POST">' +
+                        '<div style="display: none"><input name="point" value="' + game.points + '"></div>' +
+                        '<input type="submit" value="Save and Back to Journey" class="button">' +
+                        '</form>';
+                }
+                else {
+                    document.getElementById("container").innerHTML = '<br>Try again! <br>' +
+                        '<div id = "word"><br>Your score: ' + game.points + '/' + len + '<br>Found answers:</div>' +
+                        '<span style="font-size:x-large;text-align:left">' +
+                        '<ul id = "list">' +
+                        '</ul></span>' +
+                        '<form action="journey">' +
+                        '    <button type="submit">Back to your Journey</button>\n' +
+                        '</form>';
+                }
+                var mylist = document.getElementById("list");
+
+                for (var i = 0; i < wordlist.length; i++) {
+                    var newlistitem = document.createElement('li');
+                    newlistitem.textContent = wordlist[i];
+                    mylist.appendChild(newlistitem);
+                }
+            }
+            else {
+                pic = "images/" + game.img.pop();
+                document.getElementById("picture").innerHTML = '<img style="width: 50% " src="' + pic + '"" alt =""/>';
+                document.getElementById("error").innerHTML = '';
+            }
+            if (game.run === true) document.getElementById('odp').value = "";
+        }
+    });
+
+    function buttonBack() {
+        if (confirm("You have unsaved game. Do you want to continue?")) window.location.href = 'journey';
+    }
+
+</script>
