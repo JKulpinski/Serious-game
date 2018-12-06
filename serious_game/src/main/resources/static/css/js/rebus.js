@@ -1,6 +1,9 @@
+//filenames - nazwy obrazkow
+//answers- odpowiedzi do obrazkow
+console.log(document.getElementById("ert"));
 var game = {
-    words: new Array(),
-    img: 1111,
+    words: 1,
+    img: 1,
     run: true,
     points: 0,
     a_word: function (w) {
@@ -14,18 +17,11 @@ var game = {
     }
 };
 
-game.a_word("carpet");
-game.a_word("sandwich");
-game.a_word("butterfly");
-game.a_word("island");
-game.a_word("honey");
-game.a_word("rebus");
-game.a_word("homework");
-
-var wordlist = new Array();
+var wordlist = [];
 var guess_word;
 
 document.addEventListener('keydown', function (event) {
+    var cos = du;
     //alert(event.key);
     if (event.key === "Enter" && game.run === true) {
         guess_word = document.getElementById('odp').value.toUpperCase();
@@ -34,11 +30,16 @@ document.addEventListener('keydown', function (event) {
             alert("Good answer :)");
             game.points += 1;
             game.update_points();
+
+            //nie wiadomo czy ma byc lista wszystkich czy tylko zgadnietych
+            wordlist.push(game.t_word());
+
         }
         else {
             alert("Bad answer!!!");
+            game.t_word();
         }
-        wordlist.push(game.t_word());
+
         if (game.words.length === 0) {
             game.run = false;
             document.getElementById("container").innerHTML = '<br>Finish!<br>' +
@@ -54,9 +55,9 @@ document.addEventListener('keydown', function (event) {
             }
         }
         else {
-            game.img++;
-            var pic = "images/" + game.img + ".jpg";
-            document.getElementById("picture").innerHTML = '<img style="width: 50% " src="' + pic + '".jpg" alt =""/>';
+            game.img.pop();
+            var pic = "images/" + game.img;
+            document.getElementById("picture").innerHTML = '<img style="width: 50% " src="' + pic + '"" alt =""/>';
             document.getElementById("error").innerHTML = '';
         }
         if (game.run === true) document.getElementById('odp').value = "";

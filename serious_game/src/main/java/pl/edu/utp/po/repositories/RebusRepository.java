@@ -5,8 +5,9 @@ import pl.edu.utp.po.domain.Rebus;
 
 import java.util.List;
 
-public interface RebusRepo extends JpaRepository<Rebus, Long> {
-    //List<Rebus> findById(Long id);
+public interface RebusRepository extends JpaRepository<Rebus, Long> {
     List<Rebus> findAll();
+
+    List<Rebus> findByLevel(Long level);
 }
 

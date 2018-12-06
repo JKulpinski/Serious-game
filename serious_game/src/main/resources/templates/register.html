@@ -7,14 +7,14 @@
 </head>
 <body>
 <div align="center">
-<div id="title">
-    <h1>Registration</h1>
-    <br>
-</div>
+    <div id="title">
+        <h1>Registration</h1>
+        <br>
+    </div>
 
     <div id="alerts">
         <p th:utext="${#strings.replace(#strings.escapeJava(alert1),'\n','&lt;br /&gt;')}"></p>
-</div>
+    </div>
 
     <form method="POST">
 
@@ -29,7 +29,7 @@
 
         <div><input type="submit" class="btn btn-success" value="Submit"/> <a href="login" class="btn btn-info">Back to
             login</a></div>
-</form>
+    </form>
 </div>
 </body>
 </html>

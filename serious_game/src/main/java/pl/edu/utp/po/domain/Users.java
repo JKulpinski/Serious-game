@@ -9,7 +9,7 @@ import javax.persistence.Id;
 public class Users {
     public Users(){
         this.points = 0;
-        this.id_level = 1L;
+        this.level = 1L;
     }
 
     public Users(String login, String email, String pass) {
@@ -17,7 +17,7 @@ public class Users {
         this.email = email;
         this.pass = pass;
         this.points = 0;
-        this.id_level = 1L;
+        this.level = 1L;
     }
 
     @Id
@@ -27,7 +27,7 @@ public class Users {
     private String email;
     private String pass;
     private Integer points;
-    private Long id_level;
+    private Long level;
 
     public Long getId() {
         return id;
@@ -69,12 +69,12 @@ public class Users {
         this.points = points;
     }
 
-    public Long getId_level() {
-        return id_level;
+    public Long getLevel() {
+        return level;
     }
 
-    public void setId_level(Long id_level) {
-        this.id_level = id_level;
+    public void setLevel(Long level) {
+        this.level = level;
     }
 
 }

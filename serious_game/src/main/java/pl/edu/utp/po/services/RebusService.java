@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface RebusService {
     List<Rebus> listofRebuses();
+
+    List<Rebus> listbylevelid(Long level);
 }
