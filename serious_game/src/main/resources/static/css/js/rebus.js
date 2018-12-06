@@ -64,3 +64,6 @@ document.addEventListener('keydown', function (event) {
     }
 });
 
+function buttonBack(){
+    if(confirm("You have unsaved game. Do you want to continue?")) window.location.href = 'journey';
+}
