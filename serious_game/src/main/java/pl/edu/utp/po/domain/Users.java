@@ -10,6 +10,9 @@ public class Users {
     public Users(){
         this.points = 0;
         this.level = 1L;
+        this.rebus = false;
+        this.picture = false;
+        this.hangman = false;
     }
 
     public Users(String login, String email, String pass) {
@@ -18,6 +21,9 @@ public class Users {
         this.pass = pass;
         this.points = 0;
         this.level = 1L;
+        this.rebus = false;
+        this.picture = false;
+        this.hangman = false;
     }
 
     @Id
@@ -28,6 +34,33 @@ public class Users {
     private String pass;
     private Integer points;
     private Long level;
+    private Boolean rebus;
+    private Boolean picture;
+    private Boolean hangman;
+
+    public Boolean getRebus() {
+        return rebus;
+    }
+
+    public void setRebus(Boolean rebus) {
+        this.rebus = rebus;
+    }
+
+    public Boolean getPicture() {
+        return picture;
+    }
+
+    public void setPicture(Boolean picture) {
+        this.picture = picture;
+    }
+
+    public Boolean getHangman() {
+        return hangman;
+    }
+
+    public void setHangman(Boolean hangman) {
+        this.hangman = hangman;
+    }
 
     public Long getId() {
         return id;

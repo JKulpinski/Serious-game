@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import pl.edu.utp.po.domain.Rebus;
 import pl.edu.utp.po.domain.Users;
 import pl.edu.utp.po.services.RebusService;
@@ -31,6 +32,9 @@ public class RebusController {
         if (user == null) {
             return "redirect:/login";
         }
+        if (user.getRebus()) {   //zapytanie czy gra zostala wykonana cheatowanie
+            return "redirect:/journey";
+        }
         List<Rebus> rebuses = rebusService.listbylevelid(user.getLevel());
         List<String> filenames = new ArrayList<>();
         List<String> answers = new ArrayList<>();
@@ -45,10 +49,15 @@ public class RebusController {
     }
 
     @PostMapping("/rebus")
-    public String addPoints(HttpServletRequest req, String point) {
+    public String addPoints(HttpServletRequest req, String point, RedirectAttributes redirectAttributes) {
         HttpSession session = req.getSession();
         Users user = (Users) session.getAttribute("user");
+        if (user.getRebus()) { //cheatowanie
+            redirectAttributes.addFlashAttribute("second_try", "You've done this game on this level before!");
+            return "redirect:/journey";
+        }
         user.setPoints(user.getPoints() + Integer.valueOf(point));
+        user.setRebus(!user.getRebus()); // zmienione na nieaktywny rebus po wygranej na danym levelu
         registerService.addUser(user);
         return "redirect:/journey";
     }
