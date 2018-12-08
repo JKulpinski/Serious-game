@@ -35,7 +35,7 @@ public class RebusController {
         if (user.getRebus()) {   //zapytanie czy gra zostala wykonana cheatowanie
             return "redirect:/journey";
         }
-        List<Rebus> rebuses = rebusService.listbylevelid(user.getLevel());
+        List<Rebus> rebuses = rebusService.listbylevelid(user.getLevel()); //punkty i pobieranie odpowiednich zagadek
         List<String> filenames = new ArrayList<>();
         List<String> answers = new ArrayList<>();
         for (Rebus rebus : rebuses) {

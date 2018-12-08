@@ -1,16 +1,22 @@
 package pl.edu.utp.po.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import pl.edu.utp.po.domain.Users;
+import pl.edu.utp.po.services.RegisterService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Controller
 public class JourneyController {
+
+    @Autowired
+    private RegisterService registerService;   //to dodac zeby updatowac dane usera
+
     @GetMapping("/journey")
     public String showJourneyPlan(Model model, HttpServletRequest req, @ModelAttribute("second_try") String cheater) {
         HttpSession session = req.getSession();
@@ -18,17 +24,27 @@ public class JourneyController {
         if (user == null) {
             return "redirect:/login";
         }
+
+        if (user.getRebus() && user.getHangman() && user.getPicture()) { //sprawdza czy juz przeszles gry
+            model.addAttribute("levelup", "Level up!!!");
+            user.setLevel(user.getLevel() + 1);
+            user.setRebus(false);
+            user.setHangman(false);
+            user.setPicture(false);
+            registerService.addUser(user);
+        }
         model.addAttribute("cheater", cheater);  // ostrzezenie przed cheatowaniem
         model.addAttribute("login", user.getLogin());
         model.addAttribute("points", user.getPoints());
         model.addAttribute("level", user.getLevel());
 
-        if (user.getPicture())
-            model.addAttribute("picture", "Pictures game finished on this level");
+        if (user.getPicture())     //moze byc do poprawki trzeba sprawdzic dzialanie po doodaniu punktow i levelow do pictures i hangmena
+            model.addAttribute("picture", "Pictures game has already been completed at this level");
         if (user.getHangman())
-            model.addAttribute("hangman", "Hangman game finished on this level");
+            model.addAttribute("hangman", "Hangman game has already been completed at this level");
         if (user.getRebus())
-            model.addAttribute("rebus", "Rebus game finished on this level");
+            model.addAttribute("rebus", "Rebus game has already been completed at this level");
+
         return "journey";
     }
 

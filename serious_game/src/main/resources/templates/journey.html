@@ -12,15 +12,19 @@
         <h1>Your Journey</h1>
     </div>
     <div id="user_info">
+        <p th:text="${levelup}"></p>
         <span th:text="${cheater}"></span>
         Logged as: <span th:text="${login}"></span> / Level: <span th:text="${level}"></span> / Total Points: <span
             th:text="${points}"></span> <br><br>
         <a href="logout" class="btn btn-danger">Logout</a><br><br>
     </div>
     <div id="games">
-        <br><a href="pictures" class="btn btn-success btn-lg">Pictures</a><br>
-        <br><a href="hangman" class="btn btn-success btn-lg">Hangman</a><br>
-        <br><a href="rebus" class="btn btn-success btn-lg">Rebus</a><br>
+        <br><span th:text="${picture}"></span><br>
+        <a href="pictures" class="btn btn-success btn-lg">Pictures</a><br>
+        <br><span th:text="${hangman}"></span><br>
+        <a href="hangman" class="btn btn-success btn-lg">Hangman</a><br>
+        <br><span th:text="${rebus}"></span><br>
+        <a href="rebus" class="btn btn-success btn-lg">Rebus</a><br>
     </div>
 </div>
 </body>
