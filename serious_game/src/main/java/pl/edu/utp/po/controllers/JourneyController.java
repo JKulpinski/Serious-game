@@ -5,14 +5,22 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import pl.edu.utp.po.domain.LanguageInfo;
 import pl.edu.utp.po.domain.Users;
+import pl.edu.utp.po.repositories.LanguageInfoRepo;
 import pl.edu.utp.po.services.RegisterService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.List;
 
+@SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
 @Controller
 public class JourneyController {
+
+    @Autowired
+    LanguageInfoRepo infoRepo;
 
     @Autowired
     private RegisterService registerService;   //to dodac zeby updatowac dane usera
@@ -37,6 +45,12 @@ public class JourneyController {
         model.addAttribute("login", user.getLogin());
         model.addAttribute("points", user.getPoints());
         model.addAttribute("level", user.getLevel());
+
+        List<LanguageInfo> rawinfos = infoRepo.findByLevel(user.getLevel());  // uzyskiwanie tresci popupow z bazy
+        List<String> infos = new ArrayList<>();
+        for (LanguageInfo info : rawinfos)
+            infos.add(info.getInfo());
+        model.addAttribute("infos", infos);
 
         if (user.getPicture())     //moze byc do poprawki trzeba sprawdzic dzialanie po doodaniu punktow i levelow do pictures i hangmena
             model.addAttribute("picture", "Pictures game has already been completed at this level");

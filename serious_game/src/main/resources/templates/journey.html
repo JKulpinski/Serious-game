@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/journey_style.css"/>
     <title>Choose Game</title>
 </head>
 <body>
-<div id="main" align="center">
+<div id="main">
     <div id="title">
         <h1>Your Journey</h1>
     </div>
@@ -19,13 +20,45 @@
         <a href="logout" class="btn btn-danger">Logout</a><br><br>
     </div>
     <div id="games">
+        <div class="popup">
+            <button class="btn btn-info" onclick="myFunction(0,'story')">Click here to see level objectives!</button>
+            <span class="popuptext" id="story">info</span>
+        </div>
+
         <br><span th:text="${picture}"></span><br>
         <a href="pictures" class="btn btn-success btn-lg">Pictures</a><br>
-        <br><span th:text="${hangman}"></span><br>
+        <br>
+        <div class="popup">
+            <button class="btn btn-info" onclick="myFunction(1,'curio1')">Curiosity 1</button>
+            <span class="popuptext" id="curio1">info</span>
+        </div>
+
+        <br><br><span th:text="${hangman}"></span><br>
         <a href="hangman" class="btn btn-success btn-lg">Hangman</a><br>
-        <br><span th:text="${rebus}"></span><br>
+        <br>
+        <div class="popup">
+            <button class="btn btn-info" onclick="myFunction(2,'curio2')">Curiosity 2</button>
+            <span class="popuptext" id="curio2">info</span>
+        </div>
+
+        <br><br><span th:text="${rebus}"></span><br>
         <a href="rebus" class="btn btn-success btn-lg">Rebus</a><br>
+        <br>
+        <div class="popup">
+            <button class="btn btn-info" onclick="myFunction(3,'curio3')">Curiosity 3</button>
+            <span class="popuptext" id="curio3">info</span>
+        </div>
     </div>
 </div>
 </body>
 </html>
+
+<script xmlns:th="http://www.w3.org/1999/xhtml" th:inline="javascript">
+    var infos = [[${infos}]];
+
+    function myFunction(number, name) {
+        document.getElementById(name).innerHTML = infos[number];
+        var popup = document.getElementById(name);
+        popup.classList.toggle("show");
+    }
+</script>

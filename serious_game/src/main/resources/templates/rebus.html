@@ -30,7 +30,6 @@
 </html>
 
 <script xmlns:th="http://www.w3.org/1999/xhtml" th:inline="javascript">
-    //warto wprowadzic losowosc rebosow
     var filenames = [[${filenames}]];
     var answers = [[${answers}]];
     var len = filenames.length;
@@ -81,7 +80,7 @@
                         '</ul></span>' +
                         '<form method="POST">' +
                         '<div style="display: none"><input name="point" value="' + game.points + '"></div>' +
-                        '<input type="submit" value="Save and Back to Journey" class="button">' +
+                        '<input type="submit" value="Save and move on" class="button">' +
                         '</form>';
                 } else {
                     document.getElementById("container").innerHTML = '<br>Try again! <br>' +
