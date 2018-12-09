@@ -8,7 +8,7 @@
 <body>
 <div id="container">
 
-    <button id="newGame" onclick="buttonBack()"> BACK</button>
+    <!--<button id="newGame" onclick="buttonBack()"> BACK</button>-->
     <div id="title">
         Rebus
     </div>
@@ -34,6 +34,8 @@
     var filenames = [[${filenames}]];
     var answers = [[${answers}]];
     var len = filenames.length;
+    var max = len;
+    var random = Math.floor(Math.random() * (+max - +0)) + +0;
 
     var game = {
         words: answers,
@@ -41,19 +43,14 @@
         run: true,
         points: 0,
         win: answers.length / 2,
-        a_word: function (w) {
-            this.words.push(w);
-        },
-        t_word: function () {
-            return this.words.pop();
-        },
         update_points: function () {
             document.getElementById("info").innerHTML = 'Current points: ' + this.points;
         }
     };
     var wordlist = [];
     var guess_word;
-    var pic = "images/" + game.img.pop();
+    var pic = "images/" + game.img[random];
+    game.img.splice(random, 1);
     document.getElementById("picture").innerHTML = '<img style="width: 50% " src="' + pic + '"" alt =""/>';
 
     document.addEventListener('keydown', function (event) {
@@ -62,18 +59,17 @@
         if (event.key === "Enter" && game.run === true) {
             guess_word = document.getElementById('odp').value.toUpperCase();
             guess_word = guess_word.split(' ').join('');
-            if (guess_word === game.words[game.words.length - 1].toUpperCase()) {
+            if (guess_word === game.words[random].toUpperCase()) {
                 alert("Good answer :)");
                 game.points += 1;
                 game.update_points();
 
                 //nie wiadomo czy ma byc lista wszystkich czy tylko zgadnietych
-                wordlist.push(game.t_word());
-            }
-            else {
+                wordlist.push(game.words[random]);
+            } else {
                 alert("Bad answer!!!");
-                game.t_word();
             }
+            game.words.splice(random, 1);
 
             if (game.words.length === 0) {
                 game.run = false;
@@ -87,8 +83,7 @@
                         '<div style="display: none"><input name="point" value="' + game.points + '"></div>' +
                         '<input type="submit" value="Save and Back to Journey" class="button">' +
                         '</form>';
-                }
-                else {
+                } else {
                     document.getElementById("container").innerHTML = '<br>Try again! <br>' +
                         '<div id = "word"><br>Your score: ' + game.points + '/' + len + '<br>Found answers:</div>' +
                         '<span style="font-size:x-large;text-align:left">' +
@@ -105,9 +100,12 @@
                     newlistitem.textContent = wordlist[i];
                     mylist.appendChild(newlistitem);
                 }
-            }
-            else {
-                pic = "images/" + game.img.pop();
+            } else {
+                max--;
+                random = Math.floor(Math.random() * (+max - +0)) + +0;
+
+                pic = "images/" + game.img[random];
+                game.img.splice(random, 1);
                 document.getElementById("picture").innerHTML = '<img style="width: 50% " src="' + pic + '"" alt =""/>';
                 document.getElementById("error").innerHTML = '';
             }
