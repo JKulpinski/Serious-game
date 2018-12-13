@@ -42,3 +42,9 @@ body {
     font-size: large;
     text-align: center;
 }
+
+#newGame {
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}

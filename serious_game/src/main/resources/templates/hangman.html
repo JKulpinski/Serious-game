@@ -15,8 +15,8 @@
     <title> Hangman </title>
 </head>
 <body>
-<input id="back" type="button" value="Back">
-<div id = "main">
+<!--<input id="back" type="button" value="Back">-->
+<div id="main">
     <h1> Hangman game</h1>
     <div id="info" align="center">
         Current points: 0
@@ -28,20 +28,20 @@
     </div>
     <div id="alphabet">
     </div>
-    <div style="clear:both;"> </div>
+    <div style="clear:both;"></div>
     <!--because we want to clear float: left-->
     <div id="correct">
         <h2> Correct answers:</h2>
     </div>
-    <button id="newGame"> NEXT </button>
-    <footer> &#169; 2018 Natalia Pasturczak  All Rights Reserved  &#169; </footer>
+    <button id="newGame"> NEXT</button>
+    <footer> &#169; 2018 Natalia Pasturczak All Rights Reserved &#169;</footer>
 </div>
 </body>
 </html>
 
 <script xmlns:th="http://www.w3.org/1999/xhtml" th:inline="javascript">
     var answer = [[${answers}]];
-
+    var maxpoints = answer.length;
     var alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
     var text = {
@@ -117,7 +117,7 @@
                 document.getElementById("gallows").innerHTML = '<img src="' + picture + '" alt=""/>';
             }
             if (text.howManyMiss == 4) {  //jak przegral
-                document.getElementById("alphabet").innerHTML = "Game over! Sentence: " + text.sentence;
+                document.getElementById("alphabet").innerHTML = "Defeat!";
                 resetGame();
             }
         }
@@ -129,7 +129,22 @@
             document.getElementById("newGame").style.cursor = "pointer";
         } else {
             document.getElementById("newGame").removeEventListener("click", buttonNewGame);
-            document.getElementById("board").innerHTML = "This is the end of the game ";
+            document.getElementById("info").innerHTML = '';
+            if (text.points > maxpoints / 2) {
+                document.getElementById("board").innerHTML = 'Congratulations! Next level!<br>' +
+                    ' Your score: ' + text.points + '/' + maxpoints + '<br>' +
+                    '<form method="POST">' +
+                    '<div style="display: none"><input name="point" value="' + text.points + '"></div>' +
+                    '<input type="submit" value="Save and move on" class="button">' +
+                    '</form>';
+            } else {
+                document.getElementById("board").innerHTML = 'Try again!<br>' +
+                    ' Your score: ' + text.points + '/' + maxpoints + '<br>' +
+                    '<form action="journey">' +
+                    '<button type="submit">Back to your Journey</button>' +
+                    '</form>';
+            }
+
         }
     }
 
