@@ -24,7 +24,7 @@
     <div id="board">
     </div>
     <div id="gallows">
-        <img src="images/s0.jpg" height="280" width="450"/>
+        <img src="images/s0.jpg"/>
     </div>
     <div id="alphabet">
     </div>
@@ -33,36 +33,32 @@
     <div id="correct">
         <h2> Correct answers:</h2>
     </div>
-    <button id="newGame"> BACK </button>
+    <button id="newGame"> NEXT </button>
     <footer> &#169; 2018 Natalia Pasturczak  All Rights Reserved  &#169; </footer>
 </div>
 </body>
 </html>
 
 <script xmlns:th="http://www.w3.org/1999/xhtml" th:inline="javascript">
-    var answers = [[${answers}]];
-    var points = 0;
-
-    var queue = new Array();
-    queue.push("I am still learning...");
-    queue.push("Do you have a minute?");
-    queue.push("Hi, nice to meet you!");
-    queue.push("Have a nice weekend.");
-    queue.push("No pain no gain.");
-    queue.push("How are you?");
+    var answer = [[${answers}]];
 
     var alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
     var text = {
         sentence: "",
         hiddenText: "",
-        howManyMiss: 0
+        howManyMiss: 0,
+        run: true,
+        points: 0,
+        update_points: function () {
+            document.getElementById("info").innerHTML = 'Current points: ' + this.points;
+        }
     };
     var yes = new Audio("audio/yes.wav");
     var no = new Audio("audio/no.wav");
 
     function showSentence() {
-        text.sentence = queue.pop();
+        text.sentence = answer.pop();
         let re = new RegExp("\\w", "g");
         text.hiddenText = text.sentence.replace(re, "_");
         document.getElementById("board").innerHTML = text.hiddenText;
@@ -106,6 +102,8 @@
             changeLetterAfterClick("#005700", "#00C000", element);
             if (text.sentence.toLowerCase() === text.hiddenText) {
                 document.getElementById("alphabet").innerHTML = "This is the right answer!";
+                text.points += 1;
+                text.update_points();
                 resetGame();
                 showCorrectAnswers();
             }
@@ -126,7 +124,7 @@
     }
 
     function resetGame() {
-        if (queue.length > 0) {
+        if (answer.length > 0) {
             document.getElementById("newGame").style.visibility = "visible";
             document.getElementById("newGame").style.cursor = "pointer";
         } else {
@@ -160,7 +158,7 @@
     }
 
     function buttonBack() {
-        if (confirm("You have unsaved game. Do you want to continue?")) window.location.href = 'journey';
+        if (confirm("You have unsaved text. Do you want to continue?")) window.location.href = 'journey';
     }
 
     window.addEventListener("load", function () {
