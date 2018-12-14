@@ -32,15 +32,20 @@ public class HangmanController {
         if (user == null) {
             return "redirect:/login";
         }
+
         if (user.getHangman()) {   //zapytanie czy gra zostala wykonana cheatowanie
             return "redirect:/journey";
         }
+
         List<Hangman> hangmans = hangmanRepo.findByLevel(user.getLevel()); //punkty i pobieranie odpowiednich zagadek
         List<String> answers = new ArrayList<>();
+        List<String> translation = new ArrayList<>();
         for (Hangman hangman : hangmans) {
             answers.add(hangman.getAnswer());
+            translation.add(hangman.getTranslation());
         }
         model.addAttribute("answers", answers);
+        model.addAttribute("translation", translation);
         return "hangman";
     }
 

@@ -14,6 +14,7 @@ public class Hangman {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String answer;
+    private String translation;
     private Long level;
 
     public String getAnswer() {
@@ -22,6 +23,14 @@ public class Hangman {
 
     public void setAnswer(String answer) {
         this.answer = answer;
+    }
+
+    public String getTranslation() {
+        return translation;
+    }
+
+    public void setTranslation(String translation) {
+        this.translation = translation;
     }
 
     public Long getLevel() {

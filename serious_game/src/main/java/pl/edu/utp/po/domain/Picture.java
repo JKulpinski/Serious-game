@@ -13,8 +13,17 @@ public class Picture {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String picture;
+    private String text;
     private String answer;
+    private Long level;
+
+    public Long getLevel() {
+        return level;
+    }
+
+    public void setLevel(Long level) {
+        this.level = level;
+    }
 
     public Long getId() {
         return id;
@@ -32,11 +41,11 @@ public class Picture {
         this.answer = answer;
     }
 
-    public String getPicture() {
-        return picture;
+    public String getText() {
+        return text;
     }
 
-    public void setPicture(String picture) {
-        this.picture = picture;
+    public void setText(String text) {
+        this.text = text;
     }
 }

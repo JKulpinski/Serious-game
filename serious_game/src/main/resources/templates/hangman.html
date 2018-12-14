@@ -15,7 +15,7 @@
     <title> Hangman </title>
 </head>
 <body>
-<!--<input id="back" type="button" value="Back">-->
+<input id="back" type="button" value="Back">
 <div id="main">
     <h1> Hangman game</h1>
     <div id="info" align="center">
@@ -34,18 +34,20 @@
         <h2> Correct answers:</h2>
     </div>
     <button id="newGame"> NEXT</button>
-    <footer> &#169; 2018 Natalia Pasturczak All Rights Reserved &#169;</footer>
+    <footer> &#169; 2018 Natalia Pasturczak, Jonasz Kulpinski All Rights Reserved &#169;</footer>
 </div>
 </body>
 </html>
 
 <script xmlns:th="http://www.w3.org/1999/xhtml" th:inline="javascript">
     var answer = [[${answers}]];
+    var translation = [[${translation}]];
     var maxpoints = answer.length;
     var alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
     var text = {
         sentence: "",
+        translation: "",
         hiddenText: "",
         howManyMiss: 0,
         run: true,
@@ -59,6 +61,7 @@
 
     function showSentence() {
         text.sentence = answer.pop();
+        text.translation = translation.pop();
         let re = new RegExp("\\w", "g");
         text.hiddenText = text.sentence.replace(re, "_");
         document.getElementById("board").innerHTML = text.hiddenText;
@@ -151,7 +154,7 @@
     function showCorrectAnswers() {
         document.getElementById("correct").style.visibility = "visible";
         let node = document.createElement("LI");
-        let textSent = document.createTextNode(text.sentence);
+        let textSent = document.createTextNode(text.sentence + " - " + text.translation);
         node.appendChild(textSent);
         document.getElementById("correct").appendChild(node);
     }

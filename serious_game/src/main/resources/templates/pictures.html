@@ -1,28 +1,122 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <title>Rebus</title>
+    <meta charset="utf-8"/>
+    <title>Pictures</title>
     <link rel="stylesheet" type="text/css" href="css/pictures_style.css"/>
-    <script src ="css/js/pictures.js"></script>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+    <script xmlns:th="http://www.w3.org/1999/xhtml" th:inline="javascript">
+        var correctCards = 0;
+        $(init);
+
+        function init() {
+            // Hide the success message
+            $('#successMessage').hide();
+            $('#successMessage').css({
+                left: '580px',
+                top: '250px',
+                width: 0,
+                height: 0
+            });
+
+            // Reset the game
+            correctCards = 0;
+            $('#cardPile').html('');
+            $('#cardSlots').html('');
+
+            // Create the pile of shuffled cards
+
+            var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+            var terms = [[${texts}]];
+            var words = [[${answers}]];
+
+            //random
+            shuffleArray(numbers, words);
+
+            for (let i = 0; i < 10; i++) {
+                $('<div>' + terms[i] + '</div>').data('number', i + 1).attr('id', 'card' + numbers[i]).appendTo(
+                    '#cardPile').draggable({
+                    stack: '#cardPile div',
+                    cursor: 'move',
+                    revert: true
+                });
+
+                // Create the card slots
+                $('<div>' + words[i] + '</div>').data('number', numbers[i]).appendTo('#cardSlots').droppable({
+                    accept: '#cardPile div',
+                    hoverClass: 'hovered',
+                    drop: handleCardDrop
+                });
+            }
+        }
+
+        function handleCardDrop(event, ui) {
+            var slotNumber = $(this).data('number');
+            var cardNumber = ui.draggable.data('number');
+
+            // If the card was dropped to the correct slot,
+            // change the card colour, position it directly
+            // on top of the slot, and prevent it being dragged
+            // again
+
+            if (slotNumber == cardNumber) {
+                ui.draggable.addClass('correct');
+                ui.draggable.draggable('disable');
+                $(this).droppable('disable');
+                ui.draggable.position({of: $(this), my: 'left top', at: 'left top'});
+                ui.draggable.draggable('option', 'revert', false);
+                correctCards++;
+            }
+
+            // If all the cards have been placed correctly then display a message
+            // and reset the cards for another go
+
+            if (correctCards == 10) {
+                $('#successMessage').show();
+                $('#successMessage').animate({
+                    left: '380px',
+                    top: '200px',
+                    width: '400px',
+                    height: '100px',
+                    opacity: 1
+                });
+            }
+        }
+
+        //to random array
+        function shuffleArray(numbers, words) {
+            for (let i = numbers.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1))
+                {
+                    [numbers[i], numbers[j]] = [numbers[j], numbers[i]];
+                    [words[i], words[j]] = [words[j], words[i]];
+                }
+            }
+        }
+
+        function buttonBack(){
+            window.location.href = 'journey'
+        }
+    </script>
 </head>
 <body>
-    <div id = "pojemnik">
-        <button id="newGame" onclick="buttonBack()"> BACK </button>
-        <div id = "title">
-            Pictures
-        </div>
-        <div id = "picture">
-            <img style="width: 50% " src="images/2111.jpg" alt =""/>
-        </div>
-        <div id = "word">
-            Answer: <input style="font-size:80%" type = "text" id = "odp" size="15" ><br>
-            <div id = "error"></div>
-            <span style="font-size:large">Press Enter to check</span>
-        </div>
-        <div style="clear:both;"></div>
+
+<div class="wideBox">
+    <h2>Match words and definitions</h2>
+</div>
+
+<div id="content">
+    <div id="cardPile"></div>
+    <div id="cardSlots"></div>
+
+    <div id="successMessage">
+        <h2>Congratulations!</h2>
+        <button id="newGame" onclick="buttonBack()"> BACK</button>
     </div>
-
-
+</div>
+<footer> &#169; 2018 Natalia Pasturczak, Jonasz Kulpinski All Rights Reserved &#169;</footer>
 </body>
 </html>
+
