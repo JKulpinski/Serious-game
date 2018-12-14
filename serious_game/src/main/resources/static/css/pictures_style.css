@@ -66,8 +66,8 @@ body {
     float: left;
     width: 43%;
     height: 18%;
-    padding: .85em;
-    padding-top: 40px;
+    padding: .100em;
+    padding-top: 10px;
     padding-bottom: 0;
     border: 2px solid #333;
     -moz-border-radius: 10px;

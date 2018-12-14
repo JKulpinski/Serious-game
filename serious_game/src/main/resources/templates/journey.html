@@ -25,24 +25,30 @@
             <span class="popuptext" id="story">info</span>
         </div>
 
-        <br><br><span th:text="${picture}"></span><br>
-        <a href="pictures" class="btn btn-success btn-lg">Pictures</a><br>
+        <br><br><span id="picture_back" th:text="${picture}"></span><br>
+        <div id="picture1">
+            <a href="pictures" class="btn btn-success btn-lg">Matching</a><br>
+        </div>
         <br>
         <div class="popup">
             <button class="btn btn-info" onclick="myFunction(1,'curio1')">Curiosity 1</button>
             <span class="popuptext" id="curio1">info</span>
         </div>
 
-        <br><br><span th:text="${hangman}"></span><br>
-        <a href="hangman" class="btn btn-success btn-lg">Hangman</a><br>
+        <br><br><span id="hangman_back" th:text="${hangman}"></span><br>
+        <div id="hangman1">
+            <a href="hangman" class="btn btn-success btn-lg">Hangman</a><br>
+        </div>
         <br>
         <div class="popup">
             <button class="btn btn-info" onclick="myFunction(2,'curio2')">Curiosity 2</button>
             <span class="popuptext" id="curio2">info</span>
         </div>
 
-        <br><br><span th:text="${rebus}"></span><br>
-        <a href="rebus" class="btn btn-success btn-lg">Rebus</a><br>
+        <br><br><span id="rebus_back" th:text="${rebus}"></span><br>
+        <div id="rebus1">
+            <a href="rebus" class="btn btn-success btn-lg">Rebus</a><br>
+        </div>
         <br>
         <div class="popup">
             <button class="btn btn-info" onclick="myFunction(3,'curio3')">Curiosity 3</button>
@@ -56,6 +62,14 @@
 
 <script xmlns:th="http://www.w3.org/1999/xhtml" th:inline="javascript">
     var infos = [[${infos}]];
+    if (document.getElementById("picture_back").innerText === "Pictures game has already been completed at this level")
+        document.getElementById("picture1").innerHTML = '<a href="pictures" class="btn btn-danger btn-lg">Pictures</a><br>';
+
+    if (document.getElementById("hangman_back").innerText === "Hangman game has already been completed at this level")
+        document.getElementById("hangman1").innerHTML = '<a href="hangman" class="btn btn-danger btn-lg">Hangman</a><br>';
+
+    if (document.getElementById("rebus_back").innerText === "Rebus game has already been completed at this level")
+        document.getElementById("rebus1").innerHTML = '<a href="rebus" class="btn btn-danger btn-lg">Rebus</a><br>';
 
     function myFunction(number, name) {
         document.getElementById(name).innerHTML = infos[number];

@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>Pictures</title>
+    <title>Matching</title>
     <link rel="stylesheet" type="text/css" href="css/pictures_style.css"/>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
@@ -20,6 +20,13 @@
                 width: 0,
                 height: 0
             });
+
+            document.getElementById("successMessage").innerHTML = '<h2>Congratulations!</h2>' +
+                ' You received 3 points for this game<br>' +
+                '<form method="POST">' +
+                '<div style="display: none"><input name="point" value="3"></div>' +
+                '<input type="submit" value="Save and move on" class="button">' +
+                '</form>';
 
             // Reset the game
             correctCards = 0;
@@ -79,7 +86,7 @@
                     left: '380px',
                     top: '200px',
                     width: '400px',
-                    height: '100px',
+                    height: '150px',  // tu sie ustawia jak duze okienko wygranej
                     opacity: 1
                 });
             }
