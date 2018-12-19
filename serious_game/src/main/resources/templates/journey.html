@@ -63,7 +63,8 @@
 <script xmlns:th="http://www.w3.org/1999/xhtml" th:inline="javascript">
     var infos = [[${infos}]];
     if (document.getElementById("picture_back").innerText === "Pictures game has already been completed at this level")
-        document.getElementById("picture1").innerHTML = '<a href="pictures" class="btn btn-danger btn-lg">Pictures</a><br>';
+        document.getElementById("picture1").innerHTML =
+            '<a href="pictures" class="btn btn-danger btn-lg">Matching</a><br>';
 
     if (document.getElementById("hangman_back").innerText === "Hangman game has already been completed at this level")
         document.getElementById("hangman1").innerHTML = '<a href="hangman" class="btn btn-danger btn-lg">Hangman</a><br>';

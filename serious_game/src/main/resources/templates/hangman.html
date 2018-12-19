@@ -51,6 +51,7 @@
         hiddenText: "",
         howManyMiss: 0,
         run: true,
+        draw: 0,
         points: 0,
         update_points: function () {
             document.getElementById("info").innerHTML = 'Current points: ' + this.points;
@@ -60,11 +61,21 @@
     var no = new Audio("audio/no.wav");
 
     function showSentence() {
-        text.sentence = answer.pop();
-        text.translation = translation.pop();
+        text.draw = Math.floor((Math.random() * answer.length));
+        text.sentence = answer[text.draw];
+        answer= removeElementFromArray(answer, text.draw);
+
+        text.translation = translation[text.draw];
+        translation=removeElementFromArray(translation, text.draw);
+
         let re = new RegExp("\\w", "g");
         text.hiddenText = text.sentence.replace(re, "_");
         document.getElementById("board").innerHTML = text.hiddenText;
+    }
+
+    function removeElementFromArray(array, number){
+        array.splice(number, 1);
+        return array;
     }
 
     function showLetters() {
