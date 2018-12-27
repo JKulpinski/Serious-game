@@ -1,7 +1,7 @@
 # Serious-game
 
 Site to learn foreign language.
-Pictures, rebuses, hangman and so on
+Matching, rebuses, hangman
 
 We use:
 Java Spring Boot
