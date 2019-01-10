@@ -25,6 +25,11 @@ public class JourneyController {
     @Autowired
     private RegisterService registerService;   //to dodac zeby updatowac dane usera
 
+    @GetMapping("/international")
+    public String getInternationalPage() {
+        return "redirect:/journey";
+    }
+
     @GetMapping("/journey")
     public String showJourneyPlan(Model model, HttpServletRequest req, @ModelAttribute("second_try") String cheater) {
         HttpSession session = req.getSession();

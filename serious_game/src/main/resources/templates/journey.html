@@ -10,12 +10,22 @@
 <body>
 <div id="main">
     <div id="title">
-        <h1>Your Journey</h1>
+        <h1 th:text="#{journey}"></h1>
+        <h1 th:text="#{greeting}"></h1>
+        <span th:text="#{lang.change}"></span>:
+        <select id="locales">
+            <option value=""></option>
+            <option value="en" th:text="#{lang.eng}"></option>
+            <option value="fr" th:text="#{lang.fr}"></option>
+        </select>
     </div>
     <div id="user_info">
         <p th:text="${levelup}"></p>
         <span th:text="${cheater}"></span>
-        Logged as: <span th:text="${login}"></span> / Level: <span th:text="${level}"></span> / Total Points: <span
+        <span th:text="#{loggedAs}"></span></th:text> <span th:text="${login}"></span> / Level: <span
+                th:text="${level}"></span>
+        / Total
+        Points: <span
             th:text="${points}"></span> <br><br>
         <a href="logout" class="btn btn-danger">Logout</a><br><br>
     </div>
@@ -59,7 +69,18 @@
 <footer> &#169; 2018 Natalia Pasturczak, Jonasz Kulpinski All Rights Reserved &#169;</footer>
 </body>
 </html>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#locales").change(function () {
+            var selectedOption = $('#locales').val();
+            if (selectedOption != ''){
+                window.location.replace('international?lang=' + selectedOption);
+            }
+        });
+    });
+</script>
 <script xmlns:th="http://www.w3.org/1999/xhtml" th:inline="javascript">
     var infos = [[${infos}]];
     if (document.getElementById("picture_back").innerText === "Pictures game has already been completed at this level")
