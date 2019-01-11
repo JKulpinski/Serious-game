@@ -41,8 +41,8 @@
         run: true,
         points: 0,
         win: answers.length / 2,
-        update_points: function () {
-            document.getElementById("info").innerHTML = 'Current points: ' + this.points;
+        update_points: function (answer) {
+            document.getElementById("info").innerHTML = answer + ' Current points: ' + this.points;
         }
     };
     var wordlist = [];
@@ -58,14 +58,14 @@
             guess_word = document.getElementById('odp').value.toUpperCase();
             guess_word = guess_word.split(' ').join('');
             if (guess_word === game.words[random].toUpperCase()) {
-                alert("Good answer :)");
                 game.points += 1;
-                game.update_points();
+                game.update_points("Correct answer!");
 
                 //nie wiadomo czy ma byc lista wszystkich czy tylko zgadnietych
                 wordlist.push(game.words[random]);
-            } else {
-                alert("Bad answer!!!");
+            }
+            else{
+                game.update_points("Wrong answer!");
             }
             game.words.splice(random, 1);
 

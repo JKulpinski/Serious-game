@@ -11,12 +11,12 @@
 <div id="main">
     <div id="title">
         <h1 th:text="#{journey}"></h1>
-        <h1 th:text="#{greeting}"></h1>
+        <h2 th:text="#{greeting}"></h2>
         <span th:text="#{lang.change}"></span>:
         <select id="locales">
             <option value=""></option>
             <option value="en" th:text="#{lang.eng}"></option>
-            <option value="fr" th:text="#{lang.fr}"></option>
+            <option value="pln" th:text="#{lang.pln}"></option>
         </select>
     </div>
     <div id="user_info">
@@ -76,7 +76,7 @@
         $("#locales").change(function () {
             var selectedOption = $('#locales').val();
             if (selectedOption != ''){
-                window.location.replace('international?lang=' + selectedOption);
+                window.location.replace('journey?lang=' + selectedOption);
             }
         });
     });
@@ -86,16 +86,21 @@
     if (document.getElementById("picture_back").innerText === "Matching game has already been completed at this level") {
         document.getElementById("picture1").innerHTML =
             '<a href="pictures" class="btn btn-danger btn-lg">' + document.getElementById("picture1").innerText + '</a><br>';
+        if (document.getElementById("picture1").innerText.includes("Dopasuj"))
+            document.getElementById("picture_back").innerText = "Dopasuj zostało ukończone na tym poziomie";
     }
     if (document.getElementById("hangman_back").innerText === "Hangman game has already been completed at this level") {
             document.getElementById("hangman1").innerHTML =
             '<a href="hangman" class="btn btn-danger btn-lg">'+document.getElementById("hangman1").innerText+'</a><br>';
-    //     document.getElementById("hangman_back").innerText =
-    // 'th:text="#{completed}"';
+        if (document.getElementById("hangman1").innerText.includes("Wisielec"))
+            document.getElementById("hangman_back").innerText = "Wisielec został ukończony na tym poziomie";
     }
 
-    if (document.getElementById("rebus_back").innerText === "Rebus game has already been completed at this level")
+    if (document.getElementById("rebus_back").innerText === "Rebus game has already been completed at this level") {
         document.getElementById("rebus1").innerHTML = '<a href="rebus" class="btn btn-danger btn-lg">Rebus</a><br>';
+        if (document.getElementById("hangman1").innerText.includes("Wisielec"))
+            document.getElementById("rebus_back").innerText = "Rebus został ukończony na tym poziomie";
+    }
 
     function myFunction(number, name) {
         document.getElementById(name).innerHTML = infos[number];

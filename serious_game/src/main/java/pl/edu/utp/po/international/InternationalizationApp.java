@@ -1,4 +1,4 @@
-package pl.edu.utp.po;
+package pl.edu.utp.po.international;
 
 import javax.annotation.security.RolesAllowed;
 
