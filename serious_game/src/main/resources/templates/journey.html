@@ -22,36 +22,36 @@
     <div id="user_info">
         <p th:text="${levelup}"></p>
         <span th:text="${cheater}"></span>
-        <span th:text="#{loggedAs}"></span></th:text> <span th:text="${login}"></span> / Level: <span
-                th:text="${level}"></span>
-        / Total
-        Points: <span
-            th:text="${points}"></span> <br><br>
-        <a href="logout" class="btn btn-danger">Logout</a><br><br>
+        <span th:text="#{loggedAs}"></span></th:text> <span th:text="${login}"></span> / <span
+            th:text="#{level}"></span>
+         <span th:text="${level}"></span>
+        / <span th:text="#{totalPoints}"></span> <span th:text="${points}"></span> <br><br>
+        <a href="logout" class="btn btn-danger"><span th:text="#{logout}"></span></a><br><br>
     </div>
     <div id="games">
         <div class="popup">
-            <button class="btn btn-info" onclick="myFunction(0,'story')">Click here to see level objectives!</button>
+            <button class="btn btn-info" onclick="myFunction(0,'story')"><span th:text="#{objectives}"></span></button>
             <span class="popuptext" id="story">info</span>
         </div>
 
         <br><br><span id="picture_back" th:text="${picture}"></span><br>
         <div id="picture1">
-            <a href="pictures" class="btn btn-success btn-lg">Matching</a><br>
+            <a href="pictures" class="btn btn-success btn-lg"><span th:text="#{matching}"></span></a><br>
         </div>
         <br>
         <div class="popup">
-            <button class="btn btn-info" onclick="myFunction(1,'curio1')">Curiosity 1</button>
+            <button class="btn btn-info" onclick="myFunction(1,'curio1')"><span th:text="#{curiosity}"></span>
+                1</button>
             <span class="popuptext" id="curio1">info</span>
         </div>
 
         <br><br><span id="hangman_back" th:text="${hangman}"></span><br>
         <div id="hangman1">
-            <a href="hangman" class="btn btn-success btn-lg">Hangman</a><br>
+            <a href="hangman" class="btn btn-success btn-lg"><span th:text="#{hangman}"></span></a><br>
         </div>
         <br>
         <div class="popup">
-            <button class="btn btn-info" onclick="myFunction(2,'curio2')">Curiosity 2</button>
+            <button class="btn btn-info" onclick="myFunction(2,'curio2')"><span th:text="#{curiosity}"></span> 2</button>
             <span class="popuptext" id="curio2">info</span>
         </div>
 
@@ -61,7 +61,7 @@
         </div>
         <br>
         <div class="popup">
-            <button class="btn btn-info" onclick="myFunction(3,'curio3')">Curiosity 3</button>
+            <button class="btn btn-info" onclick="myFunction(3,'curio3')"><span th:text="#{curiosity}"></span> 3</button>
             <span class="popuptext" id="curio3">info</span>
         </div>
     </div>
@@ -83,12 +83,16 @@
 </script>
 <script xmlns:th="http://www.w3.org/1999/xhtml" th:inline="javascript">
     var infos = [[${infos}]];
-    if (document.getElementById("picture_back").innerText === "Pictures game has already been completed at this level")
+    if (document.getElementById("picture_back").innerText === "Matching game has already been completed at this level") {
         document.getElementById("picture1").innerHTML =
-            '<a href="pictures" class="btn btn-danger btn-lg">Matching</a><br>';
-
-    if (document.getElementById("hangman_back").innerText === "Hangman game has already been completed at this level")
-        document.getElementById("hangman1").innerHTML = '<a href="hangman" class="btn btn-danger btn-lg">Hangman</a><br>';
+            '<a href="pictures" class="btn btn-danger btn-lg">' + document.getElementById("picture1").innerText + '</a><br>';
+    }
+    if (document.getElementById("hangman_back").innerText === "Hangman game has already been completed at this level") {
+            document.getElementById("hangman1").innerHTML =
+            '<a href="hangman" class="btn btn-danger btn-lg">'+document.getElementById("hangman1").innerText+'</a><br>';
+    //     document.getElementById("hangman_back").innerText =
+    // 'th:text="#{completed}"';
+    }
 
     if (document.getElementById("rebus_back").innerText === "Rebus game has already been completed at this level")
         document.getElementById("rebus1").innerHTML = '<a href="rebus" class="btn btn-danger btn-lg">Rebus</a><br>';

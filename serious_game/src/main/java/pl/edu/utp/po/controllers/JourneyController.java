@@ -58,7 +58,7 @@ public class JourneyController {
         model.addAttribute("infos", infos);
 
         if (user.getPicture())     //moze byc do poprawki trzeba sprawdzic dzialanie po doodaniu punktow i levelow do pictures i hangmena
-            model.addAttribute("picture", "Pictures game has already been completed at this level");
+            model.addAttribute("picture", "Matching game has already been completed at this level");
         if (user.getHangman())
             model.addAttribute("hangman", "Hangman game has already been completed at this level");
         if (user.getRebus())
