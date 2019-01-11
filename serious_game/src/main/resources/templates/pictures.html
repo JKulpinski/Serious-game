@@ -9,6 +9,30 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
     <script xmlns:th="http://www.w3.org/1999/xhtml" th:inline="javascript">
         var correctCards = 0;
+
+        var time = 50;
+        var tick = setInterval(check_time, 1000);
+
+        function check_time() {
+            time--;
+            document.getElementById("sec").innerHTML = 'Remaining time: <br>' + time;
+            if (time <= 0) {
+                clearInterval(tick);
+                document.getElementById("successMessage").innerHTML = '<h2>End of Time!</h2>' +
+                    ' You need to be faster. Try again!<br>' +
+                    '<form action="journey">' +
+                    '    <button type="submit">Back to your Journey</button>\n' +
+                    '</form>';
+                $('#successMessage').show();
+                $('#successMessage').animate({
+                    left: '100px',
+                    top: '200px',
+                    width: '1150px',
+                    height: '350px',  // tu sie ustawia jak duze okienko wygranej
+                    opacity: 1
+                });
+            }
+        }
         $(init);
 
         function init() {
@@ -27,6 +51,7 @@
                 '<div style="display: none"><input name="point" value="3"></div>' +
                 '<input type="submit" value="Save and move on" class="button">' +
                 '</form>';
+
 
             // Reset the game
             correctCards = 0;
@@ -80,13 +105,14 @@
             // If all the cards have been placed correctly then display a message
             // and reset the cards for another go
 
-            if (correctCards == 10) {
+            if (correctCards == 10 && time > 0) {
+                clearInterval(tick);
                 $('#successMessage').show();
                 $('#successMessage').animate({
-                    left: '380px',
+                    left: '100px',
                     top: '200px',
-                    width: '400px',
-                    height: '150px',  // tu sie ustawia jak duze okienko wygranej
+                    width: '1150px',
+                    height: '350px',   // tu sie ustawia jak duze okienko wygranej
                     opacity: 1
                 });
             }
@@ -112,6 +138,9 @@
 
 <div class="wideBox">
     <h2>Match words and definitions</h2>
+    <div id="sec">
+        Remaining time: <br>...
+    </div>
 </div>
 
 <div id="content">
