@@ -145,7 +145,7 @@
             document.getElementById("newGame").removeEventListener("click", buttonNewGame);
             document.getElementById("info").innerHTML = '';
             if (text.points > maxpoints / 2) {
-                document.getElementById("board").innerHTML = 'Congratulations! Next level!<br>' +
+                document.getElementById("board").innerHTML = 'Congratulations! Game completed.<br>' +
                     ' Your score: ' + text.points + '/' + maxpoints + '<br>' +
                     '<form method="POST">' +
                     '<div style="display: none"><input name="point" value="' + text.points + '"></div>' +

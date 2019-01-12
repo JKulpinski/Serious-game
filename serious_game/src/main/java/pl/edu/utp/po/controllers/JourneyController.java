@@ -34,7 +34,7 @@ public class JourneyController {
         }
 
         if (user.getRebus() && user.getHangman() && user.getPicture()) { //sprawdza czy juz przeszles gry
-            model.addAttribute("levelup", "Level up!!!");
+            model.addAttribute("levelup", "Next day of journey!!!");
             user.setLevel(user.getLevel() + 1);
             user.setRebus(false);
             user.setHangman(false);
@@ -53,11 +53,11 @@ public class JourneyController {
         model.addAttribute("infos", infos);
 
         if (user.getPicture())     //moze byc do poprawki trzeba sprawdzic dzialanie po doodaniu punktow i levelow do pictures i hangmena
-            model.addAttribute("picture", "Matching game has already been completed at this level");
+            model.addAttribute("picture", "Matching game has already been completed for this day");
         if (user.getHangman())
-            model.addAttribute("hangman", "Hangman game has already been completed at this level");
+            model.addAttribute("hangman", "Hangman game has already been completed for this day");
         if (user.getRebus())
-            model.addAttribute("rebus", "Rebus game has already been completed at this level");
+            model.addAttribute("rebus", "Rebus game has already been completed for this day");
 
         return "journey";
     }
