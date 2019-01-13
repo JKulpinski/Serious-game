@@ -1,7 +1,31 @@
-1.rebus
-2.homework
-3.honey
-4.island
-5.butterfly
-6.sandwitch
-7.carpet
+1 • Food and beverages
+sandwich
+honey
+2 • Animals
+butterfly
+3 • Houses and rooms
+carpet
+doorbell
+4 • Family and friends
+stepfather
+5 • Go to school/work
+triangle
+homework
+6 • Entertainment
+island
+rebus
+sunbathe
+7 • Health
+pills
+heart
+
+Rebusy dane techniczne:
+wielkosc: 800x500 pikseli, obrazek umieszczony centralnie na bialym tle
+
+pomysły rebus:
+Feedback
+Keyboard
+Alphabet
+Eye screem
+Space bar
+office

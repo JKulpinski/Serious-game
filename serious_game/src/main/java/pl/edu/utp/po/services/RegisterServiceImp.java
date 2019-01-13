@@ -26,4 +26,9 @@ public class RegisterServiceImp implements RegisterService {
 
     @Override
     public List<Users> findByEmail(String email) { return registerRepo.findByEmail(email); }
+
+    @Override
+    public List<Users> leaderlist() {
+        return registerRepo.findByOrderByPointsDesc();
+    }
 }

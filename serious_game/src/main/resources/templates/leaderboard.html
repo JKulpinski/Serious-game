@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Leader board</title>
+</head>
+<body>
+<div align="center"><br><a href="journey" class="btn btn-success">Back</a><br></div>
+<div th:unless="${#lists.isEmpty(leaders)}">
+    <table class="table" style="width: 30%" border="1" align="center">
+        <tr>
+            <th class="text-center">Place</th>
+            <th class="text-center">Name</th>
+            <th class="text-center">Points</th>
+        </tr>
+        <dl th:each="user : ${leaders}">
+            <tr>
+                <td align="center"></td>
+                <td align="center"><span th:text="${user.login}"></span></td>
+                <td align="center"><span th:text="${{user.points}}"></span></td>
+            </tr>
+        </dl>
+    </table>
+</div>
+</body>
+</html>
+
+<style type="text/css">
+    table tr:nth-child(2) {
+        counter-reset: row-num;
+    }
+
+    table tr {
+        counter-increment: row-num;
+    }
+
+    table tr td:first-child::before {
+        content: counter(row-num) ". ";
+    }
+</style>

@@ -70,4 +70,15 @@ public class JourneyController {
         }
         return "redirect:/login";
     }
+
+    @GetMapping("/leaderboard")
+    public String showLeader(Model model, HttpServletRequest req) {
+        HttpSession session = req.getSession();
+        Users user = (Users) session.getAttribute("user");
+        if (user == null) {
+            return "redirect:/login";
+        }
+        model.addAttribute("leaders", registerService.leaderlist());
+        return "leaderboard";
+    }
 }

@@ -20,13 +20,16 @@
         </select>
     </div>
     <div id="user_info">
-        <p th:text="${levelup}"></p>
-        <span th:text="${cheater}"></span>
+        <br><a href="logout" class="btn btn-danger"><span th:text="#{logout}"></span></a> <a href="leaderboard"
+                                                                                             class="btn btn-success">Leader
+        board</a><br>
+        <span th:text="${cheater}"></span><br>
         <span th:text="#{loggedAs}"></span></th:text> <span th:text="${login}"></span> / <span
             th:text="#{level}"></span>
          <span th:text="${level}"></span>
-        / <span th:text="#{totalPoints}"></span> <span th:text="${points}"></span> <br><br>
-        <a href="logout" class="btn btn-danger"><span th:text="#{logout}"></span></a><br><br>
+        / <span th:text="#{totalPoints}"></span> <span th:text="${points}"></span> <br>
+        <p style="color: green;font-size: large;" th:text="${levelup}"></p>
+
     </div>
     <div id="games">
         <div class="popup">

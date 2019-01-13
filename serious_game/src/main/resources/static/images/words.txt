@@ -19,6 +19,9 @@ sunbathe
 pills
 heart
 
+Rebusy dane techniczne:
+wielkosc: 800x500 pikseli, obrazek umieszczony centralnie na bialym tle
+
 pomysły rebus:
 Feedback
 Keyboard
