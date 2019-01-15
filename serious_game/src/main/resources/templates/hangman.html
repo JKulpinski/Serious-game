@@ -15,7 +15,6 @@
     <title> Hangman </title>
 </head>
 <body>
-<input id="back" type="button" value="Back">
 <div id="main">
     <h1> Hangman game</h1>
     <div id="info" align="center">
@@ -182,18 +181,9 @@
         text.howManyMiss = 0;
     }
 
-    function clickBackButton() {
-        document.getElementById("back").addEventListener("click", buttonBack);
-    }
-
-    function buttonBack() {
-        if (confirm("You have unsaved text. Do you want to continue?")) window.location.href = 'journey';
-    }
-
     window.addEventListener("load", function () {
         showLetters();
         showSentence();
         clickNewGameButton();
-        clickBackButton();
     });
 </script>

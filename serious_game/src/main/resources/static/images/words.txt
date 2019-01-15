@@ -1,20 +1,48 @@
 1 • Food and beverages
 sandwich
 honey
+gooseberry
+jam
+carrot
+pineapple
+hotdog / hot-dog
+strawberry
+
 2 • Animals
 butterfly
+
 3 • Houses and rooms
 carpet
 doorbell
+cupboard
+bookshelf
+doormat
+armchair
+
 4 • Family and friends
 stepfather
+honeymoon
+childhood
+friendship
+family tree
+
 5 • Go to school/work
 triangle
 homework
+alphabet
+office
+feedback
+keyboard
+spacebar
+
 6 • Entertainment
-island
+spider man
 rebus
 sunbathe
+ice cream
+bat man
+island
+
 7 • Health
 pills
 heart
@@ -22,10 +50,4 @@ heart
 Rebusy dane techniczne:
 wielkosc: 800x500 pikseli, obrazek umieszczony centralnie na bialym tle
 
-pomysły rebus:
-Feedback
-Keyboard
-Alphabet
-Eye screem
-Space bar
-office
+
