@@ -14,14 +14,24 @@
     <link rel="icon" href="favicon.ico"/>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
     <title> Login </title>
+
+    <style>
+        body {
+            background-image: url(images/login_back.jpg);
+        }
+
+        #main {
+        }
+    </style>
 </head>
+
 <body>
 <div id="main" align="center">
     <h1> Serious Games</h1>
     <h2> Login Page</h2>
     <br>
     <div id="board">
-        <p style="color: green;font-size: large;" th:text="${alert}"></p>
+        <p style="color: red;font-size: large;" th:text="${alert}"></p>
         <p style="color: red;font-size: large;" th:text="${error_pass}"></p>
         <form method="POST">
             Login:<br>
@@ -33,8 +43,10 @@
             <input type="submit" value="LOGIN" class="btn btn-success">
         </form>
     </div>
-    <a href="register">...or register here</a>
-    <footer> &#169; 2018 Natalia Pasturczak, Jonasz Kulpinski All Rights Reserved &#169;</footer>
+    <a href="register" style="color: #514300">...or register here</a><br><br>
+    <div style="color: rgba(255,2,2,0.84)"> &#169; 2018 Natalia Pasturczak, Jonasz Kulpinski All Rights Reserved
+        &#169;
+    </div>
 </div>
 </body>
 </html>

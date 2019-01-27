@@ -148,13 +148,13 @@
                     ' Your score: ' + text.points + '/' + maxpoints + '<br>' +
                     '<form method="POST">' +
                     '<div style="display: none"><input name="point" value="' + text.points + '"></div>' +
-                    '<input type="submit" value="Save and move on" class="button">' +
+                    '<input type="submit" value="Save and move on" class="button" style="background-color: #11b40c;height: 40px;width: 200px">' +
                     '</form>';
             } else {
                 document.getElementById("board").innerHTML = 'Try again!<br>' +
                     ' Your score: ' + text.points + '/' + maxpoints + '<br>' +
                     '<form action="journey">' +
-                    '<button type="submit">Back to your Journey</button>' +
+                    '<button type="submit" style="background-color: #a790ff;height: 40px;width: 200px">Back to your Journey</button>' +
                     '</form>';
             }
 

@@ -5,12 +5,12 @@
     padding: 2px;
     margin: 0 auto;
     box-sizing: border-box;
-    background-color: #3844c5;
+    background-color: #6ec4ff;
 }
 h1
 {
     font-size: 40px;
-    color: #aaa;
+    color: #000000;
     text-align: center;
 }
 #board
@@ -37,9 +37,9 @@ img {
 .letter{
     font-size: 25px;
     padding: 8px;
-    color: #aaa;
+    color: #000000;
     margin: 5px;
-    border: 3px solid darkgray;
+    border: 3px solid #000000;
     border-radius: 25px;
     float: left;
     cursor: pointer;
@@ -54,7 +54,7 @@ img {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    color: #aaa;
+    color: #000000;
     padding: 5px;
     border: 3px solid white;
     -webkit-transition-duration: 0.2s; /* Safari */
