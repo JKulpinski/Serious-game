@@ -1,6 +1,6 @@
 body {
-    background-color: black;
-    color: #dcdcdc;
+    background-color: #6fc588;
+    color: #000000;
     font-family: 'Roboto Mono', monospace;
     font-size: 340%;
 }
@@ -33,12 +33,14 @@ body {
 }
 
 #error {
-    color: red;
+    color: #780000;
     font-size: xx-large;
 }
-
+button{
+    cursor: pointer;
+}
 #info {
-    color: red;
+    color: #780000;
     font-size: large;
     text-align: center;
 }

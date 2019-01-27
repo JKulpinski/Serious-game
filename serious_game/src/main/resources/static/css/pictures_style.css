@@ -4,6 +4,9 @@ body {
     line-height: 1.8em;
     color: #333;
 }
+button{
+    cursor: pointer;
+}
 
 #content {
     margin: 80px 70px;
@@ -104,6 +107,7 @@ body {
 }
 
 /* Individually coloured cards */
+
 
 #card1.correct { background: #ff3322; }
 #card2.correct { background: #df812d; }

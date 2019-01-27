@@ -2,20 +2,35 @@
 <html lang="en-EN" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Registration</title>
+    <title>LangStorm</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <style>
         body {
-            background-color: rgba(150, 123, 114, 0.42);
+            background-image: url(/images/login_back.jpg);
         }
 
+        h1, h2{
+            color: #007722;
+            text-shadow: 2px 2px 2px #111111;
+            text-decoration-color:  #007722;
+        }
+
+        #main {
+            background-color: rgba(250, 250, 250, 0.7);
+            text-align: center;
+            margin: 1em auto;
+            width: 500px;
+            padding: 1em;
+            border: 10px dotted black;
+        }
     </style>
 </head>
 <body>
-<div align="center">
+<div id="main" align="center">
     <div id="title">
-        <h1>Registration</h1>
+        <h1> LangStorm</h1>
+        <h2>Registration</h2>
         <br>
     </div>
 
@@ -37,6 +52,9 @@
         <div><input type="submit" class="btn btn-success" value="Submit"/> <a href="login" class="btn btn-info">Back to
             login</a></div>
     </form>
+    <br> <br>
+    &#169; 2018 Natalia Pasturczak, Jonasz Kulpinski All Rights Reserved
+    &#169;
 </div>
 </body>
 </html>

@@ -43,10 +43,10 @@ img {
     border-radius: 25px;
     float: left;
     cursor: pointer;
-    background-color: #3844c5;
+    background-color: #69aee6;
 }
 .letter:hover{
-    background-color: #5f639c;
+    background-color: #a5e0ff;
     border: 3px solid white;
 }
 #newGame{
@@ -61,7 +61,7 @@ img {
     transition-duration: 0.2s;
 }
 #newGame:hover{
-    background-color: #5f639c;
+    background-color: #a5e0ff;
 }
 #correct{
     visibility: hidden;

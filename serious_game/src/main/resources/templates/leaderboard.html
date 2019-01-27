@@ -3,12 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <title><span th:text="#{leaderBoard}"></span></title>
+    <title>Leader board</title>
+
+    <style>
+        body {
+            background-image: url(/images/login_back.jpg);
+        }
+
+        h1, h2{
+            color: #007722;
+            text-shadow: 2px 2px 2px #111111;
+            text-decoration-color:  #007722;
+        }
+
+
+        #main {
+            background-color: rgba(250, 250, 250, 0.7);
+            text-align: center;
+            margin: 1em auto;
+            width: 500px;
+            padding: 2em;
+        }
+    </style>
 </head>
 <body>
-<div align="center"><br><a href="journey" class="btn btn-success">Back</a><br></div>
+<div align="center">
+    <h1> <span th:text="#{leaderBoard}"></span> </h1>
+    <br><a href="journey" class="btn btn-success">Back</a><br>
 <div th:unless="${#lists.isEmpty(leaders)}">
-    <table class="table" style="width: 30%" border="1" align="center">
+    <table id="main" class="table" style="width: 30%" border="1" align="center">
         <tr>
             <th class="text-center">Place</th>
             <th class="text-center">Name</th>
@@ -22,6 +45,7 @@
             </tr>
         </dl>
     </table>
+</div>
 </div>
 </body>
 </html>
