@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 14 Sty 2019, 22:17
+-- Czas generowania: 28 Sty 2019, 18:15
 -- Wersja serwera: 5.5.54
 -- Wersja PHP: 7.2.12
 
@@ -119,19 +119,40 @@ CREATE TABLE `rebus` (
 -- Zrzut danych tabeli `rebus`
 --
 
-INSERT INTO `rebus` (`id`, `answer`, `level`, `rebus`) VALUES (1, 'sandwich', 1, '1111.jpg'),
-                                                              (2, 'honey', 1, '1112.jpg'),
-                                                              (3, 'butterfly', 2, '2111.jpg'),
-                                                              (4, 'carpet', 3, '3112.jpg'),
-                                                              (5, 'doorbell', 3, '3113.jpg'),
-                                                              (6, 'stepfather', 4, '4111.jpg'),
-                                                              (7, 'triangle', 5, '5111.jpg'),
-                                                              (8, 'homework', 5, '5112.jpg'),
-                                                              (9, 'island', 6, '6111.jpg'),
-                                                              (10, 'rebus', 6, '6112.jpg'),
-                                                              (11, 'sunbath', 6, '6113.jpg'),
-                                                              (12, 'pills', 7, '7111.jpg'),
-                                                              (13, 'heart', 7, '7112.jpg');
+INSERT INTO `rebus` (`id`, `answer`, `level`, `rebus`)
+VALUES (1, 'sandwich', 1, '1111.jpg'),
+       (2, 'honey', 1, '1112.jpg'),
+       (3, 'gooseberry', 1, '1113.jpg'),
+       (4, 'jam', 1, '1114.jpg'),
+       (5, 'carrot', 1, '1115.jpg'),
+       (6, 'pineapple', 1, '1116.jpg'),
+       (7, 'hotdog', 1, '1117.jpg'),
+       (8, 'strawberry', 1, '1118.jpg'),
+       (9, 'butterfly', 2, '2111.jpg'),
+       (10, 'carpet', 3, '3111.jpg'),
+       (11, 'doorbell', 3, '3112.jpg'),
+       (12, 'cupboard', 3, '3113.jpg'),
+       (13, 'bookshelf', 3, '3114.jpg'),
+       (14, 'doormat', 3, '3115.jpg'),
+       (15, 'armchair', 3, '3116.jpg'),
+       (16, 'stepfather', 4, '4111.jpg'),
+       (17, 'honeymoon', 4, '4112.jpg'),
+       (18, 'childhood', 4, '4113.jpg'),
+       (19, 'friendship', 4, '4114.jpg'),
+       (20, 'triangle', 5, '5111.jpg'),
+       (21, 'homework', 5, '5112.jpg'),
+       (22, 'alphabet', 5, '5113.jpg'),
+       (23, 'office', 5, '5114.jpg'),
+       (24, 'feedback', 5, '5115.jpg'),
+       (25, 'keyboard', 5, '5116.jpg'),
+       (26, 'spacebar', 5, '5117.jpg'),
+       (27, 'spiderman', 6, '6111.jpg'),
+       (28, 'rebus', 6, '6112.jpg'),
+       (29, 'sunbathe', 6, '6113.jpg'),
+       (30, 'batman', 6, '6115.jpg'),
+       (31, 'island', 6, '6116.jpg'),
+       (32, 'pills', 7, '7111.jpg'),
+       (33, 'heart', 7, '7112.jpg');
 
 -- --------------------------------------------------------
 
@@ -155,65 +176,31 @@ CREATE TABLE `users` (
 -- Zrzut danych tabeli `users`
 --
 
-INSERT INTO `users` (`id`, `login`, `email`, `pass`, `level`, `points`, `picture`, `hangman`, `rebus`) VALUES (1, 'jonasz', 'jonkul001@gmail.com', 'aaa', 2, 22, b'0', b'1', b'1'),
-                                                                                                              (2, 'nalia', 'jonakul001@gmail.com', 'aaa', 2, 3, b'0', b'0', b'0'),
-                                                                                                              (3, 'sss', 'arybka68@gmail.com', 'aaa', 2, 11, b'0', b'0', b'1'),
-                                                                                                              (4, 'aaa1', 'jonkul001a@gmail.com', 'aaa1', 1, 0, b'0', b'0', b'0'),
-                                                                                                              (5, 'gds', 'jonaakul001@gmail.com', 'aaa', 1, 2, b'0', b'1', b'0'),
-                                                                                                              (6, 'aaaa', 'aaaa@aa.com', 'aaaa', 1, 0, b'0', b'0', b'0'),
-                                                                                                              (7, 'rwq', 'jonkul44001@gmail.com', 'bbb', 1, 0, b'0', b'0', b'0'),
-                                                                                                              (8, 'aaaaa', 'jonkuaaal001@gmail.com', 'aaa', 1, 2, b'0', b'1', b'0'),
-                                                                                                              (9, 'ssss', 'jonkwfwul001@gmail.com', 'aaa', 1, 0, b'0', b'0', b'0'),
-                                                                                                              (10, 'zzz', 'jonddkul001@gmail.com', 'aaa', 1, 3, b'1', b'0', b'0'),
-                                                                                                              (11, 'ggg', 'jonkugggl001@gmail.com', 'aaa', 2, 8, b'0', b'0', b'0'),
-                                                                                                              (12,
-                                                                                                               'jonasz11',
-                                                                                                               'jonkulggdsg001@gmail.com',
-                                                                                                               '1111',
-                                                                                                               1, 0,
-                                                                                                               b'0',
-                                                                                                               b'0',
-                                                                                                               b'0'),
-                                                                                                              (13, 'qqq', 'jonkul0ddd01@gmail.com', 'aaa', 1, 5, b'1', b'1', b'0'),
-                                                                                                              (14, 'reyy44', 'jonkusssl001@gmail.com', 'aaa', 1, 0, b'0', b'0', b'0'),
-                                                                                                              (15, 'tasos', 'tasos@bile.gr', '123456', 2, 7, b'0', b'0', b'0'),
-                                                                                                              (16,
-                                                                                                               'aaa111111',
-                                                                                                               'jo44445nkul001@gmail.com',
-                                                                                                               'aaa', 2,
-                                                                                                               7, b'0',
-                                                                                                               b'0',
-                                                                                                               b'0'),
-                                                                                                              (17,
-                                                                                                               'aaaaaaaaaaaa',
-                                                                                                               'jonkul00gggggg1@gmail.com',
-                                                                                                               'aaa', 1,
-                                                                                                               3, b'1',
-                                                                                                               b'0',
-                                                                                                               b'0'),
-                                                                                                              (18,
-                                                                                                               'qqqqq',
-                                                                                                               'jonddddfesgekul001@gmail.com',
-                                                                                                               'aaa', 1,
-                                                                                                               5, b'1',
-                                                                                                               b'0',
-                                                                                                               b'1'),
-                                                                                                              (19, 'jon', 'aaaa@gt.po', 'aaa', 1, 2, b'0', b'1', b'0'),
-                                                                                                              (20,
-                                                                                                               'ttt',
-                                                                                                               'jonkul0gdshddsj01@gmail.com',
-                                                                                                               'aaaa',
-                                                                                                               2, 8,
-                                                                                                               b'0',
-                                                                                                               b'0',
-                                                                                                               b'0'),
-                                                                                                              (21,
-                                                                                                               'iop',
-                                                                                                               'jonk54757584ul001@gmail.com',
-                                                                                                               'aaa', 1,
-                                                                                                               0, b'0',
-                                                                                                               b'0',
-                                                                                                               b'0');
+INSERT INTO `users` (`id`, `login`, `email`, `pass`, `level`, `points`, `picture`, `hangman`, `rebus`)
+VALUES (1, 'jonasz', 'jonkul001@gmail.com', 'aaa', 2, 22, b'0', b'1', b'1'),
+       (2, 'nalia', 'jonakul001@gmail.com', 'aaa', 2, 3, b'0', b'0', b'0'),
+       (3, 'sss', 'arybka68@gmail.com', 'aaa', 2, 11, b'0', b'0', b'1'),
+       (4, 'aaa1', 'jonkul001a@gmail.com', 'aaa1', 1, 0, b'0', b'0', b'0'),
+       (5, 'gds', 'jonaakul001@gmail.com', 'aaa', 1, 2, b'0', b'1', b'0'),
+       (6, 'aaaa', 'aaaa@aa.com', 'aaaa', 1, 0, b'0', b'0', b'0'),
+       (7, 'rwq', 'jonkul44001@gmail.com', 'bbb', 1, 0, b'0', b'0', b'0'),
+       (8, 'aaaaa', 'jonkuaaal001@gmail.com', 'aaa', 1, 2, b'0', b'1', b'0'),
+       (9, 'ssss', 'jonkwfwul001@gmail.com', 'aaa', 1, 0, b'0', b'0', b'0'),
+       (10, 'zzz', 'jonddkul001@gmail.com', 'aaa', 1, 3, b'1', b'0', b'0'),
+       (11, 'ggg', 'jonkugggl001@gmail.com', 'aaa', 2, 8, b'0', b'0', b'0'),
+       (12, 'jonasz11', 'jonkulggdsg001@gmail.com', '1111', 1, 0, b'0', b'0', b'0'),
+       (13, 'qqq', 'jonkul0ddd01@gmail.com', 'aaa', 1, 5, b'1', b'1', b'0'),
+       (14, 'reyy44', 'jonkusssl001@gmail.com', 'aaa', 1, 0, b'0', b'0', b'0'),
+       (15, 'tasos', 'tasos@bile.gr', '123456', 2, 7, b'0', b'0', b'0'),
+       (16, 'aaa111111', 'jo44445nkul001@gmail.com', 'aaa', 2, 7, b'0', b'0', b'0'),
+       (17, 'aaaaaaaaaaaa', 'jonkul00gggggg1@gmail.com', 'aaa', 1, 3, b'1', b'0', b'0'),
+       (18, 'qqqqq', 'jonddddfesgekul001@gmail.com', 'aaa', 1, 5, b'1', b'0', b'1'),
+       (19, 'jon', 'aaaa@gt.po', 'aaa', 1, 2, b'0', b'1', b'0'),
+       (20, 'ttt', 'jonkul0gdshddsj01@gmail.com', 'aaaa', 2, 8, b'0', b'0', b'0'),
+       (21, 'iop', 'jonk54757584ul001@gmail.com', 'aaa', 1, 0, b'0', b'0', b'0'),
+       (22, 'bbb', 'bbb@wp.com', 'aaa', 1, 2, b'0', b'0', b'1'),
+       (23, 'abb', 'jonkul0gwewhwehewhewrsdfc01@gmail.com', 'aaa', 1, 5, b'1', b'0', b'1'),
+       (24, 'naka', 'huc@utp.pl', 'aaa', 2, 11, b'0', b'0', b'0');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -277,14 +264,14 @@ ALTER TABLE `picture`
 --
 ALTER TABLE `rebus`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  AUTO_INCREMENT = 14;
+  AUTO_INCREMENT = 34;
 
 --
 -- AUTO_INCREMENT dla tabeli `users`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  AUTO_INCREMENT = 22;
+  AUTO_INCREMENT = 25;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
