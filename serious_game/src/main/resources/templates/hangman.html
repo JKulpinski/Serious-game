@@ -101,7 +101,7 @@
 
     function checkAll(nr) {
         let select = false;
-        for (let i = 0; i < alphabet.length; i++) {
+        for (let i = 0; i < text.sentence.length; i++) {
             if (text.sentence.charAt(i).toLowerCase() === alphabet[nr].toLowerCase()) {
                 text.hiddenText = text.hiddenText.replaceSign(i, alphabet[nr]);
                 select = true;

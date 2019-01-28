@@ -101,6 +101,12 @@ I'll take you to a doctor.
 I have a sore throat. Mam bolące gardło.
 Vegetables are very healthy.
 
+level objectives:
+1. Food
+Tego dnia zajmiemy się jedzeniem i piciem, które są niezbędne w naszej podróży. Wiadomo że człowiek jest w stanie przeżyć jedynie tydzień bez wody i miesiąc bez jedzenia. Dlatego jest bardzo ważne żeby zebrać trochę prowiantu!
+
+2. Animals
+Zwierzęta są przyjaciółmi człowieka, poznajmy ich angielskie nazwy! Potrafią być przyjazne i niebezpieczne. Trzeba wiedzieć jakie występują w dalekich krajach aby sobie poradzić.
 
 Rebusy dane techniczne:
 wielkosc: 800x500 pikseli, obrazek umieszczony centralnie na bialym tle
