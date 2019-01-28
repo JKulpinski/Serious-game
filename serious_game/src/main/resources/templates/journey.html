@@ -41,14 +41,14 @@
         </select>
     </div>
     <div id="user_info">
-        <br><a href="logout" class="btn btn-danger"><span th:text="#{logout}"></span></a> <a href="leaderboard"
-                                                                                             class="btn btn-success"><span th:text="#{leaderBoard}"></span></a><br>
+        <br><a href="logout" class="btn btn-danger"><span th:text="#{logout}"></span></a>
+        <a href="leaderboard" class="btn btn-primary"><span th:text="#{leaderBoard}"></span></a><br>
         <span th:text="${cheater}"></span><br>
         <span th:text="#{loggedAs}"></span></th:text> <span th:text="${login}"></span> / <span
             th:text="#{level}"></span>
          <span th:text="${level}"></span>
         / <span th:text="#{totalPoints}"></span> <span th:text="${points}"></span> <br>
-        <p style="color: green;font-size: large;" th:text="${levelup}"></p>
+        <p id="lev" style="color: green;font-size: large;" th:text="${levelup}"></p>
 
     </div>
     <div id="games">
@@ -88,14 +88,40 @@
             <span class="popuptext" id="curio3">info</span>
         </div>
     </div>
+    <div id="successMessage">
+
+    </div>
     <footer> &#169; 2018 Natalia Pasturczak, Jonasz Kulpinski All Rights Reserved &#169;</footer>
 </div>
 </body>
 </html>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
 </script>
-<script type="text/javascript">
+<script xmlns:th="http://www.w3.org/1999/xhtml" th:inline="javascript">
     $(document).ready(function() {
+        var infos2 = [[${infos}]];
+        document.getElementById("successMessage").innerHTML = '<h2>New day of the journey!</h2>' +
+            infos2[0] + '<br><br>' +
+            '<form action="journey">' +
+            '    <button type="submit" style="background-color: #2e9b08;height: 40px;width: 200px; cursor: pointer;">OK</button>\n' +
+            '</form>';
+        $('#successMessage').hide();
+        $('#successMessage').css({
+            left: '580px',
+            top: '250px',
+            width: 0,
+            height: 0
+        });
+        if (document.getElementById("lev").innerText === "Next day of journey!!!") {
+            $('#successMessage').show();
+            $('#successMessage').animate({
+                left: '530px',
+                top: '150px',
+                width: '350px',
+                height: '250px',  // tu sie ustawia jak duze okienko wygranej
+                opacity: 1
+            });
+        }
         $("#locales").change(function () {
             var selectedOption = $('#locales').val();
             if (selectedOption != ''){
@@ -106,6 +132,7 @@
 </script>
 <script xmlns:th="http://www.w3.org/1999/xhtml" th:inline="javascript">
     var infos = [[${infos}]];
+
     if (document.getElementById("picture_back").innerText === "Matching game has already been completed for this day") {
         document.getElementById("picture1").innerHTML =
             '<a href="pictures" class="btn btn-danger btn-lg">' + document.getElementById("picture1").innerText + '</a><br>';

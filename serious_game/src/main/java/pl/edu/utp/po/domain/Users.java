@@ -9,10 +9,10 @@ import javax.persistence.Id;
 public class Users {
     public Users(){
         this.points = 0;
-        this.level = 1L;
-        this.rebus = false;
-        this.picture = false;
-        this.hangman = false;
+        this.level = 0L;
+        this.rebus = true;
+        this.picture = true;
+        this.hangman = true;
     }
 
     public Users(String login, String email, String pass) {
@@ -20,10 +20,10 @@ public class Users {
         this.email = email;
         this.pass = pass;
         this.points = 0;
-        this.level = 1L;
-        this.rebus = false;
-        this.picture = false;
-        this.hangman = false;
+        this.level = 0L;
+        this.rebus = true;
+        this.picture = true;
+        this.hangman = true;
     }
 
     @Id
