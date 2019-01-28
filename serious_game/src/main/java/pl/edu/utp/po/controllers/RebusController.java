@@ -38,12 +38,16 @@ public class RebusController {
         List<Rebus> rebuses = rebusService.listbylevelid(user.getLevel()); //punkty i pobieranie odpowiednich zagadek
         List<String> filenames = new ArrayList<>();
         List<String> answers = new ArrayList<>();
+        List<String> translation_pl = new ArrayList<>();
         for (Rebus rebus : rebuses) {
             filenames.add(rebus.getRebus());
             answers.add(rebus.getAnswer());
+            translation_pl.add(rebus.getTranslation_pl());
         }
         model.addAttribute("filenames", filenames);
         model.addAttribute("answers", answers);
+        model.addAttribute("translation_pl", translation_pl);
+
         //System.out.println(user.getLogin());
         return "rebus";
     }

@@ -32,6 +32,7 @@
 
 <script xmlns:th="http://www.w3.org/1999/xhtml" th:inline="javascript">
     var filenames = [[${filenames}]];
+    var translation_pl = [[${translation_pl}]];
     var answers = [[${answers}]];
     var len = filenames.length;
     var max = len;
@@ -39,6 +40,7 @@
 
     var game = {
         words: answers,
+        trans: translation_pl,
         img: filenames,
         run: true,
         points: 0,
@@ -48,6 +50,7 @@
         }
     };
     var wordlist = [];
+    var myWord = [];
     var guess_word;
     var pic = "images/" + game.img[random];
     game.img.splice(random, 1);
@@ -65,11 +68,13 @@
 
                 //nie wiadomo czy ma byc lista wszystkich czy tylko zgadnietych
                 wordlist.push(game.words[random]);
+                myWord.push(game.trans[random]);
             }
             else{
                 game.update_points("Wrong answer!");
             }
             game.words.splice(random, 1);
+            game.trans.splice(random, 1);
 
             if (game.words.length === 0) {
                 game.run = false;
@@ -97,7 +102,7 @@
 
                 for (var i = 0; i < wordlist.length; i++) {
                     var newlistitem = document.createElement('li');
-                    newlistitem.textContent = wordlist[i];
+                    newlistitem.textContent = wordlist[i] +'  -  ' + myWord[i];
                     mylist.appendChild(newlistitem);
                 }
             } else {

@@ -1,4 +1,22 @@
 1 • Food and beverages
+jam
+honey
+sandwich
+berry
+carrot
+pine
+gooseberry
+rot
+
+a sweet food made from fruit
+a sweet food that is made by bees
+slices of bread with cheese
+a small, round fruit
+a vegetable
+a tall tree
+a green fruit with a hairy skin
+ decay or cause to decay
+
 sandwich
 honey
 gooseberry
@@ -8,8 +26,18 @@ pineapple
 hotdog / hot-dog
 strawberry
 
+Would you like something to eat?
+She is cooking dinner.
+I will prepare the food.
+He's eating an apple.
+
 2 • Animals
 butterfly
+
+How many animals do you have?
+I walk my dog every day.
+She has two cats and three dogs.
+I don't like birds.
 
 3 • Houses and rooms
 carpet
@@ -19,12 +47,23 @@ bookshelf
 doormat
 armchair
 
+Do you have a minute?
+We'll meet at your house.
+There's no place like home.
+His flat is very big.
+
 4 • Family and friends
 stepfather
 honeymoon
 childhood
 friendship
-family tree
+familytree
+
+My father works in a bank.
+I'm going shopping with my mother.
+How old is your brother?
+I'll always be your friend. Zawszę będę twoim przyjacielem.
+
 
 5 • Go to school/work
 triangle
@@ -35,17 +74,33 @@ feedback
 keyboard
 spacebar
 
+I am still learning...
+No pain no gain.
+How was school today? Jak minął dzień zajęć w szkole?
+Where do you work?
+
 6 • Entertainment
 spiderman
 rebus
 sunbathe
-ice cream
+icecream
 batman
 island
+
+Hi, nice to meet you!
+Have a nice weekend.
+Let's go for a walk on the beach.  Chodźmy na plażę na spacer.
+The children are playing in a garden.
 
 7 • Health
 pills
 heart
+
+His body was strong and healthy. (Jego ciało było silne i zdrowe.
+I'll take you to a doctor.
+I have a sore throat. Mam bolące gardło.
+Vegetables are very healthy.
+
 
 Rebusy dane techniczne:
 wielkosc: 800x500 pikseli, obrazek umieszczony centralnie na bialym tle

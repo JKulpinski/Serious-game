@@ -17,6 +17,7 @@ public class Rebus {
     private String rebus;
     private String answer;
     private Long level;
+    private String translation_pl;
 
     public Long getLevel() {
         return level;
@@ -48,5 +49,13 @@ public class Rebus {
 
     public void setAnswer(String answer) {
         this.answer = answer;
+    }
+
+    public String getTranslation_pl() {
+        return translation_pl;
+    }
+
+    public void setTranslation_pl(String translation_pl) {
+        this.translation_pl = translation_pl;
     }
 }
