@@ -7,15 +7,19 @@ carrot
 pine
 gooseberry
 rot
+ham
+pear
 
-a sweet food made from fruit
-a sweet food that is made by bees
+sweet food made from fruit
+sweet food that is made by bees
 slices of bread with cheese
-a small, round fruit
-a vegetable
-a tall tree
-a green fruit with a hairy skin
- decay or cause to decay
+small, round fruit
+vegetable
+type of tall tree
+green fruit with a hairy skin
+fruit that starts to break (verb)
+meat
+oval-shaped, pale fruit
 
 sandwich
 honey

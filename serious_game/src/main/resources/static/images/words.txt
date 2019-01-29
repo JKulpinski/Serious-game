@@ -7,15 +7,21 @@ carrot
 pine
 gooseberry
 rot
+ham
+pear
 
-a sweet food made from fruit
-a sweet food that is made by bees
-slices of bread with cheese
-a small, round fruit
-a vegetable
-a tall tree
-a green fruit with a hairy skin
- decay or cause to decay
+sweet food made from fruit
+sweet food made by bees
+slices of bread with ham
+small, round fruit
+vegetable
+type of tall tree
+fruit with a hairy skin
+fruit that starts to break
+meat
+oval-shaped, pale fruit
+
+=====
 
 sandwich
 honey
@@ -26,13 +32,21 @@ pineapple
 hotdog / hot-dog
 strawberry
 
+====
+
 Would you like something to eat?
 She is cooking dinner.
 I will prepare the food.
 He's eating an apple.
 
 2 • Animals
+
+
+====
+
 butterfly
+
+====
 
 How many animals do you have?
 I walk my dog every day.
