@@ -33,7 +33,14 @@ public class JourneyController {
             return "redirect:/login";
         }
 
-        if (user.getRebus() && user.getHangman() && user.getPicture()) { //sprawdza czy juz przeszles gry
+        if (user.getLevel() == 7 && user.getRebus() && user.getHangman() && user.getPicture()) {
+            model.addAttribute("levelup", "Next day of journey!!!");
+            user.setPoints(user.getPoints() + 25);
+            user.setLevel(user.getLevel() + 1);
+            registerService.addUser(user);
+        }
+
+        if (user.getRebus() && user.getHangman() && user.getPicture() && user.getLevel() != 7 && user.getLevel() != 8) { //sprawdza czy juz przeszles gry
             model.addAttribute("levelup", "Next day of journey!!!");
             user.setLevel(user.getLevel() + 1);
             user.setRebus(false);

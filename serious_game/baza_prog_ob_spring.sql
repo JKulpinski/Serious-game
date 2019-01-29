@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 29 Sty 2019, 17:55
+-- Czas generowania: 30 Sty 2019, 00:02
 -- Wersja serwera: 5.5.54
 -- Wersja PHP: 7.2.12
 
@@ -113,7 +113,11 @@ INSERT INTO `language_info` (`id`, `info`, `level`) VALUES
 (25, 'Health is the most important, so let\'s learn the names of diseases and ailments to be able to say abroad what\'s hurting us.', 7),
 (26, 'Laughing is good for the heart and can increase blood flow by 20 percent.\r\n', 7),
 (27, 'A lack of exercise now causes as many deaths as smoking.\r\n', 7),
-(28, 'Writing things out by hand will help you remember them.\r\n', 7);
+(28, 'Writing things out by hand will help you remember them.\r\n', 7),
+(29, 'Congratulations! You finished game! See curiosities!', 8),
+(30, 'You received extra 25 points for complete the game!', 8),
+(31, 'This game was made for Agile Programming course', 8),
+(32, 'Greetings from Heraklion!', 8);
 
 -- --------------------------------------------------------
 
@@ -282,7 +286,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `login`, `email`, `pass`, `level`, `points`, `picture`, `hangman`, `rebus`) VALUES
-(1, 'jonasz', 'jonkul001@gmail.com', 'aaa', 2, 22, b'0', b'1', b'1'),
+(1, 'jonasz', 'jonkul001@gmail.com', 'aaa', 3, 25, b'0', b'0', b'0'),
 (2, 'nalia', 'jonakul001@gmail.com', 'aaa', 3, 10, b'0', b'0', b'0'),
 (3, 'sss', 'arybka68@gmail.com', 'aaa', 2, 11, b'0', b'0', b'1'),
 (4, 'aaa1', 'jonkul001a@gmail.com', 'aaa1', 1, 0, b'0', b'0', b'0'),
@@ -311,13 +315,15 @@ INSERT INTO `users` (`id`, `login`, `email`, `pass`, `level`, `points`, `picture
 (27, 'qwerty', 'jonkul0whwehweb01@gmail.com', 'aaa', 1, 0, b'0', b'0', b'0'),
 (28, 'qwer', 'jonkulwehewh001@gmail.cl', 'aaa', 1, 0, b'0', b'0', b'0'),
 (29, 'jak1', 'jonkherejrjmul001@gmail.com', 'aaa', 1, 0, b'0', b'0', b'0'),
-(30, '111', '111@gmail.com', 'aaa', 1, 0, b'0', b'0', b'0'),
+(30, '111', '111@gmail.com', 'aaa', 2, 12, b'0', b'0', b'0'),
 (31, '222', 'jonku222l001@gmail.com', 'aaa', 2, 0, b'0', b'0', b'0'),
 (32, '333', 'jonku333l001@gmail.com', 'aaa', 3, 0, b'0', b'0', b'0'),
 (33, '444', 'jonku444l001@gmail.com', 'aaa', 4, 3, b'0', b'0', b'1'),
 (34, '555', 'jonku555l001@gmail.com', 'aaa', 5, 0, b'0', b'0', b'0'),
 (35, '666', 'jonkul066601@gmail.com', 'aaa', 6, 0, b'0', b'0', b'0'),
-(36, '777', 'jonku777l001@gmail.com', 'aaa', 7, 0, b'0', b'0', b'0');
+(36, '777', 'jonku777l001@gmail.com', 'aaa', 7, 0, b'0', b'0', b'0'),
+(37, '888', 'ja2@wp.pl', 'aaa', 8, 85, b'1', b'1', b'1'),
+(38, 'me123', 'me123@gmail.com', 'me12', 2, 11, b'0', b'0', b'0');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -367,7 +373,7 @@ ALTER TABLE `hangman`
 -- AUTO_INCREMENT dla tabeli `language_info`
 --
 ALTER TABLE `language_info`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT dla tabeli `picture`
@@ -385,7 +391,7 @@ ALTER TABLE `rebus`
 -- AUTO_INCREMENT dla tabeli `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
