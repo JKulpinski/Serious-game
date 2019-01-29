@@ -40,7 +40,27 @@ I will prepare the food.
 He's eating an apple.
 
 2 • Animals
+fly
+bird
+pet
+bat
+spider
+feed
+turtle
+caterpillar
+hamster
+snake
 
+moves through the air
+has wings and feathers
+animal in a home
+flies at night
+creature with eight legs
+give food to animal
+slow-moving reptile
+long animal with many legs
+pet similar to a mouse
+creature with no legs
 
 ====
 
@@ -54,6 +74,29 @@ She has two cats and three dogs.
 I don't like birds.
 
 3 • Houses and rooms
+basement, cellar
+bulb
+library
+attic
+shelf
+carpet
+flat
+laundry
+towel
+bell
+
+underneath the house
+glass object
+room with books
+under the roof
+flat, horizontal board
+cover floors
+set of rooms to live in
+clothes need to be washed
+use for drying yourself
+make a ringing sound
+====
+
 carpet
 doorbell
 cupboard
@@ -67,6 +110,30 @@ There's no place like home.
 His flat is very big.
 
 4 • Family and friends
+honeymoon
+child
+family
+stepmother
+sibling
+relative
+marriage
+uncle
+grandfather
+spouse
+
+after the wedding
+young person
+people who are related
+married your father
+sister or brother
+member of your family
+ceremony
+brother of your mother
+father of your father
+your husband or wife
+
+====
+
 stepfather
 honeymoon
 childhood
@@ -80,6 +147,30 @@ I'll always be your friend. Zawszę będę twoim przyjacielem.
 
 
 5 • Go to school/work
+angle
+spacebar
+employee
+job, occupation
+principal
+board
+hood
+eraser, rubber
+sharpener
+desk
+
+measure in degrees
+key on a keyboard
+is paid to work
+regular work
+headteacher
+flat piece of cut wood
+cover the head
+remove the marks
+make pencils sharper
+you can work at it
+
+====
+
 triangle
 homework
 alphabet
@@ -94,6 +185,29 @@ How was school today? Jak minął dzień zajęć w szkole?
 Where do you work?
 
 6 • Entertainment
+sunbathe
+hike
+island
+beach
+straw
+swim
+funfair
+playground
+leisure
+run
+
+lie in the sun
+long walk
+land surrounded by water
+area with sand and sea
+tube made of plastic
+move through water
+amusement park
+area where children play
+free time
+fast move
+
+====
 spiderman
 rebus
 sunbathe
@@ -107,6 +221,29 @@ Let's go for a walk on the beach.  Chodźmy na plażę na spacer.
 The children are playing in a garden.
 
 7 • Health
+health
+pill
+blood
+throat
+sore
+ill
+nurse
+headache
+hospital
+flu
+
+free from illness
+medicine
+red liquid
+front of the neck
+painful
+not feeling well
+work in hospital
+pain inside a head
+place for sick people
+infectious illness
+
+====
 pills
 heart
 
