@@ -8,9 +8,6 @@
     <title>LangStorm</title>
 
     <style>
-        body {
-            background-image: url(/images/aaron-burden-236415-unsplash1.jpg);
-        }
 
         h1, h2{
             color: #007722;
@@ -98,8 +95,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
 </script>
 <script xmlns:th="http://www.w3.org/1999/xhtml" th:inline="javascript">
+    var level = [[${level}]];
+    document.body.style.background = "url(/images/" + level + ".jpg)";
     $(document).ready(function() {
         var infos2 = [[${infos}]];
+
         document.getElementById("successMessage").innerHTML = '<h2>New day of the journey!</h2>' +
             infos2[0] + '<br><br>' +
             '<form action="journey">' +
@@ -118,7 +118,7 @@
                 left: '530px',
                 top: '150px',
                 width: '350px',
-                height: '250px',  // tu sie ustawia jak duze okienko wygranej
+                height: '320px',  // tu sie ustawia jak duze okienko wygranej
                 opacity: 1
             });
         }

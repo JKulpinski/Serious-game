@@ -11,15 +11,17 @@ ham
 pear
 
 sweet food made from fruit
-sweet food that is made by bees
-slices of bread with cheese
+sweet food made by bees
+slices of bread with ham
 small, round fruit
 vegetable
 type of tall tree
-green fruit with a hairy skin
-fruit that starts to break (verb)
+fruit with a hairy skin
+fruit that starts to break
 meat
 oval-shaped, pale fruit
+
+=====
 
 sandwich
 honey
@@ -30,13 +32,41 @@ pineapple
 hotdog / hot-dog
 strawberry
 
+====
+
 Would you like something to eat?
 She is cooking dinner.
 I will prepare the food.
 He's eating an apple.
 
 2 • Animals
+fly
+bird
+pet
+bat
+spider
+feed
+turtle
+caterpillar
+hamster
+snake
+
+moves through the air
+has wings and feathers
+animal in a home
+flies at night
+creature with eight legs
+give food to animal
+slow-moving reptile
+long animal with many legs
+pet similar to a mouse
+creature with no legs
+
+====
+
 butterfly
+
+====
 
 How many animals do you have?
 I walk my dog every day.
@@ -44,6 +74,29 @@ She has two cats and three dogs.
 I don't like birds.
 
 3 • Houses and rooms
+basement, cellar
+bulb
+library
+attic
+shelf
+carpet
+flat
+laundry
+towel
+bell
+
+underneath the house
+glass object
+room with books
+under the roof
+flat, horizontal board
+cover floors
+set of rooms to live in
+clothes need to be washed
+use for drying yourself
+make a ringing sound
+====
+
 carpet
 doorbell
 cupboard
@@ -57,6 +110,30 @@ There's no place like home.
 His flat is very big.
 
 4 • Family and friends
+honeymoon
+child
+family
+stepmother
+sibling
+relative
+marriage
+uncle
+grandfather
+spouse
+
+after the wedding
+young person
+people who are related
+married your father
+sister or brother
+member of your family
+ceremony
+brother of your mother
+father of your father
+your husband or wife
+
+====
+
 stepfather
 honeymoon
 childhood
@@ -70,6 +147,30 @@ I'll always be your friend. Zawszę będę twoim przyjacielem.
 
 
 5 • Go to school/work
+angle
+spacebar
+employee
+job, occupation
+principal
+board
+hood
+eraser, rubber
+sharpener
+desk
+
+measure in degrees
+key on a keyboard
+is paid to work
+regular work
+headteacher
+flat piece of cut wood
+cover the head
+remove the marks
+make pencils sharper
+you can work at it
+
+====
+
 triangle
 homework
 alphabet
@@ -84,6 +185,29 @@ How was school today? Jak minął dzień zajęć w szkole?
 Where do you work?
 
 6 • Entertainment
+sunbathe
+hike
+island
+beach
+straw
+swim
+funfair
+playground
+leisure
+run
+
+lie in the sun
+long walk
+land surrounded by water
+area with sand and sea
+tube made of plastic
+move through water
+amusement park
+area where children play
+free time
+fast move
+
+====
 spiderman
 rebus
 sunbathe
@@ -97,6 +221,29 @@ Let's go for a walk on the beach.  Chodźmy na plażę na spacer.
 The children are playing in a garden.
 
 7 • Health
+health
+pill
+blood
+throat
+sore
+ill
+nurse
+headache
+hospital
+flu
+
+free from illness
+medicine
+red liquid
+front of the neck
+painful
+not feeling well
+work in hospital
+pain inside a head
+place for sick people
+infectious illness
+
+====
 pills
 heart
 
@@ -105,6 +252,9 @@ I'll take you to a doctor.
 I have a sore throat. Mam bolące gardło.
 Vegetables are very healthy.
 
+Rebusy dane techniczne:
+wielkosc: 800x500 pikseli, obrazek umieszczony centralnie na bialym tle
+
 level objectives:
 1. Food
 Tego dnia zajmiemy się jedzeniem i piciem, które są niezbędne w naszej podróży. Wiadomo że człowiek jest w stanie przeżyć jedynie tydzień bez wody i miesiąc bez jedzenia. Dlatego jest bardzo ważne żeby zebrać trochę prowiantu!
@@ -112,7 +262,79 @@ Tego dnia zajmiemy się jedzeniem i piciem, które są niezbędne w naszej podr�
 2. Animals
 Zwierzęta są przyjaciółmi człowieka, poznajmy ich angielskie nazwy! Potrafią być przyjazne i niebezpieczne. Trzeba wiedzieć jakie występują w dalekich krajach aby sobie poradzić.
 
-Rebusy dane techniczne:
-wielkosc: 800x500 pikseli, obrazek umieszczony centralnie na bialym tle
+3 • Houses and rooms
+Teraz poznamy nazwy przedmiotów w domu i nazwy różnych pomieszczeń.
+
+4 • Family and friends
+Każdy potrzebuje przyjaciół i rodziny aby być szczęśliwym. Dzisiaj nauczymy się angielskich słów związanych z relacjami, aby zdobywać przyjaciół w innych krajach.
+
+5 • Go to school/work
+Pójście do szkoły i pracy jest potrzebne żeby godnie żyć, choć jest to dla wielu osób ciężka praca. Zapoznasz się z najbardziej potrzebnymi słówkami.
+
+6.Entertainment
+Po pracy musi być czas na zabawę i odpoczynek! Porcja wyrazów związanych z rozrywką.
+
+7.Health
+Zdrowie jest najważniejsze, więc nauczmy się nazw chorób i dolegliwości żeby móc powiedzieć za granicą, co nam dolega.
+
+Ang:
+1. Food
+That day we will take care of food and drink, which are essential in our journey. It is known that man is able to survive only a week without water and a month without food. That is why it is very important to collect some food!
+
+2. Animals
+Animals are human friends, let's get to know their English names! They can be friendly and dangerous. You need to know what are occurring in distant countries to deal with.
+
+3 • Houses and rooms
+Now we will know the names of objects in the house and the names of the different rooms.
+
+4 • Family and friends
+Everyone needs friends and family to be happy. Today we will learn English words related to relationships to get friends in other countries.
+
+5 • Go to school / work
+Going to school and work is needed to live with dignity, although it is hard work for many people. You will get acquainted with the most needed words.
+
+6.Entertainment
+After work, there must be time for fun and rest! A portion of words related to entertainment.
+
+7.Health
+Health is the most important, so let's learn the names of diseases and ailments to be able to say abroad what's hurting us.
+
+Curiosities:
+Every banana you eat is a clone. All bananas are genetic clones of the Cavendish variety.
+Potatoes can absorb and reflect Wi-fi signals.
+Honey will never ever go bad.
+
+Dogs' sense of smell is about 100,000 times stronger than humans', but they have just one-sixth our number of taste buds.
+Sharks kill fewer than 10 people per year. Humans kill about 100 million sharks per year.
+Wild dolphins call each other by name.
+
+The Sultan of Brunei’s 2,152,782-square-foot, marble-laden home is the biggest house in the World.
+NASA Vehicle Assembly Building (32,374 square metres) is the biggest room in the World.
+Measuring 124 feet high, Falcon Nest in Prescott, Arizona is called 'the world's tallest single-family house'.
+
+More people in the world have learned English as a second language than there are native English speakers.
+The letter "e" is the most commonly used letter in the English language.
+The US doesn’t have an official language.
+
+The students in China receive the most homework in the world. At an average, teenagers do a whopping 14 hours of homework in a week.
+Summer vacations in Chile start from mid-December and end in early March. That's 3 whole months away from school.
+Iran is one country where girls and boys are educated separately till the time they reach college.
+
+President Obama gets to watch advanced episodes of 'Game of Thrones' episodes before the rest of the world.
+Mickey Mouse has a sister named Amelia Fieldmouse.
+The television show 'Dexter' has been linked to 3 real life crimes.
+
+Laughing is good for the heart and can increase blood flow by 20 percent.
+A lack of exercise now causes as many deaths as smoking.
+Writing things out by hand will help you remember them.
+
+
+The oldest English word that is still in use is ‘town’.
+
+11% of the entire English language is just the letter E.
+The two most common words in English are I and you.
+There are approximately 1.5 billion English speakers in the world.
+English is the third most spoken native language in the world. Standard Chinese and Spanish are first and second, respectively.
+Most average adult English speakers know between 20,000–35,000 words.
 
 
