@@ -59,6 +59,11 @@ public class JourneyController {
             infos.add(info.getInfo());
         model.addAttribute("infos", infos);
 
+        List<String> infos_pl = new ArrayList<>();
+        for (LanguageInfo info_pl : rawinfos)
+            infos_pl.add(info_pl.getInfo_pl());
+        model.addAttribute("infos_pl", infos_pl);
+
         if (user.getPicture())     //moze byc do poprawki trzeba sprawdzic dzialanie po doodaniu punktow i levelow do pictures i hangmena
             model.addAttribute("picture", "Matching game has already been completed for this day");
         if (user.getHangman())

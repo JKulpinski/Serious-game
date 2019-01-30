@@ -7,14 +7,14 @@ import javax.persistence.Id;
 
 @Entity
 public class LanguageInfo {
-    public LanguageInfo() {
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String info;
+    private String info_pl;
     private Long level;
+    public LanguageInfo() {
+    }
 
     public Long getId() {
         return id;
@@ -38,5 +38,13 @@ public class LanguageInfo {
 
     public void setLevel(Long level) {
         this.level = level;
+    }
+
+    public String getInfo_pl() {
+        return info_pl;
+    }
+
+    public void setInfo_pl(String info_pl) {
+        this.info_pl = info_pl;
     }
 }

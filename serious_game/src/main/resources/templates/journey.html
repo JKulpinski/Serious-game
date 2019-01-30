@@ -33,7 +33,7 @@
 <div id="main">
     <div id="title">
         <h1 th:text="#{journey}"></h1>
-        <h2 th:text="#{greeting}"></h2>
+        <h2 id="jour" th:text="#{greeting}"></h2>
         <span th:text="#{lang.change}"></span>:
         <select id="locales">
             <option value=""></option>
@@ -136,6 +136,7 @@
 </script>
 <script xmlns:th="http://www.w3.org/1999/xhtml" th:inline="javascript">
     var infos = [[${infos}]];
+    var infos_pl = [[${infos_pl}]];
 
     if (document.getElementById("picture_back").innerText === "Matching game has already been completed for this day") {
         document.getElementById("picture1").innerHTML =
@@ -157,7 +158,12 @@
     }
 
     function myFunction(number, name) {
-        document.getElementById(name).innerHTML = infos[number];
+        if (document.getElementById("jour").innerText ==="Your Journey") {
+            document.getElementById(name).innerHTML = infos[number];
+        }
+        else {
+            document.getElementById(name).innerHTML = infos_pl[number];
+        }
         var popup = document.getElementById(name);
         popup.classList.toggle("show");
     }
