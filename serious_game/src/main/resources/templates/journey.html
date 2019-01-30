@@ -106,12 +106,23 @@
     document.body.style.background = "url(/images/" + level + ".jpg)";
     $(document).ready(function () {
         var infos2 = [[${infos}]];
+        var infos2_pl = [[${infos_pl}]];
 
-        document.getElementById("successMessage").innerHTML = '<h2>New day of the journey!</h2>' +
-            infos2[0] + '<br><br>' +
-            '<form action="journey">' +
-            '    <button type="submit" style="background-color: #2e9b08;height: 40px;width: 200px; cursor: pointer;">OK</button>\n' +
-            '</form>';
+        if (document.getElementById("jour").innerText === "Your Journey") {
+            document.getElementById("successMessage").innerHTML = '<h2>New day of the journey!</h2>' +
+                infos2[0] + '<br><br>' +
+                '<form action="journey">' +
+                '    <button type="submit" style="background-color: #2e9b08;height: 40px;width: 200px; cursor: pointer;">OK</button>\n' +
+                '</form>';
+        }
+        else{
+            document.getElementById("successMessage").innerHTML = '<h2>Kolejny dzień podróży!</h2>' +
+                infos2_pl[0] + '<br><br>' +
+                '<form action="journey">' +
+                '    <button type="submit" style="background-color: #2e9b08;height: 40px;width: 200px; cursor: pointer;">OK</button>\n' +
+                '</form>';
+        }
+
         $('#successMessage').hide();
         $('#successMessage').css({
             left: '580px',
