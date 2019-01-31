@@ -13,7 +13,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="readinglist" options="" />
+      <module name="readinglist" options="-parameters" />
       <module name="readinglist (1)" options="-parameters" />
     </option>
   </component>
