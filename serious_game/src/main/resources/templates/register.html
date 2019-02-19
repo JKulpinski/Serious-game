@@ -24,6 +24,10 @@
             padding: 1em;
             border: 10px dotted black;
         }
+        progress{
+            background-color: green;
+        }
+
     </style>
 </head>
 <body>
@@ -44,7 +48,9 @@
         <br>
         <div>Email :<br><label><input class="form-control" type="text" name="email"/> </label></div>
         <br>
-        <div>Password:<br><label><input class="form-control" type="password" name="pass"/> </label></div>
+        <div>Password:<br><label><input class="form-control" type="password" id="password" name="pass"/> </label></div>
+        <br>
+        <progress id="passwordComplexity" value="0"></progress>
         <br>
         <div>Reenter password:<br><label> <input class="form-control" type="password" name="pass2"/> </label></div>
         <br>
@@ -58,3 +64,42 @@
 </div>
 </body>
 </html>
+<script xmlns:th="http://www.w3.org/1999/xhtml" th:inline="javascript">
+
+    let calcComplexity = function(password){
+        let complexity = 0;
+        let regExps = [
+            /[a-z]/,
+            /[A-Z]/,
+            /[0-9]/,
+            /.{8}/,
+            /.{16}/,
+            /\W|_/  //for special signs
+        ];
+
+        regExps.forEach(function (regexp){
+            if (regexp.test(password)){
+                complexity++;
+            }
+        });
+
+        return {
+            value: complexity,
+            max: regExps.length
+        };
+
+    };
+
+    let checkPasswordStrength = function (password){
+        let progress = document.querySelector('#passwordComplexity'),
+            complexity = calcComplexity(this.value);
+
+        progress.value = complexity.value;
+        progress.max = complexity.max;
+    };
+
+    let input = document.querySelector('#password');
+
+    input.addEventListener('keyup', checkPasswordStrength);
+
+</script>

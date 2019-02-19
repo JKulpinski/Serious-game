@@ -40,7 +40,7 @@ public class RegistrationController {
             valid[0] = true;
             if (login_validation(login)) {
                 valid[1] = true;
-            } else error += " Wrong User Name. At least 3 signs. Without special signs.\n";
+            } else error += " Wrong User Name. At least 3 signs. Unsupported sign\n";
         } else error += " This User Name is not available.\n";
 
 
@@ -52,12 +52,12 @@ public class RegistrationController {
         } else error += " This email is not available.\n";
 
 
-        if (login_validation(pass)) {
+        if (pass_validation(pass)) {
             valid[4] = true;
             if (pass2.equals(pass)) {
                 valid[5] = true;
             } else error += " Password confirmation error.\n";
-        } else error += " Wrong password. At least 3 signs. Without special signs.\n";
+        } else error += " Wrong password. At least 3 signs. Unsupported sign\n";
 
         for (boolean b : valid) {
             if (!b) {
@@ -77,6 +77,11 @@ public class RegistrationController {
 
     private boolean email_validation(String email) {
         Matcher matcher = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE).matcher(email);
+        return matcher.find();
+    }
+
+    private boolean pass_validation(String login) {
+        Matcher matcher = Pattern.compile("^[a-zA-Z0-9\\p{P}\\p{S}]{3,}$", Pattern.CASE_INSENSITIVE).matcher(login);
         return matcher.find();
     }
 }
