@@ -25,7 +25,8 @@
     </div>
 
     <div id="alerts" style="color: red;font-size: large;">
-        <p th:utext="${#strings.replace(#strings.escapeJava(alert1),'\n','&lt;br /&gt;')}"></p>
+        <p xmlns:th="http://www.w3.org/1999/xhtml"
+           th:utext="${#strings.replace(#strings.escapeJava(alert1),'\n','&lt;br /&gt;')}"></p>
     </div>
 
     <form method="POST">
