@@ -89,7 +89,7 @@
 </script>
 <script xmlns:th="http://www.w3.org/1999/xhtml" th:inline="javascript">
     var level = [[${level}]];
-    document.body.style.background = "url(../images/" + level + ".jpg)";
+    document.body.style.backgroundImage = "url(../images/" + level + ".jpg)";
     $(document).ready(function () {
         var infos2 = [[${infos}]];
         var infos2_pl = [[${infos_pl}]];
