@@ -11,8 +11,9 @@ public class Users {
         this.points = 0;
         this.level = 0L;
         this.rebus = true;
-        this.picture = true;
+        this.runner = true;
         this.hangman = true;
+        this.language = "en";
     }
 
     public Users(String login, String email, String pass) {
@@ -22,8 +23,9 @@ public class Users {
         this.points = 0;
         this.level = 0L;
         this.rebus = true;
-        this.picture = true;
+        this.runner = true;
         this.hangman = true;
+        this.language = "en";
     }
 
     @Id
@@ -35,8 +37,9 @@ public class Users {
     private Integer points;
     private Long level;
     private Boolean rebus;
-    private Boolean picture;
+    private Boolean runner;
     private Boolean hangman;
+    private String language;
 
     public Boolean getRebus() {
         return rebus;
@@ -46,12 +49,12 @@ public class Users {
         this.rebus = rebus;
     }
 
-    public Boolean getPicture() {
-        return picture;
+    public Boolean getRunner() {
+        return runner;
     }
 
-    public void setPicture(Boolean picture) {
-        this.picture = picture;
+    public void setRunner(Boolean runner) {
+        this.runner = runner;
     }
 
     public Boolean getHangman() {
@@ -110,4 +113,11 @@ public class Users {
         this.level = level;
     }
 
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
 }

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 31 Sty 2019, 14:59
--- Wersja serwera: 5.5.54
--- Wersja PHP: 7.2.12
+-- Czas generowania: 02 Maj 2019, 21:40
+-- Wersja serwera: 10.1.36-MariaDB
+-- Wersja PHP: 7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -72,6 +72,23 @@ INSERT INTO `hangman` (`id`, `answer`, `level`, `translation`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktura tabeli dla tabeli `hibernate_sequence`
+--
+
+CREATE TABLE `hibernate_sequence` (
+  `next_val` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+--
+-- Zrzut danych tabeli `hibernate_sequence`
+--
+
+INSERT INTO `hibernate_sequence` (`next_val`) VALUES
+(1);
+
+-- --------------------------------------------------------
+
+--
 -- Struktura tabeli dla tabeli `language_info`
 --
 
@@ -123,10 +140,65 @@ INSERT INTO `language_info` (`id`, `info`, `level`, `info_pl`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `picture`
+-- Struktura tabeli dla tabeli `rebus`
 --
 
-CREATE TABLE `picture` (
+CREATE TABLE `rebus` (
+  `id` bigint(20) NOT NULL,
+  `answer` varchar(255) DEFAULT NULL,
+  `level` bigint(20) DEFAULT NULL,
+  `rebus` varchar(255) DEFAULT NULL,
+  `translation_pl` varchar(255) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Zrzut danych tabeli `rebus`
+--
+
+INSERT INTO `rebus` (`id`, `answer`, `level`, `rebus`, `translation_pl`) VALUES
+(1, 'sandwich', 1, '1111.jpg', 'kanapka'),
+(2, 'honey', 1, '1112.jpg', 'miód'),
+(3, 'gooseberry', 1, '1113.jpg', 'agrest'),
+(4, 'jam', 1, '1114.jpg', 'dżem'),
+(5, 'carrot', 1, '1115.jpg', 'marchewka'),
+(6, 'pineapple', 1, '1116.jpg', 'ananas'),
+(7, 'hotdog', 1, '1117.jpg', 'hotdog'),
+(8, 'strawberry', 1, '1118.jpg', 'truskawka'),
+(9, 'butterfly', 2, '2111.jpg', 'motyl'),
+(10, 'carpet', 3, '3111.jpg', 'dywan'),
+(11, 'doorbell', 3, '3112.jpg', 'dzwonek do drzwi'),
+(12, 'cupboard', 3, '3113.jpg', 'szafka kuchenna, kredens'),
+(13, 'bookshelf', 3, '3114.jpg', 'półka na książki'),
+(14, 'doormat', 3, '3115.jpg', 'wycieraczka'),
+(15, 'armchair', 3, '3116.jpg', 'fotel'),
+(16, 'stepfather', 4, '4111.jpg', 'ojczym'),
+(17, 'honeymoon', 4, '4112.jpg', 'miesiąc miodowy'),
+(18, 'childhood', 4, '4113.jpg', 'dzieciństwo'),
+(19, 'friendship', 4, '4114.jpg', 'przyjaźń'),
+(20, 'triangle', 5, '5111.jpg', 'trójkąt'),
+(21, 'homework', 5, '5112.jpg', 'praca domowa'),
+(22, 'alphabet', 5, '5113.jpg', 'alfabet'),
+(23, 'office', 5, '5114.jpg', 'biuro'),
+(24, 'feedback', 5, '5115.jpg', 'informacja zwrotna'),
+(25, 'keyboard', 5, '5116.jpg', 'klawiatura'),
+(26, 'spacebar', 5, '5117.jpg', 'klawisz spacji'),
+(27, 'spiderman', 6, '6111.jpg', 'spiderman'),
+(28, 'rebus', 6, '6112.jpg', 'rebus'),
+(29, 'sunbath', 6, '6113.jpg', 'kąpiel słoneczna'),
+(30, 'batman', 6, '6115.jpg', 'batman'),
+(31, 'island', 6, '6116.jpg', 'wyspa'),
+(32, 'pills', 7, '7111.jpg', 'tabletki'),
+(33, 'heart', 7, '7112.jpg', 'serce'),
+(34, 'icecream', 6, '6114.jpg', 'lody'),
+(35, 'familytree', 6, '4115.jpg', 'drzewo genealogiczne');
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `runner`
+--
+
+CREATE TABLE `runner` (
   `id` bigint(20) NOT NULL,
   `answer` varchar(255) DEFAULT NULL,
   `level` bigint(20) DEFAULT NULL,
@@ -134,10 +206,10 @@ CREATE TABLE `picture` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Zrzut danych tabeli `picture`
+-- Zrzut danych tabeli `runner`
 --
 
-INSERT INTO `picture` (`id`, `answer`, `level`, `text`) VALUES
+INSERT INTO `runner` (`id`, `answer`, `level`, `text`) VALUES
 (1, 'jam', 1, 'food made from fruit'),
 (2, 'honey', 1, 'sweet food made by bees'),
 (3, 'sandwich', 1, 'slices of bread with ham'),
@@ -145,7 +217,7 @@ INSERT INTO `picture` (`id`, `answer`, `level`, `text`) VALUES
 (5, 'carrot', 1, 'vegetable'),
 (6, 'pine', 1, 'type of tall tree'),
 (7, 'gooseberry', 1, 'fruit with a hairy skin'),
-(8, 'rot', 1, 'fruit that starts to break'),
+(8, 'rot', 1, 'fruit starts to break'),
 (9, 'ham', 1, 'meat'),
 (10, 'pear', 1, 'oval-shaped, pale fruit'),
 (11, 'fly', 2, 'moves through the air'),
@@ -155,7 +227,7 @@ INSERT INTO `picture` (`id`, `answer`, `level`, `text`) VALUES
 (15, 'spider', 2, 'creature with eight legs'),
 (16, 'feed', 2, 'give food to animal'),
 (17, 'turtle', 2, 'slow-moving reptile'),
-(18, 'caterpillar', 2, 'long animal with many legs'),
+(18, 'caterpillar', 2, 'long with many legs'),
 (19, 'hamster', 2, 'pet similar to a mouse'),
 (20, 'snake', 2, 'creature with no legs'),
 (21, 'basement, cellar', 3, 'underneath the house'),
@@ -165,7 +237,7 @@ INSERT INTO `picture` (`id`, `answer`, `level`, `text`) VALUES
 (25, 'shelf', 3, 'flat, horizontal board'),
 (26, 'carpet', 3, 'cover floors'),
 (27, 'flat', 3, 'set of rooms to live in'),
-(28, 'laundry', 3, 'clothes need to be washed'),
+(28, 'laundry', 3, 'clothes to be washed'),
 (29, 'towel', 3, 'use for drying yourself'),
 (30, 'bell', 3, 'make a ringing sound'),
 (31, 'honeymoon', 4, 'after the wedding'),
@@ -212,93 +284,67 @@ INSERT INTO `picture` (`id`, `answer`, `level`, `text`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `rebus`
---
-
-CREATE TABLE `rebus` (
-  `id` bigint(20) NOT NULL,
-  `answer` varchar(255) DEFAULT NULL,
-  `level` bigint(20) DEFAULT NULL,
-  `rebus` varchar(255) DEFAULT NULL,
-  `translation_pl` varchar(255) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Zrzut danych tabeli `rebus`
---
-
-INSERT INTO `rebus` (`id`, `answer`, `level`, `rebus`, `translation_pl`) VALUES
-(1, 'sandwich', 1, '1111.jpg', 'kanapka'),
-(2, 'honey', 1, '1112.jpg', 'miód'),
-(3, 'gooseberry', 1, '1113.jpg', 'agrest'),
-(4, 'jam', 1, '1114.jpg', 'dżem'),
-(5, 'carrot', 1, '1115.jpg', 'marchewka'),
-(6, 'pineapple', 1, '1116.jpg', 'ananas'),
-(7, 'hotdog', 1, '1117.jpg', 'hotdog'),
-(8, 'strawberry', 1, '1118.jpg', 'truskawka'),
-(9, 'butterfly', 2, '2111.jpg', 'motyl'),
-(10, 'carpet', 3, '3111.jpg', 'dywan'),
-(11, 'doorbell', 3, '3112.jpg', 'dzwonek do drzwi'),
-(12, 'cupboard', 3, '3113.jpg', 'szafka kuchenna, kredens'),
-(13, 'bookshelf', 3, '3114.jpg', 'półka na książki'),
-(14, 'doormat', 3, '3115.jpg', 'wycieraczka'),
-(15, 'armchair', 3, '3116.jpg', 'fotel'),
-(16, 'stepfather', 4, '4111.jpg', 'ojczym'),
-(17, 'honeymoon', 4, '4112.jpg', 'miesiąc miodowy'),
-(18, 'childhood', 4, '4113.jpg', 'dzieciństwo'),
-(19, 'friendship', 4, '4114.jpg', 'przyjaźń'),
-(20, 'triangle', 5, '5111.jpg', 'trójkąt'),
-(21, 'homework', 5, '5112.jpg', 'praca domowa'),
-(22, 'alphabet', 5, '5113.jpg', 'alfabet'),
-(23, 'office', 5, '5114.jpg', 'biuro'),
-(24, 'feedback', 5, '5115.jpg', 'informacja zwrotna'),
-(25, 'keyboard', 5, '5116.jpg', 'klawiatura'),
-(26, 'spacebar', 5, '5117.jpg', 'klawisz spacji'),
-(27, 'spiderman', 6, '6111.jpg', 'spiderman'),
-(28, 'rebus', 6, '6112.jpg', 'rebus'),
-(29, 'sunbathe', 6, '6113.jpg', 'opalać się'),
-(30, 'batman', 6, '6115.jpg', 'batman'),
-(31, 'island', 6, '6116.jpg', 'wyspa'),
-(32, 'pills', 7, '7111.jpg', 'tabletki'),
-(33, 'heart', 7, '7112.jpg', 'serce'),
-(34, 'icecream', 6, '6114.jpg', 'lody'),
-(35, 'familytree', 6, '4115.jpg', 'drzewo genealogiczne');
-
--- --------------------------------------------------------
-
---
 -- Struktura tabeli dla tabeli `users`
 --
 
 CREATE TABLE `users` (
   `id` bigint(20) NOT NULL,
-  `login` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `pass` varchar(255) DEFAULT NULL,
+  `login` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `email` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `pass` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   `level` bigint(20) DEFAULT NULL,
   `points` int(11) DEFAULT NULL,
-  `picture` bit(1) DEFAULT NULL,
+  `runner` bit(1) DEFAULT NULL,
   `hangman` bit(1) DEFAULT NULL,
-  `rebus` bit(1) DEFAULT NULL
+  `rebus` bit(1) DEFAULT NULL,
+  `enabled` bit(1) DEFAULT NULL,
+  `language` varchar(3) DEFAULT 'en'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Zrzut danych tabeli `users`
 --
 
-INSERT INTO `users` (`id`, `login`, `email`, `pass`, `level`, `points`, `picture`, `hangman`, `rebus`) VALUES
-(30, '111', '111@gmail.com', 'aaa', 2, 12, b'0', b'0', b'0'),
-(31, '222', 'jonku222l001@gmail.com', 'aaa', 2, 0, b'0', b'0', b'0'),
-(32, '333', 'jonku333l001@gmail.com', 'aaa', 3, 0, b'0', b'0', b'0'),
-(33, '444', 'jonku444l001@gmail.com', 'aaa', 5, 9, b'0', b'0', b'0'),
-(34, '555', 'jonku555l001@gmail.com', 'aaa', 8, 56, b'1', b'1', b'1'),
-(35, '666', 'jonkul066601@gmail.com', 'aaa', 6, 8, b'1', b'0', b'1'),
-(36, '777', 'jonku777l001@gmail.com', 'aaa', 7, 0, b'0', b'0', b'0'),
-(37, '888', 'ja2@wp.pl', 'aaa', 8, 85, b'1', b'1', b'1'),
-(38, 'me123', 'me123@gmail.com', 'me12', 2, 11, b'0', b'0', b'0'),
-(39, 'akimbo111', '111@wp.pl', 'aaa', 1, 0, b'0', b'0', b'0'),
-(40, 'user', 'user@gmail.com', 'aaaa', 5, 39, b'0', b'0', b'0'),
-(42, 'nv1', 'nv@nv1.gr', '123456', 1, 7, b'0', b'0', b'1');
+INSERT INTO `users` (`id`, `login`, `email`, `pass`, `level`, `points`, `runner`, `hangman`, `rebus`, `enabled`, `language`) VALUES
+(1, 'jonasz', 'jonkul001@gmail.com', 'aaa', 3, 25, b'0', b'0', b'0', NULL, 'en'),
+(2, 'nalia', 'jonakul001@gmail.com', 'aaa', 3, 10, b'0', b'0', b'0', NULL, 'en'),
+(3, 'sss', 'arybka68@gmail.com', 'aaa', 2, 11, b'0', b'0', b'1', NULL, 'en'),
+(4, 'aaa1', 'jonkul001a@gmail.com', 'aaa1', 1, 0, b'0', b'0', b'0', NULL, 'en'),
+(5, 'gds', 'jonaakul001@gmail.com', 'aaa', 1, 2, b'0', b'1', b'0', NULL, 'en'),
+(6, 'aaaa', 'aaaa@aa.com', 'aaaa', 1, 3, b'1', b'0', b'0', NULL, 'en'),
+(7, 'rwq', 'jonkul44001@gmail.com', 'bbb', 1, 0, b'0', b'0', b'0', NULL, 'en'),
+(8, 'aaaaa', 'jonkuaaal001@gmail.com', 'aaa', 1, 2, b'0', b'1', b'0', NULL, 'en'),
+(9, 'ssss', 'jonkwfwul001@gmail.com', 'aaa', 1, 0, b'0', b'0', b'0', NULL, 'en'),
+(10, 'zzz', 'jonddkul001@gmail.com', 'aaa', 1, 3, b'1', b'0', b'0', NULL, 'en'),
+(11, 'ggg', 'jonkugggl001@gmail.com', 'aaa', 2, 8, b'0', b'0', b'0', NULL, 'en'),
+(12, 'jonasz11', 'jonkulggdsg001@gmail.com', '1111', 1, 0, b'0', b'0', b'0', NULL, 'en'),
+(13, 'qqq', 'jonkul0ddd01@gmail.com', 'aaa', 1, 5, b'1', b'1', b'0', NULL, 'en'),
+(14, 'reyy44', 'jonkusssl001@gmail.com', 'aaa', 1, 0, b'0', b'0', b'0', NULL, 'en'),
+(15, 'tasos', 'tasos@bile.gr', '123456', 2, 7, b'0', b'0', b'0', NULL, 'en'),
+(16, 'aaa111111', 'jo44445nkul001@gmail.com', 'aaa', 2, 7, b'0', b'0', b'0', NULL, 'en'),
+(17, 'aaaaaaaaaaaa', 'jonkul00gggggg1@gmail.com', 'aaa', 1, 3, b'1', b'0', b'0', NULL, 'en'),
+(18, 'qqqqq', 'jonddddfesgekul001@gmail.com', 'aaa', 1, 5, b'1', b'0', b'1', NULL, 'en'),
+(19, 'jon', 'aaaa@gt.po', 'aaa', 1, 2, b'0', b'1', b'0', NULL, 'en'),
+(20, 'ttt', 'jonkul0gdshddsj01@gmail.com', 'aaaa', 2, 8, b'0', b'0', b'0', NULL, 'en'),
+(21, 'iop', 'jonk54757584ul001@gmail.com', 'aaa', 1, 0, b'0', b'0', b'0', NULL, 'en'),
+(22, 'bbb', 'bbb@wp.com', 'aaa', 1, 2, b'0', b'0', b'1', NULL, 'en'),
+(23, 'abb', 'jonkul0gwewhwehewhewrsdfc01@gmail.com', 'aaa', 2, 8, b'0', b'0', b'0', NULL, 'en'),
+(24, 'naka', 'huc@utp.pl', 'aaa', 2, 11, b'0', b'0', b'0', NULL, 'en'),
+(25, 'admin', 'admin@gmail.com', 'admin', 5, 13, b'0', b'0', b'0', NULL, 'en'),
+(26, 'jak', 'ewtew@111.pl', 'aaa', 1, 0, b'0', b'0', b'0', NULL, 'en'),
+(27, 'qwerty', 'jonkul0whwehweb01@gmail.com', 'aaa', 1, 0, b'0', b'0', b'0', NULL, 'en'),
+(28, 'qwer', 'jonkulwehewh001@gmail.cl', 'aaa', 1, 0, b'0', b'0', b'0', NULL, 'en'),
+(29, 'jak1', 'jonkherejrjmul001@gmail.com', 'aaa', 1, 0, b'0', b'0', b'0', NULL, 'en'),
+(30, '111', '111@gmail.com', 'aaa', 2, 12, b'0', b'0', b'0', NULL, 'en'),
+(31, '222', 'jonku222l001@gmail.com', 'aaa', 2, 0, b'0', b'0', b'0', NULL, 'en'),
+(32, '333', 'jonku333l001@gmail.com', 'aaa', 3, 0, b'0', b'0', b'0', NULL, 'en'),
+(33, '444', 'jonku444l001@gmail.com', 'aaa', 4, 3, b'0', b'0', b'1', NULL, 'en'),
+(34, '555', 'jonku555l001@gmail.com', 'aaa', 5, 0, b'0', b'0', b'0', NULL, 'en'),
+(35, '666', 'jonkul066601@gmail.com', 'aaa', 6, 0, b'0', b'0', b'0', NULL, 'en'),
+(36, '777', 'jonku777l001@gmail.com', 'aaa', 7, 0, b'0', b'0', b'0', NULL, 'en'),
+(38, 'me123', 'me123@gmail.com', 'me12', 2, 11, b'0', b'0', b'0', NULL, 'en'),
+(39, 'natalia', 'natalia@gmail.com', 'natalia', 8, 120, b'1', b'1', b'1', NULL, 'en'),
+(47, 'denis', 'denis@gmail.com', '!@#$%^&*()_+', 1, 0, b'0', b'0', b'0', NULL, 'en');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -317,15 +363,15 @@ ALTER TABLE `language_info`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeksy dla tabeli `picture`
---
-ALTER TABLE `picture`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indeksy dla tabeli `rebus`
 --
 ALTER TABLE `rebus`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeksy dla tabeli `runner`
+--
+ALTER TABLE `runner`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -351,22 +397,22 @@ ALTER TABLE `language_info`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
--- AUTO_INCREMENT dla tabeli `picture`
---
-ALTER TABLE `picture`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
-
---
 -- AUTO_INCREMENT dla tabeli `rebus`
 --
 ALTER TABLE `rebus`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
+-- AUTO_INCREMENT dla tabeli `runner`
+--
+ALTER TABLE `runner`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+
+--
 -- AUTO_INCREMENT dla tabeli `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

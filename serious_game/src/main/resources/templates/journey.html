@@ -44,9 +44,9 @@
             <span class="popuptext" id="story">info</span>
         </div>
 
-        <br><br><span id="picture_back" th:text="${picture}"></span><br>
-        <div id="picture1">
-            <a href="pictures" class="btn btn-success btn-lg"><span th:text="#{matching}"></span></a><br>
+        <br><br><span id="runner_back" th:text="#{completeRunner}" style="visibility: hidden"></span><br>
+        <div id="runner1">
+            <a href="runner" class="btn btn-success btn-lg"><span th:text="#{runner}"></span></a><br>
         </div>
         <br>
         <div class="popup">
@@ -56,7 +56,7 @@
             <span class="popuptext" id="curio1">info</span>
         </div>
 
-        <br><br><span id="hangman_back" th:text="${hangman}"></span><br>
+        <br><br><span id="hangman_back" th:text="#{completeHangman}" style="visibility: hidden"></span><br>
         <div id="hangman1">
             <a href="hangman" class="btn btn-success btn-lg"><span th:text="#{hangman}"></span></a><br>
         </div>
@@ -67,7 +67,7 @@
             <span class="popuptext" id="curio2">info</span>
         </div>
 
-        <br><br><span id="rebus_back" th:text="${rebus}"></span><br>
+        <br><br><span id="rebus_back" th:text="#{completeRebus}"style="visibility: hidden"></span><br>
         <div id="rebus1">
             <a href="rebus" class="btn btn-success btn-lg">Rebus</a><br>
         </div>
@@ -81,7 +81,7 @@
     <div id="successMessage">
 
     </div>
-    <footer> &#169; 2018 Natalia Pasturczak, Jonasz Kulpinski All Rights Reserved &#169;</footer>
+    <footer> &#169; 2019 Natalia Pasturczak, Jonasz Kulpinski All Rights Reserved &#169;</footer>
 </div>
 </body>
 </html>
@@ -89,7 +89,7 @@
 </script>
 <script xmlns:th="http://www.w3.org/1999/xhtml" th:inline="javascript">
     var level = [[${level}]];
-    //document.body.style.backgroundImage = "url(../images/" + level + ".jpg)";
+    document.body.style.backgroundImage = "url(../images/" + level + ".jpg)";
     $(document).ready(function () {
         var infos2 = [[${infos}]];
         var infos2_pl = [[${infos_pl}]];
@@ -130,6 +130,11 @@
             var selectedOption = $('#locales').val();
             if (selectedOption != '') {
                 window.location.replace('journey?lang=' + selectedOption);
+                $.ajax({
+                    url: "journey",
+                    type: "POST",
+                    data: {language: selectedOption}
+                });
             }
         });
     });
@@ -137,31 +142,35 @@
 <script xmlns:th="http://www.w3.org/1999/xhtml" th:inline="javascript">
     var infos = [[${infos}]];
     var infos_pl = [[${infos_pl}]];
+    var lang = [[${lang}]];
 
-    if (document.getElementById("picture_back").innerText === "Matching game has already been completed for this day") {
-        document.getElementById("picture1").innerHTML =
-            '<a href="pictures" class="btn btn-danger btn-lg">' + document.getElementById("picture1").innerText + '</a><br>';
-        if (document.getElementById("picture1").innerText.includes("Dopasuj"))
-            document.getElementById("picture_back").innerText = "Dopasuj zostało ukończone na tym poziomie";
+    var run = [[${runner}]];
+    var han = [[${hangman}]];
+    var reb= [[${rebus}]];
+
+    //jesli user przeszedl runners
+    if (run) {
+        document.getElementById("runner1").innerHTML =
+            '<a href="runner" class="btn btn-danger btn-lg">' + document.getElementById("runner1").innerText +
+            '</a><br>';
+        document.getElementById("runner_back").style.visibility="visible";
     }
-    if (document.getElementById("hangman_back").innerText === "Hangman game has already been completed for this day") {
+    if (han) {
         document.getElementById("hangman1").innerHTML =
             '<a href="hangman" class="btn btn-danger btn-lg">' + document.getElementById("hangman1").innerText + '</a><br>';
-        if (document.getElementById("hangman1").innerText.includes("Wisielec"))
-            document.getElementById("hangman_back").innerText = "Wisielec został ukończony na tym poziomie";
+        document.getElementById("hangman_back").style.visibility="visible";
     }
 
-    if (document.getElementById("rebus_back").innerText === "Rebus game has already been completed for this day") {
+    if (reb) {
         document.getElementById("rebus1").innerHTML = '<a href="rebus" class="btn btn-danger btn-lg">Rebus</a><br>';
-        if (document.getElementById("hangman1").innerText.includes("Wisielec"))
-            document.getElementById("rebus_back").innerText = "Rebus został ukończony na tym poziomie";
+        document.getElementById("rebus_back").style.visibility="visible";
     }
 
     function myFunction(number, name) {
-        if (document.getElementById("jour").innerText === "Your Journey") {
-            document.getElementById(name).innerHTML = infos[number];
-        } else {
+        if (lang==="pln") {
             document.getElementById(name).innerHTML = infos_pl[number];
+        } else {
+            document.getElementById(name).innerHTML = infos[number];
         }
         var popup = document.getElementById(name);
         popup.classList.toggle("show");

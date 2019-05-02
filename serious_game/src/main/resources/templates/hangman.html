@@ -33,7 +33,7 @@
         <h2> Correct answers:</h2>
     </div>
     <button id="newGame"> NEXT</button>
-    <footer> &#169; 2018 Natalia Pasturczak, Jonasz Kulpinski All Rights Reserved &#169;</footer>
+    <footer> &#169; 2019 Natalia Pasturczak, Jonasz Kulpinski All Rights Reserved &#169;</footer>
 </div>
 </body>
 </html>
@@ -126,10 +126,10 @@
 
             text.howManyMiss++;
             if (text.howManyMiss <= 4) {
-                let picture = "images/s" + text.howManyMiss + ".jpg";
-                document.getElementById("gallows").innerHTML = '<img src="' + picture + '" alt=""/>';
+                let runner = "images/s" + text.howManyMiss + ".jpg";
+                document.getElementById("gallows").innerHTML = '<img src="' + runner + '" alt=""/>';
             }
-            if (text.howManyMiss == 4) {  //jak przegral
+            if (text.howManyMiss === 4) {  //jak przegral
                 document.getElementById("alphabet").innerHTML = "Defeat!";
                 resetGame();
             }

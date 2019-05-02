@@ -24,7 +24,7 @@
     <div id="info">
         Current points: 0
     </div>
-    <div id="picture">
+    <div id="runner">
         <!--<img style="width: 50% " src="images/5112.jpg" alt=""/>-->
     </div>
     <div id="word">
@@ -33,7 +33,7 @@
         <span style="font-size:large">Press Enter to check</span>
     </div>
     <div style="clear:both;"></div>
-<footer style="font-size: small;text-align: center;"><br><br>&#169; 2018 Natalia Pasturczak, Jonasz Kulpinski All Rights
+<footer style="font-size: small;text-align: center;"><br><br>&#169; 2019 Natalia Pasturczak, Jonasz Kulpinski All Rights
     Reserved &#169;
 </footer>
 </div>
@@ -64,7 +64,7 @@
     var guess_word;
     var pic = "images/" + game.img[random];
     game.img.splice(random, 1);
-    document.getElementById("picture").innerHTML = '<img style="width: 50% " src="' + pic + '"" alt =""/>';
+    document.getElementById("runner").innerHTML = '<img style="width: 50% " src="' + pic + '"" alt =""/>';
 
     document.addEventListener('keydown', function (event) {
         //var cos =  [${filenames}];
@@ -121,7 +121,7 @@
 
                 pic = "images/" + game.img[random];
                 game.img.splice(random, 1);
-                document.getElementById("picture").innerHTML = '<img style="width: 50% " src="' + pic + '"" alt =""/>';
+                document.getElementById("runner").innerHTML = '<img style="width: 50% " src="' + pic + '"" alt =""/>';
                 document.getElementById("error").innerHTML = '';
             }
             if (game.run === true) document.getElementById('odp').value = "";

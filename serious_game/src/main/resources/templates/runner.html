@@ -2,8 +2,8 @@
 <html lang="en-EN" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta name="Author" content="Natalia Pasturczak"/>
-    <meta name="keywords" content="hangman, html, js, game, play, words, word"/>
-    <meta name="description" content="Hangman"/>
+    <meta name="keywords" content="keyboard runner, html, js, game, play, words, word"/>
+    <meta name="description" content="Keyboard Runner"/>
     <meta charset="utf-8"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <!--sposób wyświetlania na urządzeniach mobilnych-->
@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
     <link rel="icon" href="favicon.ico"/>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
-    <link rel="stylesheet" type="text/css" href="css/pictures_style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/runner_style.css"/>
     <title> LangStorm </title>
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
@@ -76,66 +76,6 @@
             //random
             shuffleArray(numbers, words);
 
-            for (let i = 0; i < 10; i++) {
-                $('<div>' + terms[i] + '</div>').data('number', i + 1).attr('id', 'card' + numbers[i]).appendTo(
-                    '#cardPile').draggable({
-                    stack: '#cardPile div',
-                    cursor: 'move',
-                    revert: true
-                });
-
-                // Create the card slots
-                $('<div>' + words[i] + '</div>').data('number', numbers[i]).appendTo('#cardSlots').droppable({
-                    accept: '#cardPile div',
-                    hoverClass: 'hovered',
-                    drop: handleCardDrop
-                });
-            }
-        }
-
-        function handleCardDrop(event, ui) {
-            var slotNumber = $(this).data('number');
-            var cardNumber = ui.draggable.data('number');
-
-            // If the card was dropped to the correct slot,
-            // change the card colour, position it directly
-            // on top of the slot, and prevent it being dragged
-            // again
-
-            if (slotNumber == cardNumber) {
-                ui.draggable.addClass('correct');
-                ui.draggable.draggable('disable');
-                $(this).droppable('disable');
-                ui.draggable.position({of: $(this), my: 'left top', at: 'left top'});
-                ui.draggable.draggable('option', 'revert', false);
-                correctCards++;
-            }
-
-            // If all the cards have been placed correctly then display a message
-            // and reset the cards for another go
-
-            if (correctCards == 10 && time > 0) {
-                clearInterval(tick);
-                $('#successMessage').show();
-                $('#successMessage').animate({
-                    left: '10%',
-                    top: '20%',
-                    width: '80%',
-                    height: '60%',   // tu sie ustawia jak duze okienko wygranej
-                    opacity: 1
-                });
-            }
-        }
-
-        //to random array
-        function shuffleArray(numbers, words) {
-            for (let i = numbers.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1))
-                {
-                    [numbers[i], numbers[j]] = [numbers[j], numbers[i]];
-                    [words[i], words[j]] = [words[j], words[i]];
-                }
-            }
         }
 
         function buttonBack(){
@@ -145,23 +85,23 @@
 </head>
 <body>
 <div id="main">
-<div class="wideBox">
-    <h2 th:text="#{match}"></h1></h2>
-    <div id="sec">
-        Remaining time: <br>...
+    <div class="wideBox">
+        <h2 th:text="#{match}"></h1></h2>
+        <div id="sec">
+            Remaining time: <br>...
+        </div>
     </div>
-</div>
 
-<div id="content">
-    <div id="cardPile"></div>
-    <div id="cardSlots"></div>
+    <div id="content">
+        <div id="cardPile"></div>
+        <div id="cardSlots"></div>
 
-    <div id="successMessage">
-        <h2>Congratulations!</h2>
-        <button id="newGame" onclick="buttonBack()"> BACK</button>
+        <div id="successMessage">
+            <h2>Congratulations!</h2>
+            <button id="newGame" onclick="buttonBack()"> BACK</button>
+        </div>
+        <br> <br>
     </div>
-    <br> <br>
-</div>
     <footer> &#169; 2018 Natalia Pasturczak, Jonasz Kulpinski All Rights Reserved &#169;</footer>
 </div>
 </body>

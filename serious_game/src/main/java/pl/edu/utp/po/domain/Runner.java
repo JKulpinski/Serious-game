@@ -6,8 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Picture {
-    public Picture(){
+public class Runner {
+    public Runner(){
     }
 
     @Id
