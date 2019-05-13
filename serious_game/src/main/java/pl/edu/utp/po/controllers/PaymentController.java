@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import pl.edu.utp.po.config.PaypalPaymentIntent;
 import pl.edu.utp.po.config.PaypalPaymentMethod;
+import pl.edu.utp.po.domain.Users;
 import pl.edu.utp.po.services.PaypalService;
 import pl.edu.utp.po.util.URLUtils;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class PaymentController {
@@ -29,32 +31,47 @@ public class PaymentController {
     private PaypalService paypalService;
 
     @GetMapping("/payment")
-    public String payment(){
-        return "payment";
+    public String payment(HttpServletRequest req){
+        HttpSession session = req.getSession();
+        Users user = (Users) session.getAttribute("user");
+        if (user == null) {
+            return "redirect:/login";
+        }
+        else {
+            return "payment";
+        }
     }
 
     @PostMapping("/pay")
     public String pay(HttpServletRequest request){
-        String cancelUrl = URLUtils.getBaseURL(request) + PAYPAL_CANCEL_URL;
-        String successUrl = URLUtils.getBaseURL(request) + PAYPAL_SUCCESS_URL;
-        try {
-            Payment payment = paypalService.createPayment(
-                    4d,
-                    "USD",
-                    PaypalPaymentMethod.paypal,
-                    PaypalPaymentIntent.sale,
-                    "payment description",
-                    cancelUrl,
-                    successUrl);
-            for(Links links : payment.getLinks()){
-                if(links.getRel().equals("approval_url")){
-                    return "redirect:" + links.getHref();
-                }
-            }
-        } catch (PayPalRESTException e) {
-            logger.error(e.getMessage());
+        HttpSession session = request.getSession();
+        Users user = (Users) session.getAttribute("user");
+        if (user == null) {
+            return "redirect:/login";
         }
-        return "redirect:/pay";
+        else {
+            String cancelUrl = URLUtils.getBaseURL(request) + PAYPAL_CANCEL_URL;
+            String successUrl = URLUtils.getBaseURL(request) + PAYPAL_SUCCESS_URL;
+            try {
+                Payment payment = paypalService.createPayment(
+                        4d,
+                        "USD",
+                        PaypalPaymentMethod.paypal,
+                        PaypalPaymentIntent.sale,
+                        "payment description",
+                        cancelUrl,
+                        successUrl);
+                for (Links links : payment.getLinks()) {
+                    if (links.getRel().equals("approval_url")) {
+                        return "redirect:" + links.getHref();
+                    }
+                }
+            } catch (PayPalRESTException e) {
+                logger.error(e.getMessage());
+                return "redirect:/cancel";
+            }
+            return "redirect:/pay";
+        }
     }
 
     @GetMapping(PAYPAL_CANCEL_URL)
@@ -71,6 +88,7 @@ public class PaymentController {
             }
         } catch (PayPalRESTException e) {
             logger.error(e.getMessage());
+            return "redirect:/cancel";
         }
         return "redirect:/";
     }
