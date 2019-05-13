@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import pl.edu.utp.po.config.PaypalPaymentIntent;
 import pl.edu.utp.po.config.PaypalPaymentMethod;
+import pl.edu.utp.po.domain.Payments;
 import pl.edu.utp.po.domain.Users;
+import pl.edu.utp.po.services.PaymentService;
 import pl.edu.utp.po.services.PaypalService;
 import pl.edu.utp.po.util.URLUtils;
 
@@ -25,10 +27,19 @@ public class PaymentController {
     public static final String PAYPAL_SUCCESS_URL = "/pay/success";
     public static final String PAYPAL_CANCEL_URL = "/pay/cancel";
 
+    public double price = 0;
+
     private Logger logger = LoggerFactory.getLogger(getClass());
 
+    private final PaypalService paypalService;
+
+    private final PaymentService paymentService;
+
     @Autowired
-    private PaypalService paypalService;
+    public PaymentController(PaypalService paypalService, PaymentService paymentService) {
+        this.paypalService = paypalService;
+        this.paymentService = paymentService;
+    }
 
     @GetMapping("/payment")
     public String payment(HttpServletRequest req){
@@ -43,7 +54,7 @@ public class PaymentController {
     }
 
     @PostMapping("/pay")
-    public String pay(HttpServletRequest request){
+    public String pay(HttpServletRequest request,@RequestParam("price") double price){
         HttpSession session = request.getSession();
         Users user = (Users) session.getAttribute("user");
         if (user == null) {
@@ -52,10 +63,11 @@ public class PaymentController {
         else {
             String cancelUrl = URLUtils.getBaseURL(request) + PAYPAL_CANCEL_URL;
             String successUrl = URLUtils.getBaseURL(request) + PAYPAL_SUCCESS_URL;
+            this.price=price;
             try {
                 Payment payment = paypalService.createPayment(
-                        4d,
-                        "USD",
+                        price,
+                        "PLN",
                         PaypalPaymentMethod.paypal,
                         PaypalPaymentIntent.sale,
                         "payment description",
@@ -80,15 +92,33 @@ public class PaymentController {
     }
 
     @GetMapping(PAYPAL_SUCCESS_URL)
-    public String successPay(@RequestParam("paymentId") String paymentId, @RequestParam("PayerID") String payerId){
-        try {
-            Payment payment = paypalService.executePayment(paymentId, payerId);
-            if(payment.getState().equals("approved")){
-                return "success";
+    public String successPay(HttpServletRequest req, @RequestParam("paymentId") String paymentId, @RequestParam(
+            "PayerID") String payerId){
+        HttpSession session = req.getSession();
+        Users user = (Users) session.getAttribute("user");
+        if (user == null) {
+            return "redirect:/login";
+        }
+        else {
+            String status = "";
+            try {
+                Payment payment = paypalService.executePayment(paymentId, payerId);
+                if (payment.getState().equals("approved")) {
+                    status = "success";
+                    return status;
+                }
+            } catch (PayPalRESTException e) {
+                logger.error(e.getMessage());
+                status = "cancel";
+                return "redirect:/cancel";
+            } finally {
+                Payments newPayment = new Payments();
+                newPayment.setAmount(price);
+                newPayment.setCurrency("PLN");
+                newPayment.setUserID(user.getId());
+                newPayment.setStatus(status);
+                paymentService.addPayment(newPayment);
             }
-        } catch (PayPalRESTException e) {
-            logger.error(e.getMessage());
-            return "redirect:/cancel";
         }
         return "redirect:/";
     }

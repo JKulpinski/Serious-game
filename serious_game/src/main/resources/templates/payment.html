@@ -1,12 +1,41 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.w3.org/1999/xhtml">
+<!DOCTYPE HTML>
+<html lang="en-EN" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-	<meta charset="UTF-8" />
-	<title>Insert title here</title>
+	<meta name="Author" content="Natalia Pasturczak, Jonasz Kulpinski"/>
+	<meta name="keywords" content="payment"/>
+	<meta name="description" content="Payment"/>
+	<meta charset="utf-8"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<!--sposób wyświetlania na urządzeniach mobilnych-->
+	<meta name="viewpoint" content="width=device-width, initial-scale=1.0"/>
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="icon" href="favicon.ico"/>
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="css/login_style.css"/>
+	<title> LangStorm </title>
 </head>
 <body>
+<div id="main">
 <form method="post" th:action="@{/pay}">
-	<button type="submit"> Process Payment </button>
+	<button type="submin" value="1" name="price" class="btn btn-info"> 1 PLN – 4 monety  </button>
 </form>
+<br>
+<form method="post" th:action="@{/pay}">
+	<button type="submin" value="2" name="price" class="btn btn-info"> 2 PLN  – 10 monet </button>
+</form>
+	<br>
+<form method="post" th:action="@{/pay}">
+	<button type="submin" value="5" name="price" class="btn btn-info"> 5 PLN  – 30 monet </button>
+</form>
+	<br>
+<form method="post" th:action="@{/pay}">
+	<button type="submin" value="10" name="price" class="btn btn-info"> 10 PLN  – 75 monet </button>
+</form>
+	<br>
+<form method="post" th:action="@{/pay}">
+	<button type="submin" value="20" name="price" class="btn btn-info"> 20 PLN – 200 monet </button>
+</form>
+</div>
 </body>
 </html>

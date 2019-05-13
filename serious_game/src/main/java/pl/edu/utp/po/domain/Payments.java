@@ -13,7 +13,8 @@ import javax.persistence.Id;
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;
-        private Long amount;
+        private Double amount;
+        private String currency;
         private String status;
         private Long userID;
 
@@ -25,11 +26,11 @@ import javax.persistence.Id;
             this.id = id;
         }
 
-        public Long getAmount() {
+        public Double getAmount() {
             return amount;
         }
 
-        public void setAmount(Long amount) {
+        public void setAmount(Double amount) {
             this.amount = amount;
         }
 
@@ -49,8 +50,17 @@ import javax.persistence.Id;
             this.userID = userID;
         }
 
-        public Payments(Long amount, String status, Long userID) {
+        public String getCurrency() {
+            return currency;
+        }
+
+        public void setCurrency(String currency) {
+            this.currency = currency;
+        }
+
+        public Payments(Double amount, String currency, String status, Long userID) {
             this.amount = amount;
+            this.currency = currency;
             this.status = status;
             this.userID = userID;
         }

@@ -70,7 +70,7 @@ public class JourneyController {
         }
 
         if (user.getRebus() && user.getHangman() && user.getRunner() && user.getLevel() != 7 && user.getLevel() != 8) {
-            //sprawdza czy juz przeszles gry
+            //sprawdza czy juz przeszedles gry
             model.addAttribute("levelup", "Next day of journey!!!");
             user.setLevel(user.getLevel() + 1);
             user.setRebus(false);
