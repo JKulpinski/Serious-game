@@ -16,6 +16,7 @@ import pl.edu.utp.po.domain.Payments;
 import pl.edu.utp.po.domain.Users;
 import pl.edu.utp.po.services.PaymentService;
 import pl.edu.utp.po.services.PaypalService;
+import pl.edu.utp.po.services.RegisterService;
 import pl.edu.utp.po.util.URLUtils;
 
 import javax.servlet.http.HttpServletRequest;
@@ -35,10 +36,13 @@ public class PaymentController {
 
     private final PaymentService paymentService;
 
+    private final RegisterService registerService;
+
     @Autowired
-    public PaymentController(PaypalService paypalService, PaymentService paymentService) {
+    public PaymentController(PaypalService paypalService, PaymentService paymentService, RegisterService registerService) {
         this.paypalService = paypalService;
         this.paymentService = paymentService;
+        this.registerService = registerService;
     }
 
     @GetMapping("/payment")
@@ -118,6 +122,24 @@ public class PaymentController {
                 newPayment.setUserID(user.getId());
                 newPayment.setStatus(status);
                 paymentService.addPayment(newPayment);
+
+                if (status=="success"){
+                    int newMonets = 0;
+                    switch((int) Math.round(price)){
+                        case 1: newMonets=4; break;
+                        case 2: newMonets=10; break;
+                        case 5: newMonets=30; break;
+                        case 10: newMonets=75; break;
+                        case 20: newMonets=200; break;
+                    }
+                    if (newMonets!=0) {
+                        user.setCoins(user.getCoins() + newMonets);
+                        registerService.addUser(user);
+                    }
+                    else{
+                        logger.error("There are no more coins!");
+                    }
+                }
             }
         }
         return "redirect:/";

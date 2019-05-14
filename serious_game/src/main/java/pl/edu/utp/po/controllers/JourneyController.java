@@ -65,6 +65,7 @@ public class JourneyController {
         if (user.getLevel() == 7 && user.getRebus() && user.getHangman() && user.getRunner()) {
             model.addAttribute("levelup", "Next day of journey!!!");
             user.setPoints(user.getPoints() + 25);
+            user.setCoins(user.getCoins() + 5);
             user.setLevel(user.getLevel() + 1);
             registerService.addUser(user);
         }
@@ -82,6 +83,7 @@ public class JourneyController {
         model.addAttribute("login", user.getLogin());
         model.addAttribute("points", user.getPoints());
         model.addAttribute("level", user.getLevel());
+        model.addAttribute("coins", user.getCoins());
 
         List<LanguageInfo> rawinfos = infoRepo.findByLevel(user.getLevel());  // uzyskiwanie tresci popupow z bazy
         List<String> infos = new ArrayList<>();

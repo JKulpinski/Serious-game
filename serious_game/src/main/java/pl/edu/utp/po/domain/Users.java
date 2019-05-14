@@ -14,6 +14,7 @@ public class Users {
         this.runner = true;
         this.hangman = true;
         this.language = "en";
+        this.coins = 10;
     }
 
     public Users(String login, String email, String pass) {
@@ -26,6 +27,7 @@ public class Users {
         this.runner = true;
         this.hangman = true;
         this.language = "en";
+        this.coins = 10;
     }
 
     @Id
@@ -40,6 +42,7 @@ public class Users {
     private Boolean runner;
     private Boolean hangman;
     private String language;
+    private Integer coins;
 
     public Boolean getRebus() {
         return rebus;
@@ -119,5 +122,13 @@ public class Users {
 
     public void setLanguage(String language) {
         this.language = language;
+    }
+
+    public Integer getCoins() {
+        return coins;
+    }
+
+    public void setCoins(Integer coins) {
+        this.coins = coins;
     }
 }

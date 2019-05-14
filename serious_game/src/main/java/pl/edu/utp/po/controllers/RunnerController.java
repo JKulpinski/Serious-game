@@ -56,6 +56,7 @@ public class RunnerController {
             return "redirect:/journey";
         }
         user.setPoints(user.getPoints() + Integer.valueOf(point));
+        user.setCoins(user.getCoins() + 1);
         user.setRunner(!user.getRunner()); // zmienione na nieaktywny rebus po wygranej na danym levelu
         registerService.addUser(user);
         return "redirect:/journey";

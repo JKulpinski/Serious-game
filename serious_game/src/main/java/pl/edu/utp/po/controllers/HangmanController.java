@@ -57,6 +57,7 @@ public class HangmanController {
             return "redirect:/journey";
         }
         user.setPoints(user.getPoints() + Integer.valueOf(point));
+        user.setCoins(user.getCoins() + 1);
         user.setHangman(!user.getHangman()); // zmienione na nieaktywny rebus po wygranej na danym levelu
         registerService.addUser(user);
         return "redirect:/journey";
