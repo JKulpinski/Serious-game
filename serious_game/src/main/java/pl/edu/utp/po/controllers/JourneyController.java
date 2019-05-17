@@ -39,15 +39,14 @@ public class JourneyController {
         Users user = (Users) session.getAttribute("user");
         if (user == null) {
             return "redirect:/login";
+        } else {
+            user.setLanguage(language);
+            Locale l = new Locale(language);
+            SessionLocaleResolver slr = new SessionLocaleResolver();
+            slr.setDefaultLocale(l);
         }
-        else {
-                user.setLanguage(language);
-                Locale l = new Locale(language);
-                SessionLocaleResolver slr = new SessionLocaleResolver();
-                slr.setDefaultLocale(l);
-        }
-            return "journey";
-        }
+        return "journey";
+    }
 
     @GetMapping("/journey")
     public String showJourneyPlan(Model model, HttpServletRequest req, @ModelAttribute("second_try") String cheater) {
@@ -96,8 +95,7 @@ public class JourneyController {
             infos_pl.add(info_pl.getInfo_pl());
         model.addAttribute("infos_pl", infos_pl);
 
-        if (user.getRunner())     //moze byc do poprawki trzeba sprawdzic dzialanie po doodaniu punktow i levelow do
-            // runner i hangmena
+        if (user.getRunner())
             model.addAttribute("runner", user.getRunner());
         if (user.getHangman())
             model.addAttribute("hangman", user.getHangman());
@@ -126,5 +124,37 @@ public class JourneyController {
         }
         model.addAttribute("leaders", registerService.leaderlist());
         return "leaderboard";
+    }
+
+    @GetMapping("/unlock")
+    public String unlockGame(HttpServletRequest req) {
+        HttpSession session = req.getSession();
+        Users user = (Users) session.getAttribute("user");
+        if (user == null) {
+            return "redirect:/login";
+        } else {
+            int howManyPoints = user.getCoins();
+            if (user.getHangman()) {
+                if (howManyPoints >= 3) {
+                    howManyPoints -= 3;
+                    user.setHangman(false); //zmienic na flagi, 1 przeszedl, 2 przegral, 3 nic nie robil
+                }
+            }
+            if (user.getRunner()) {
+                if (howManyPoints >= 3) {
+                    howManyPoints -= 3;
+                    user.setRunner(false);
+                }
+            }
+            if (user.getRebus())
+                if (howManyPoints >= 3) {
+                    howManyPoints -= 3;
+                    user.setRebus(false);
+                }
+
+            user.setCoins(howManyPoints);
+            registerService.addUser(user);
+            return "redirect:/journey";
+        }
     }
 }

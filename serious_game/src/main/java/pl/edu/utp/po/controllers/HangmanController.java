@@ -56,9 +56,14 @@ public class HangmanController {
         if (user.getHangman()) { //cheatowanie
             return "redirect:/journey";
         }
-        user.setPoints(user.getPoints() + Integer.valueOf(point));
-        user.setCoins(user.getCoins() + 1);
-        user.setHangman(!user.getHangman()); // zmienione na nieaktywny rebus po wygranej na danym levelu
+        if (!point.equals(0)) {
+            user.setPoints(user.getPoints() + Integer.valueOf(point));
+            user.setCoins(user.getCoins() + 1);
+            user.setHangman(!user.getHangman()); // zmienione na nieaktywny rebus po wygranej na danym levelu
+        }
+        else{
+            user.setHangman(!user.getHangman()); //blokowanie po przegranej
+        }
         registerService.addUser(user);
         return "redirect:/journey";
     }

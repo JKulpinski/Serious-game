@@ -153,7 +153,8 @@
             } else {
                 document.getElementById("board").innerHTML = 'Try again!<br>' +
                     ' Your score: ' + text.points + '/' + maxpoints + '<br>' +
-                    '<form action="journey">' +
+                    '<form method="POST">' +
+                    '<div style="display: none"><input name="point" value="0"></div>' +
                     '<button type="submit" style="background-color: #a790ff;height: 40px;width: 200px">Back to your Journey</button>' +
                     '</form>';
             }
