@@ -17,8 +17,12 @@ import java.util.regex.Pattern;
 @Controller
 public class RegistrationController {
 
+    private final RegisterService registerService;
+
     @Autowired
-    private RegisterService registerService;
+    public RegistrationController(RegisterService registerService) {
+        this.registerService = registerService;
+    }
 
     @GetMapping("/register")
     public String showRegister(HttpServletRequest req) {

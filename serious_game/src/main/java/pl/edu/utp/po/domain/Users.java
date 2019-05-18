@@ -9,7 +9,7 @@ import javax.persistence.Id;
 public class Users {
     public Users(){
         this.points = 0;
-        this.level = 0L;
+        this.level = 1L;
         this.rebus = 0;
         this.runner = 0;
         this.hangman = 0;
@@ -22,7 +22,7 @@ public class Users {
         this.email = email;
         this.pass = pass;
         this.points = 0;
-        this.level = 0L;
+        this.level = 1L;
         this.rebus = 0;
         this.runner = 0;
         this.hangman = 0;

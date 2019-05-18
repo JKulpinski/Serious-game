@@ -16,8 +16,12 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class LoginController {
 
+    private final LoginRepo loginRepo;
+
     @Autowired
-    private LoginRepo loginRepo;
+    public LoginController(LoginRepo loginRepo) {
+        this.loginRepo = loginRepo;
+    }
 
     @GetMapping("/")
     public String redirect() {
@@ -41,12 +45,10 @@ public class LoginController {
         Users user = loginRepo.findByLogin(login);
         if (user != null && user.getPass().equals(password)) {
             HttpSession session = req.getSession();
-
             session.setAttribute("user", user);
             return "redirect:/journey";
         }
         model.addAttribute("error_pass", "Wrong login or password");
-
         return "/login";
     }
 }
