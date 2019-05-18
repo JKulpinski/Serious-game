@@ -19,11 +19,15 @@ import java.util.List;
 @Controller
 public class HangmanController {
 
-    @Autowired
-    private HangmanRepository hangmanRepo;
+    private final HangmanRepository hangmanRepo;
+
+    private final RegisterService registerService;
 
     @Autowired
-    private RegisterService registerService;
+    public HangmanController(HangmanRepository hangmanRepo, RegisterService registerService) {
+        this.hangmanRepo = hangmanRepo;
+        this.registerService = registerService;
+    }
 
     @GetMapping("/hangman")
     public String showHangman(Model model, HttpServletRequest req) {
@@ -33,7 +37,8 @@ public class HangmanController {
             return "redirect:/login";
         }
 
-        if (user.getHangman()) {   //zapytanie czy gra zostala wykonana cheatowanie
+        if (user.getHangman().equals(2) || user.getHangman().equals(1)) {   //zapytanie czy gra zostala wykonana
+            // cheatowanie
             return "redirect:/journey";
         }
 
@@ -53,16 +58,16 @@ public class HangmanController {
     public String addPoints(HttpServletRequest req, String point) {
         HttpSession session = req.getSession();
         Users user = (Users) session.getAttribute("user");
-        if (user.getHangman()) { //cheatowanie
+        if (user.getHangman().equals(2) || user.getHangman().equals(1)) { //cheatowanie
             return "redirect:/journey";
         }
-        if (!point.equals(0)) {
+        if (!point.equals("0")) {
             user.setPoints(user.getPoints() + Integer.valueOf(point));
             user.setCoins(user.getCoins() + 1);
-            user.setHangman(!user.getHangman()); // zmienione na nieaktywny rebus po wygranej na danym levelu
+            user.setHangman(2); // zmienione na nieaktywny rebus po wygranej na danym levelu
         }
         else{
-            user.setHangman(!user.getHangman()); //blokowanie po przegranej
+            user.setHangman(1); //blokowanie po przegranej
         }
         registerService.addUser(user);
         return "redirect:/journey";

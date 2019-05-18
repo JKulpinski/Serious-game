@@ -10,9 +10,9 @@ public class Users {
     public Users(){
         this.points = 0;
         this.level = 0L;
-        this.rebus = true;
-        this.runner = true;
-        this.hangman = true;
+        this.rebus = 0;
+        this.runner = 0;
+        this.hangman = 0;
         this.language = "en";
         this.coins = 10;
     }
@@ -23,9 +23,9 @@ public class Users {
         this.pass = pass;
         this.points = 0;
         this.level = 0L;
-        this.rebus = true;
-        this.runner = true;
-        this.hangman = true;
+        this.rebus = 0;
+        this.runner = 0;
+        this.hangman = 0;
         this.language = "en";
         this.coins = 10;
     }
@@ -38,35 +38,11 @@ public class Users {
     private String pass;
     private Integer points;
     private Long level;
-    private Boolean rebus;
-    private Boolean runner;
-    private Boolean hangman;
+    private Integer rebus;  //0 - nie próbował przejść, 1 - nie udało się, 2 - przeszedł
+    private Integer runner;
+    private Integer hangman;
     private String language;
     private Integer coins;
-
-    public Boolean getRebus() {
-        return rebus;
-    }
-
-    public void setRebus(Boolean rebus) {
-        this.rebus = rebus;
-    }
-
-    public Boolean getRunner() {
-        return runner;
-    }
-
-    public void setRunner(Boolean runner) {
-        this.runner = runner;
-    }
-
-    public Boolean getHangman() {
-        return hangman;
-    }
-
-    public void setHangman(Boolean hangman) {
-        this.hangman = hangman;
-    }
 
     public Long getId() {
         return id;
@@ -130,5 +106,29 @@ public class Users {
 
     public void setCoins(Integer coins) {
         this.coins = coins;
+    }
+
+    public Integer getRebus() {
+        return rebus;
+    }
+
+    public void setRebus(Integer rebus) {
+        this.rebus = rebus;
+    }
+
+    public Integer getRunner() {
+        return runner;
+    }
+
+    public void setRunner(Integer runner) {
+        this.runner = runner;
+    }
+
+    public Integer getHangman() {
+        return hangman;
+    }
+
+    public void setHangman(Integer hangman) {
+        this.hangman = hangman;
     }
 }

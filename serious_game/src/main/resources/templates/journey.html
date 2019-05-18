@@ -73,7 +73,7 @@
             <span class="popuptext" id="curio2">info</span>
         </div>
 
-        <br><br><span id="rebus_back" th:text="#{completeRebus}"style="visibility: hidden"></span><br>
+        <br><br><span id="rebus_back" th:text="#{completeRebus}" style="visibility: hidden"></span><br>
         <div id="rebus1">
             <a href="rebus" class="btn btn-success btn-lg">Rebus</a><br>
         </div>
@@ -154,22 +154,20 @@
     var han = [[${hangman}]];
     var reb= [[${rebus}]];
 
-    //jesli user przeszedl runners
-    if (run) {
-        document.getElementById("runner1").innerHTML =
-            '<a href="runner" class="btn btn-danger btn-lg">' + document.getElementById("runner1").innerText +
-            '</a><br>';
-        document.getElementById("runner_back").style.visibility="visible";
-    }
-    if (han) {
-        document.getElementById("hangman1").innerHTML =
-            '<a href="hangman" class="btn btn-danger btn-lg">' + document.getElementById("hangman1").innerText + '</a><br>';
-        document.getElementById("hangman_back").style.visibility="visible";
-    }
+    //jesli user przeszedl gre
+    changeGameStatus(reb, "rebus1", "rebus", "Rebus");
+    changeGameStatus(han, "hangman1", "hangman", "Hangman");
+    changeGameStatus(run, "runner1", "runner", "Runner");
 
-    if (reb) {
-        document.getElementById("rebus1").innerHTML = '<a href="rebus" class="btn btn-danger btn-lg">Rebus</a><br>';
-        document.getElementById("rebus_back").style.visibility="visible";
+    function changeGameStatus(stan, element, href, name){
+        if (stan===1){
+            document.getElementById(element).innerHTML = `<a href=${href} class="btn btn-danger btn-lg">${name}<span class="glyphicon glyphicon-remove"></span></a><br>`;
+        }
+        else if (stan===2){
+            document.getElementById(element).innerHTML =
+                `<a href=${href} class="btn btn-primary btn-lg">${name}<span class="glyphicon glyphicon-ok"></span></a><br>`;
+            document.getElementById(href+"_back").style.visibility="visible";
+        }
     }
 
     function myFunction(number, name) {

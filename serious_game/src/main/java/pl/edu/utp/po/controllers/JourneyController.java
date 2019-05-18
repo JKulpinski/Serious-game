@@ -61,7 +61,7 @@ public class JourneyController {
         SessionLocaleResolver slr = new SessionLocaleResolver();
         slr.setDefaultLocale(l);
 
-        if (user.getLevel() == 7 && user.getRebus() && user.getHangman() && user.getRunner()) {
+        if (user.getLevel() == 7 && user.getRebus().equals(2) && user.getHangman().equals(2) && user.getRunner().equals(2)) {
             model.addAttribute("levelup", "Next day of journey!!!");
             user.setPoints(user.getPoints() + 25);
             user.setCoins(user.getCoins() + 5);
@@ -69,13 +69,13 @@ public class JourneyController {
             registerService.addUser(user);
         }
 
-        if (user.getRebus() && user.getHangman() && user.getRunner() && user.getLevel() != 7 && user.getLevel() != 8) {
+        if (user.getRebus().equals(2) && user.getHangman().equals(2) && user.getRunner().equals(2) && user.getLevel() != 7 && user.getLevel() != 8) {
             //sprawdza czy juz przeszedles gry
             model.addAttribute("levelup", "Next day of journey!!!");
             user.setLevel(user.getLevel() + 1);
-            user.setRebus(false);
-            user.setHangman(false);
-            user.setRunner(false);
+            user.setRebus(0);
+            user.setHangman(0);
+            user.setRunner(0);
             registerService.addUser(user);
         }
         model.addAttribute("cheater", cheater);  // ostrzezenie przed cheatowaniem
@@ -95,11 +95,11 @@ public class JourneyController {
             infos_pl.add(info_pl.getInfo_pl());
         model.addAttribute("infos_pl", infos_pl);
 
-        if (user.getRunner())
+        if (!user.getRunner().equals(0))
             model.addAttribute("runner", user.getRunner());
-        if (user.getHangman())
+        if (!user.getHangman().equals(0))
             model.addAttribute("hangman", user.getHangman());
-        if (user.getRebus())
+        if (!user.getRebus().equals(0))
             model.addAttribute("rebus", user.getRebus());
 
         model.addAttribute("lang", language);
@@ -134,22 +134,22 @@ public class JourneyController {
             return "redirect:/login";
         } else {
             int howManyPoints = user.getCoins();
-            if (user.getHangman()) {
+            if (user.getHangman().equals(1)) {
                 if (howManyPoints >= 3) {
                     howManyPoints -= 3;
-                    user.setHangman(false); //zmienic na flagi, 1 przeszedl, 2 przegral, 3 nic nie robil
+                    user.setHangman(0); // 0 - default, 1 - nie przeszedl, 2 - przeszedl
                 }
             }
-            if (user.getRunner()) {
+            if (user.getRunner().equals(1)) {
                 if (howManyPoints >= 3) {
                     howManyPoints -= 3;
-                    user.setRunner(false);
+                    user.setRunner(0);
                 }
             }
-            if (user.getRebus())
+            if (user.getRebus().equals(1))
                 if (howManyPoints >= 3) {
                     howManyPoints -= 3;
-                    user.setRebus(false);
+                    user.setRebus(0);
                 }
 
             user.setCoins(howManyPoints);

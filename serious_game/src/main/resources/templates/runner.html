@@ -64,7 +64,8 @@
             clearInterval(tick);
             document.getElementById("content").innerHTML = '<br><h1>End of Time!</h1>' +
                 ' You need to be faster. Try again!<br>' +
-                '<form action="journey">' +
+                '<form method="POST">' +
+                '<div style="display: none"><input name="point" value="0"></div>' +
                 '    <button type="submit" style="background-color: #ff5f58;height: 40px;width: 200px; cursor: pointer;">Back to your Journey</button>\n' +
                 '</form>';
         }

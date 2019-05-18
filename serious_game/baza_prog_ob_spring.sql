@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 17 Maj 2019, 15:14
+-- Czas generowania: 18 Maj 2019, 14:33
 -- Wersja serwera: 10.1.36-MariaDB
 -- Wersja PHP: 7.2.10
 
@@ -328,10 +328,9 @@ CREATE TABLE `users` (
   `pass` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   `level` bigint(20) DEFAULT NULL,
   `points` int(11) DEFAULT NULL,
-  `runner` bit(1) DEFAULT NULL,
-  `hangman` bit(1) DEFAULT NULL,
-  `rebus` bit(1) DEFAULT NULL,
-  `enabled` int(1) DEFAULT NULL,
+  `runner` tinyint(1) DEFAULT NULL,
+  `hangman` tinyint(1) DEFAULT NULL,
+  `rebus` tinyint(1) DEFAULT NULL,
   `language` varchar(3) DEFAULT 'en',
   `coins` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -340,50 +339,49 @@ CREATE TABLE `users` (
 -- Zrzut danych tabeli `users`
 --
 
-INSERT INTO `users` (`id`, `login`, `email`, `pass`, `level`, `points`, `runner`, `hangman`, `rebus`, `enabled`, `language`, `coins`) VALUES
-(1, 'jonasz', 'jonkul001@gmail.com', 'aaa', 3, 25, b'0', b'0', b'0', NULL, 'en', 0),
-(2, 'nalia', 'jonakul001@gmail.com', 'aaa', 3, 10, b'0', b'0', b'0', NULL, 'en', 30),
-(3, 'sss', 'arybka68@gmail.com', 'aaa', 2, 11, b'0', b'0', b'1', NULL, 'en', 0),
-(4, 'aaa1', 'jonkul001a@gmail.com', 'aaa1', 1, 0, b'0', b'0', b'0', NULL, 'en', 0),
-(5, 'gds', 'jonaakul001@gmail.com', 'aaa', 1, 2, b'0', b'1', b'0', NULL, 'en', 0),
-(6, 'aaaa', 'aaaa@aa.com', 'aaaa', 1, 3, b'1', b'0', b'0', NULL, 'en', 0),
-(7, 'rwq', 'jonkul44001@gmail.com', 'bbb', 1, 0, b'0', b'0', b'0', NULL, 'en', 0),
-(8, 'aaaaa', 'jonkuaaal001@gmail.com', 'aaa', 1, 2, b'0', b'1', b'0', NULL, 'en', 0),
-(9, 'ssss', 'jonkwfwul001@gmail.com', 'aaa', 1, 0, b'0', b'0', b'0', NULL, 'en', 0),
-(10, 'zzz', 'jonddkul001@gmail.com', 'aaa', 1, 3, b'1', b'0', b'0', NULL, 'en', 0),
-(11, 'ggg', 'jonkugggl001@gmail.com', 'aaa', 2, 8, b'0', b'0', b'0', NULL, 'en', 0),
-(12, 'jonasz11', 'jonkulggdsg001@gmail.com', '1111', 1, 0, b'0', b'0', b'0', NULL, 'en', 0),
-(13, 'qqq', 'jonkul0ddd01@gmail.com', 'aaa', 1, 5, b'1', b'1', b'0', NULL, 'en', 0),
-(14, 'reyy44', 'jonkusssl001@gmail.com', 'aaa', 1, 0, b'0', b'0', b'0', NULL, 'en', 0),
-(15, 'tasos', 'tasos@bile.gr', '123456', 2, 7, b'0', b'0', b'0', NULL, 'en', 0),
-(16, 'aaa111111', 'jo44445nkul001@gmail.com', 'aaa', 2, 7, b'0', b'0', b'0', NULL, 'en', 0),
-(17, 'aaaaaaaaaaaa', 'jonkul00gggggg1@gmail.com', 'aaa', 1, 3, b'1', b'0', b'0', NULL, 'en', 0),
-(18, 'qqqqq', 'jonddddfesgekul001@gmail.com', 'aaa', 1, 5, b'1', b'0', b'1', NULL, 'en', 0),
-(19, 'jon', 'aaaa@gt.po', 'aaa', 1, 2, b'0', b'1', b'0', NULL, 'en', 0),
-(20, 'ttt', 'jonkul0gdshddsj01@gmail.com', 'aaaa', 2, 8, b'0', b'0', b'0', NULL, 'en', 0),
-(21, 'iop', 'jonk54757584ul001@gmail.com', 'aaa', 1, 0, b'0', b'0', b'0', NULL, 'en', 0),
-(22, 'bbb', 'bbb@wp.com', 'aaa', 1, 2, b'0', b'0', b'1', NULL, 'en', 0),
-(23, 'abb', 'jonkul0gwewhwehewhewrsdfc01@gmail.com', 'aaa', 2, 8, b'0', b'0', b'0', NULL, 'en', 0),
-(24, 'naka', 'huc@utp.pl', 'aaa', 2, 11, b'0', b'0', b'0', NULL, 'en', 0),
-(25, 'admin', 'admin@gmail.com', 'admin', 4, 51, b'1', b'1', b'0', NULL, 'pln', 30),
-(26, 'jak', 'ewtew@111.pl', 'aaa', 1, 0, b'0', b'0', b'0', NULL, 'en', 0),
-(27, 'qwerty', 'jonkul0whwehweb01@gmail.com', 'aaa', 1, 0, b'0', b'0', b'0', NULL, 'en', 0),
-(28, 'qwer', 'jonkulwehewh001@gmail.cl', 'aaa', 1, 0, b'0', b'0', b'0', NULL, 'en', 0),
-(29, 'jak1', 'jonkherejrjmul001@gmail.com', 'aaa', 1, 0, b'0', b'0', b'0', NULL, 'en', 0),
-(30, '111', '111@gmail.com', 'aaa', 2, 12, b'0', b'0', b'0', NULL, 'en', 0),
-(31, '222', 'jonku222l001@gmail.com', 'aaa', 2, 0, b'0', b'0', b'0', NULL, 'en', 0),
-(32, '333', 'jonku333l001@gmail.com', 'aaa', 3, 0, b'0', b'0', b'0', NULL, 'en', 0),
-(33, '444', 'jonku444l001@gmail.com', 'aaa', 4, 3, b'0', b'0', b'1', NULL, 'en', 0),
-(34, '555', 'jonku555l001@gmail.com', 'aaa', 5, 0, b'0', b'0', b'0', NULL, 'en', 0),
-(35, '666', 'jonkul066601@gmail.com', 'aaa', 6, 0, b'0', b'0', b'0', NULL, 'en', 0),
-(36, '777', 'jonku777l001@gmail.com', 'aaa', 7, 0, b'0', b'0', b'0', NULL, 'en', 0),
-(38, 'me123', 'me123@gmail.com', 'me12', 2, 11, b'0', b'0', b'0', NULL, 'en', 0),
-(39, 'natalia', 'natalia@gmail.com', 'natalia', 8, 120, b'1', b'1', b'1', NULL, 'en', 0),
-(47, 'denis', 'denis@gmail.com', '!@#$%^&*()_+', 1, 0, b'0', b'0', b'0', NULL, 'en', 0),
-(48, 'jonkul', 'user@wp.pl', 'jk123', 1, 0, b'0', b'0', b'0', NULL, 'en', 0),
-(49, 'user123', 'user123@wp.pl', 'user', 1, 3, b'0', b'1', b'0', NULL, 'en', 0),
-(50, 'user1234', 'user1@wp.pl', 'user', 2, 9, b'0', b'0', b'0', NULL, 'en', 0),
-(51, 'user232', 'user2@utp.edu.pl', 'user', 0, 0, b'1', b'1', b'1', NULL, 'en', 0);
+INSERT INTO `users` (`id`, `login`, `email`, `pass`, `level`, `points`, `runner`, `hangman`, `rebus`, `language`, `coins`) VALUES
+(1, 'jonasz', 'jonkul001@gmail.com', 'aaa', 3, 25, 0, 0, 0, 'en', 0),
+(3, 'sss', 'arybka68@gmail.com', 'aaa', 2, 11, 0, 1, 1, 'en', 0),
+(4, 'aaa1', 'jonkul001a@gmail.com', 'aaa1', 1, 0, 0, 0, 0, 'en', 0),
+(5, 'gds', 'jonaakul001@gmail.com', 'aaa', 1, 2, 0, 1, 0, 'en', 0),
+(6, 'aaaa', 'aaaa@aa.com', 'aaaa', 1, 3, 1, 0, 0, 'en', 0),
+(7, 'rwq', 'jonkul44001@gmail.com', 'bbb', 1, 0, 0, 0, 0, 'en', 0),
+(8, 'aaaaa', 'jonkuaaal001@gmail.com', 'aaa', 1, 2, 0, 1, 0, 'en', 0),
+(9, 'ssss', 'jonkwfwul001@gmail.com', 'aaa', 1, 0, 0, 0, 0, 'en', 0),
+(10, 'zzz', 'jonddkul001@gmail.com', 'aaa', 1, 3, 1, 0, 0, 'en', 0),
+(11, 'ggg', 'jonkugggl001@gmail.com', 'aaa', 2, 8, 0, 0, 0, 'en', 0),
+(12, 'jonasz11', 'jonkulggdsg001@gmail.com', '1111', 1, 0, 0, 0, 0, 'en', 0),
+(13, 'qqq', 'jonkul0ddd01@gmail.com', 'aaa', 1, 5, 1, 1, 0, 'en', 0),
+(14, 'reyy44', 'jonkusssl001@gmail.com', 'aaa', 1, 0, 0, 0, 0, 'en', 0),
+(15, 'tasos', 'tasos@bile.gr', '123456', 2, 7, 0, 0, 0, 'en', 0),
+(16, 'aaa111111', 'jo44445nkul001@gmail.com', 'aaa', 2, 7, 0, 0, 0, 'en', 0),
+(17, 'aaaaaaaaaaaa', 'jonkul00gggggg1@gmail.com', 'aaa', 1, 3, 1, 0, 0, 'en', 0),
+(18, 'qqqqq', 'jonddddfesgekul001@gmail.com', 'aaa', 1, 5, 1, 0, 1, 'en', 0),
+(19, 'jon', 'aaaa@gt.po', 'aaa', 1, 2, 0, 1, 0, 'en', 0),
+(20, 'ttt', 'jonkul0gdshddsj01@gmail.com', 'aaaa', 2, 8, 0, 0, 0, 'en', 0),
+(21, 'iop', 'jonk54757584ul001@gmail.com', 'aaa', 1, 0, 0, 0, 0, 'en', 0),
+(22, 'bbb', 'bbb@wp.com', 'aaa', 1, 2, 0, 0, 1, 'en', 0),
+(23, 'abb', 'jonkul0gwewhwehewhewrsdfc01@gmail.com', 'aaa', 2, 8, 0, 0, 0, 'en', 0),
+(24, 'naka', 'huc@utp.pl', 'aaa', 2, 11, 0, 0, 0, 'en', 0),
+(25, 'admin', 'admin@gmail.com', 'admin', 6, 71, 0, 1, 2, 'en', 16),
+(26, 'jak', 'ewtew@111.pl', 'aaa', 1, 0, 0, 0, 0, 'en', 0),
+(27, 'qwerty', 'jonkul0whwehweb01@gmail.com', 'aaa', 1, 0, 0, 0, 0, 'en', 0),
+(28, 'qwer', 'jonkulwehewh001@gmail.cl', 'aaa', 1, 0, 0, 0, 0, 'en', 0),
+(29, 'jak1', 'jonkherejrjmul001@gmail.com', 'aaa', 1, 0, 0, 0, 0, 'en', 0),
+(30, '111', '111@gmail.com', 'aaa', 2, 12, 0, 0, 0, 'en', 0),
+(31, '222', 'jonku222l001@gmail.com', 'aaa', 2, 0, 0, 0, 0, 'en', 0),
+(32, '333', 'jonku333l001@gmail.com', 'aaa', 3, 0, 0, 0, 0, 'en', 0),
+(33, '444', 'jonku444l001@gmail.com', 'aaa', 4, 3, 0, 0, 1, 'en', 0),
+(34, '555', 'jonku555l001@gmail.com', 'aaa', 5, 0, 0, 0, 0, 'en', 0),
+(35, '666', 'jonkul066601@gmail.com', 'aaa', 6, 0, 0, 0, 0, 'en', 0),
+(36, '777', 'jonku777l001@gmail.com', 'aaa', 7, 0, 0, 0, 0, 'en', 0),
+(38, 'me123', 'me123@gmail.com', 'me12', 2, 11, 0, 0, 0, 'en', 0),
+(39, 'natalia', 'natalia@gmail.com', 'natalia', 8, 120, 1, 1, 1, 'en', 0),
+(47, 'denis', 'denis@gmail.com', '!@#$%^&*()_+', 1, 0, 0, 0, 0, 'en', 0),
+(48, 'jonkul', 'user@wp.pl', 'jk123', 1, 0, 0, 0, 0, 'en', 0),
+(49, 'user123', 'user123@wp.pl', 'user', 1, 3, 0, 1, 0, 'en', 0),
+(50, 'user1234', 'user1@wp.pl', 'user', 2, 9, 0, 0, 0, 'en', 0),
+(51, 'user232', 'user2@utp.edu.pl', 'user', 0, 0, 1, 1, 1, 'en', 0);
 
 --
 -- Indeksy dla zrzutów tabel

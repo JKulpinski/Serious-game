@@ -18,11 +18,15 @@ import java.util.List;
 @Controller
 public class RunnerController {
 
-    @Autowired
-    private RunnerService runnerService;
+    private final RunnerService runnerService;
+
+    private final RegisterService registerService;
 
     @Autowired
-    private RegisterService registerService;
+    public RunnerController(RunnerService runnerService, RegisterService registerService) {
+        this.runnerService = runnerService;
+        this.registerService = registerService;
+    }
 
     @GetMapping("/runner")
     public String showRunner(Model model, HttpServletRequest req) {
@@ -32,7 +36,7 @@ public class RunnerController {
             return "redirect:/login";
         }
 
-        if (user.getRunner()) {   //zapytanie czy gra zostala wykonana cheatowanie
+        if (user.getRunner().equals(1) || user.getRunner().equals(2)) {
             return "redirect:/journey";
         }
 
@@ -52,12 +56,15 @@ public class RunnerController {
     public String addPoints(HttpServletRequest req, String point) {
         HttpSession session = req.getSession();
         Users user = (Users) session.getAttribute("user");
-        if (user.getRunner()) { //cheatowanie
+        if (user.getRunner().equals(1) || user.getRunner().equals(2)) { //cheatowanie
             return "redirect:/journey";
         }
-        user.setPoints(user.getPoints() + Integer.valueOf(point));
-        user.setCoins(user.getCoins() + 1);
-        user.setRunner(!user.getRunner()); // zmienione na nieaktywny rebus po wygranej na danym levelu
+        if (!point.equals("0")) {
+            user.setPoints(user.getPoints() + Integer.valueOf(point));
+            user.setCoins(user.getCoins() + 1);
+            user.setRunner(2);
+        }
+        else user.setRunner(1);
         registerService.addUser(user);
         return "redirect:/journey";
     }
