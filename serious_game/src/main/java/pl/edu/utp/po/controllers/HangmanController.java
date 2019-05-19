@@ -41,6 +41,10 @@ public class HangmanController {
             // cheatowanie
             return "redirect:/journey";
         }
+        else {
+            user.setHangman(1);
+            registerService.addUser(user);
+        }
 
         List<Hangman> hangmans = hangmanRepo.findByLevel(user.getLevel()); //punkty i pobieranie odpowiednich zagadek
         List<String> answers = new ArrayList<>();
@@ -58,9 +62,6 @@ public class HangmanController {
     public String addPoints(HttpServletRequest req, String point) {
         HttpSession session = req.getSession();
         Users user = (Users) session.getAttribute("user");
-        if (user.getHangman().equals(2) || user.getHangman().equals(1)) { //cheatowanie
-            return "redirect:/journey";
-        }
         if (!point.equals("0")) {
             user.setPoints(user.getPoints() + Integer.valueOf(point));
             user.setCoins(user.getCoins() + 1);

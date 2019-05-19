@@ -38,6 +38,10 @@ public class RebusController {
         if (user.getRebus().equals(2) || user.getRebus().equals(1)) {
             return "redirect:/journey";
         }
+        else {
+            user.setRebus(1);
+            registerService.addUser(user);
+        }
         List<Rebus> rebuses = rebusService.listbylevelid(user.getLevel()); //punkty i pobieranie odpowiednich zagadek
         List<String> filenames = new ArrayList<>();
         List<String> answers = new ArrayList<>();
@@ -57,9 +61,6 @@ public class RebusController {
     public String addPoints(HttpServletRequest req, String point) {
         HttpSession session = req.getSession();
         Users user = (Users) session.getAttribute("user");
-        if (user.getRebus().equals(2) || user.getRebus().equals(1)) {
-            return "redirect:/journey";
-        }
         if (!point.equals("0")) {
             user.setPoints(user.getPoints() + Integer.valueOf(point));
             user.setCoins(user.getCoins() + 1);

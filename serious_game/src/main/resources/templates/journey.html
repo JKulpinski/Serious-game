@@ -162,6 +162,8 @@
     function changeGameStatus(stan, element, href, name){
         if (stan===1){
             document.getElementById(element).innerHTML = `<a href=${href} class="btn btn-danger btn-lg">${name}<span class="glyphicon glyphicon-remove"></span></a><br>`;
+            document.getElementById(href+"_back").innerHTML =
+                '<span id=${href}+"_back"  th:text=${x} style="visibility: visible">'+[[#{banGame}]]+'</span>';
         }
         else if (stan===2){
             document.getElementById(element).innerHTML =

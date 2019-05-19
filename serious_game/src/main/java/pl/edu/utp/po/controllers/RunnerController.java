@@ -39,6 +39,10 @@ public class RunnerController {
         if (user.getRunner().equals(1) || user.getRunner().equals(2)) {
             return "redirect:/journey";
         }
+        else {
+            user.setRunner(1);
+            registerService.addUser(user);
+        }
 
         List<Runner> runners = runnerService.listByLevelId(user.getLevel()); //punkty i pobieranie odpowiednich
         List<String> answers = new ArrayList<>();
@@ -56,9 +60,6 @@ public class RunnerController {
     public String addPoints(HttpServletRequest req, String point) {
         HttpSession session = req.getSession();
         Users user = (Users) session.getAttribute("user");
-        if (user.getRunner().equals(1) || user.getRunner().equals(2)) { //cheatowanie
-            return "redirect:/journey";
-        }
         if (!point.equals("0")) {
             user.setPoints(user.getPoints() + Integer.valueOf(point));
             user.setCoins(user.getCoins() + 1);
