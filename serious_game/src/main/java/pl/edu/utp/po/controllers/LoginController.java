@@ -1,6 +1,7 @@
 package pl.edu.utp.po.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,10 +18,12 @@ import javax.servlet.http.HttpSession;
 public class LoginController {
 
     private final LoginRepo loginRepo;
+    private PasswordEncoder passwordEncoder;
 
     @Autowired
-    public LoginController(LoginRepo loginRepo) {
+    public LoginController(LoginRepo loginRepo, PasswordEncoder passwordEncoder) {
         this.loginRepo = loginRepo;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @GetMapping("/")
@@ -43,7 +46,7 @@ public class LoginController {
     @PostMapping("/login")
     public String checkLogin(Model model, String login, String password, HttpServletRequest req) {
         Users user = loginRepo.findByLogin(login);
-        if (user != null && user.getPass().equals(password)) {
+        if (user != null && passwordEncoder.matches(password, user.getPass())) {
             HttpSession session = req.getSession();
             session.setAttribute("user", user);
             return "redirect:/journey";

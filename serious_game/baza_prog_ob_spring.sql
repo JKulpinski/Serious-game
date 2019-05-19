@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 18 Maj 2019, 14:33
+-- Czas generowania: 19 Maj 2019, 15:36
 -- Wersja serwera: 10.1.36-MariaDB
 -- Wersja PHP: 7.2.10
 
@@ -169,7 +169,11 @@ INSERT INTO `payments` (`id`, `amount`, `status`, `userid`, `currency`) VALUES
 (14, 2, 'success', 1, 'PLN'),
 (15, 2, 'success', 25, 'PLN'),
 (16, 2, 'success', 25, 'PLN'),
-(17, 5, 'success', 2, 'PLN');
+(17, 5, 'success', 2, 'PLN'),
+(18, 2, 'success', 25, 'PLN'),
+(19, 2, 'success', 25, 'PLN'),
+(20, 20, 'success', 25, 'PLN'),
+(21, 1, 'success', 25, 'PLN');
 
 -- --------------------------------------------------------
 
@@ -340,48 +344,45 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `login`, `email`, `pass`, `level`, `points`, `runner`, `hangman`, `rebus`, `language`, `coins`) VALUES
-(1, 'jonasz', 'jonkul001@gmail.com', 'aaa', 3, 25, 0, 0, 0, 'en', 0),
-(3, 'sss', 'arybka68@gmail.com', 'aaa', 2, 11, 0, 1, 1, 'en', 0),
-(4, 'aaa1', 'jonkul001a@gmail.com', 'aaa1', 1, 0, 0, 0, 0, 'en', 0),
-(5, 'gds', 'jonaakul001@gmail.com', 'aaa', 1, 2, 0, 1, 0, 'en', 0),
-(6, 'aaaa', 'aaaa@aa.com', 'aaaa', 1, 3, 1, 0, 0, 'en', 0),
-(7, 'rwq', 'jonkul44001@gmail.com', 'bbb', 1, 0, 0, 0, 0, 'en', 0),
-(8, 'aaaaa', 'jonkuaaal001@gmail.com', 'aaa', 1, 2, 0, 1, 0, 'en', 0),
-(9, 'ssss', 'jonkwfwul001@gmail.com', 'aaa', 1, 0, 0, 0, 0, 'en', 0),
-(10, 'zzz', 'jonddkul001@gmail.com', 'aaa', 1, 3, 1, 0, 0, 'en', 0),
-(11, 'ggg', 'jonkugggl001@gmail.com', 'aaa', 2, 8, 0, 0, 0, 'en', 0),
-(12, 'jonasz11', 'jonkulggdsg001@gmail.com', '1111', 1, 0, 0, 0, 0, 'en', 0),
-(13, 'qqq', 'jonkul0ddd01@gmail.com', 'aaa', 1, 5, 1, 1, 0, 'en', 0),
-(14, 'reyy44', 'jonkusssl001@gmail.com', 'aaa', 1, 0, 0, 0, 0, 'en', 0),
-(15, 'tasos', 'tasos@bile.gr', '123456', 2, 7, 0, 0, 0, 'en', 0),
-(16, 'aaa111111', 'jo44445nkul001@gmail.com', 'aaa', 2, 7, 0, 0, 0, 'en', 0),
-(17, 'aaaaaaaaaaaa', 'jonkul00gggggg1@gmail.com', 'aaa', 1, 3, 1, 0, 0, 'en', 0),
-(18, 'qqqqq', 'jonddddfesgekul001@gmail.com', 'aaa', 1, 5, 1, 0, 1, 'en', 0),
-(19, 'jon', 'aaaa@gt.po', 'aaa', 1, 2, 0, 1, 0, 'en', 0),
-(20, 'ttt', 'jonkul0gdshddsj01@gmail.com', 'aaaa', 2, 8, 0, 0, 0, 'en', 0),
-(21, 'iop', 'jonk54757584ul001@gmail.com', 'aaa', 1, 0, 0, 0, 0, 'en', 0),
-(22, 'bbb', 'bbb@wp.com', 'aaa', 1, 2, 0, 0, 1, 'en', 0),
-(23, 'abb', 'jonkul0gwewhwehewhewrsdfc01@gmail.com', 'aaa', 2, 8, 0, 0, 0, 'en', 0),
-(24, 'naka', 'huc@utp.pl', 'aaa', 2, 11, 0, 0, 0, 'en', 0),
-(25, 'admin', 'admin@gmail.com', 'admin', 6, 71, 0, 1, 2, 'en', 16),
-(26, 'jak', 'ewtew@111.pl', 'aaa', 1, 0, 0, 0, 0, 'en', 0),
-(27, 'qwerty', 'jonkul0whwehweb01@gmail.com', 'aaa', 1, 0, 0, 0, 0, 'en', 0),
-(28, 'qwer', 'jonkulwehewh001@gmail.cl', 'aaa', 1, 0, 0, 0, 0, 'en', 0),
-(29, 'jak1', 'jonkherejrjmul001@gmail.com', 'aaa', 1, 0, 0, 0, 0, 'en', 0),
-(30, '111', '111@gmail.com', 'aaa', 2, 12, 0, 0, 0, 'en', 0),
-(31, '222', 'jonku222l001@gmail.com', 'aaa', 2, 0, 0, 0, 0, 'en', 0),
-(32, '333', 'jonku333l001@gmail.com', 'aaa', 3, 0, 0, 0, 0, 'en', 0),
-(33, '444', 'jonku444l001@gmail.com', 'aaa', 4, 3, 0, 0, 1, 'en', 0),
-(34, '555', 'jonku555l001@gmail.com', 'aaa', 5, 0, 0, 0, 0, 'en', 0),
-(35, '666', 'jonkul066601@gmail.com', 'aaa', 6, 0, 0, 0, 0, 'en', 0),
-(36, '777', 'jonku777l001@gmail.com', 'aaa', 7, 0, 0, 0, 0, 'en', 0),
-(38, 'me123', 'me123@gmail.com', 'me12', 2, 11, 0, 0, 0, 'en', 0),
-(39, 'natalia', 'natalia@gmail.com', 'natalia', 8, 120, 1, 1, 1, 'en', 0),
-(47, 'denis', 'denis@gmail.com', '!@#$%^&*()_+', 1, 0, 0, 0, 0, 'en', 0),
-(48, 'jonkul', 'user@wp.pl', 'jk123', 1, 0, 0, 0, 0, 'en', 0),
-(49, 'user123', 'user123@wp.pl', 'user', 1, 3, 0, 1, 0, 'en', 0),
-(50, 'user1234', 'user1@wp.pl', 'user', 2, 9, 0, 0, 0, 'en', 0),
-(51, 'user232', 'user2@utp.edu.pl', 'user', 0, 0, 1, 1, 1, 'en', 0);
+(1, 'jonasz', 'jonkul001@gmail.com', '$2a$10$ctL5Kieu38ZdbdxuzEvsyu4/G5S6JPpqwNVfJzX9jpBqVLOr5JQIS', 3, 25, 1, 1, 0, 'en', 10000),
+(3, 'sss', 'arybka68@gmail.com', '$2a$10$ctL5Kieu38ZdbdxuzEvsyu4/G5S6JPpqwNVfJzX9jpBqVLOr5JQIS', 2, 11, 0, 1, 1, 'en', 10000),
+(5, 'gds', 'jonaakul001@gmail.com', '$2a$10$ctL5Kieu38ZdbdxuzEvsyu4/G5S6JPpqwNVfJzX9jpBqVLOr5JQIS', 1, 2, 0, 1, 0, 'en', 10000),
+(8, 'aaaaa', 'jonkuaaal001@gmail.com', '$2a$10$ctL5Kieu38ZdbdxuzEvsyu4/G5S6JPpqwNVfJzX9jpBqVLOr5JQIS', 1, 2, 0, 1, 0, 'en', 10000),
+(9, 'ssss', 'jonkwfwul001@gmail.com', '$2a$10$ctL5Kieu38ZdbdxuzEvsyu4/G5S6JPpqwNVfJzX9jpBqVLOr5JQIS', 1, 0, 0, 0, 0, 'en', 10000),
+(10, 'zzz', 'jonddkul001@gmail.com', '$2a$10$ctL5Kieu38ZdbdxuzEvsyu4/G5S6JPpqwNVfJzX9jpBqVLOr5JQIS', 1, 3, 1, 0, 0, 'en', 10000),
+(11, 'ggg', 'jonkugggl001@gmail.com', '$2a$10$ctL5Kieu38ZdbdxuzEvsyu4/G5S6JPpqwNVfJzX9jpBqVLOr5JQIS', 2, 8, 0, 0, 0, 'en', 10000),
+(13, 'qqq', 'jonkul0ddd01@gmail.com', '$2a$10$ctL5Kieu38ZdbdxuzEvsyu4/G5S6JPpqwNVfJzX9jpBqVLOr5JQIS', 1, 5, 1, 1, 0, 'en', 10000),
+(14, 'reyy44', 'jonkusssl001@gmail.com', '$2a$10$ctL5Kieu38ZdbdxuzEvsyu4/G5S6JPpqwNVfJzX9jpBqVLOr5JQIS', 1, 0, 0, 0, 0, 'en', 10000),
+(16, 'aaa111111', 'jo44445nkul001@gmail.com', '$2a$10$ctL5Kieu38ZdbdxuzEvsyu4/G5S6JPpqwNVfJzX9jpBqVLOr5JQIS', 2, 7, 0, 0, 0, 'en', 10000),
+(17, 'aaaaaaaaaaaa', 'jonkul00gggggg1@gmail.com', '$2a$10$ctL5Kieu38ZdbdxuzEvsyu4/G5S6JPpqwNVfJzX9jpBqVLOr5JQIS', 1, 3, 1, 0, 0, 'en', 10000),
+(18, 'qqqqq', 'jonddddfesgekul001@gmail.com', '$2a$10$ctL5Kieu38ZdbdxuzEvsyu4/G5S6JPpqwNVfJzX9jpBqVLOr5JQIS', 1, 5, 1, 0, 1, 'en', 10000),
+(19, 'jon', 'aaaa@gt.po', '$2a$10$ctL5Kieu38ZdbdxuzEvsyu4/G5S6JPpqwNVfJzX9jpBqVLOr5JQIS', 1, 2, 0, 1, 0, 'en', 10000),
+(21, 'iop', 'jonk54757584ul001@gmail.com', '$2a$10$ctL5Kieu38ZdbdxuzEvsyu4/G5S6JPpqwNVfJzX9jpBqVLOr5JQIS', 1, 0, 0, 0, 0, 'en', 10000),
+(22, 'bbb', 'bbb@wp.com', '$2a$10$ctL5Kieu38ZdbdxuzEvsyu4/G5S6JPpqwNVfJzX9jpBqVLOr5JQIS', 1, 2, 0, 0, 1, 'en', 10000),
+(23, 'abb', 'jonkul0gwewhwehewhewrsdfc01@gmail.com', '$2a$10$ctL5Kieu38ZdbdxuzEvsyu4/G5S6JPpqwNVfJzX9jpBqVLOr5JQIS', 2, 8, 0, 0, 0, 'en', 10000),
+(24, 'naka', 'huc@utp.pl', '$2a$10$ctL5Kieu38ZdbdxuzEvsyu4/G5S6JPpqwNVfJzX9jpBqVLOr5JQIS', 2, 11, 0, 0, 0, 'en', 10000),
+(26, 'jak', 'ewtew@111.pl', '$2a$10$ctL5Kieu38ZdbdxuzEvsyu4/G5S6JPpqwNVfJzX9jpBqVLOr5JQIS', 1, 0, 0, 0, 0, 'en', 10000),
+(27, 'qwerty', 'jonkul0whwehweb01@gmail.com', '$2a$10$ctL5Kieu38ZdbdxuzEvsyu4/G5S6JPpqwNVfJzX9jpBqVLOr5JQIS', 1, 0, 0, 0, 0, 'en', 10000),
+(28, 'qwer', 'jonkulwehewh001@gmail.cl', '$2a$10$ctL5Kieu38ZdbdxuzEvsyu4/G5S6JPpqwNVfJzX9jpBqVLOr5JQIS', 1, 0, 0, 0, 0, 'en', 10000),
+(29, 'jak1', 'jonkherejrjmul001@gmail.com', '$2a$10$ctL5Kieu38ZdbdxuzEvsyu4/G5S6JPpqwNVfJzX9jpBqVLOr5JQIS', 1, 0, 0, 0, 0, 'en', 10000),
+(30, '111', '111@gmail.com', '$2a$10$ctL5Kieu38ZdbdxuzEvsyu4/G5S6JPpqwNVfJzX9jpBqVLOr5JQIS', 2, 12, 0, 0, 0, 'en', 10000),
+(31, '222', 'jonku222l001@gmail.com', '$2a$10$ctL5Kieu38ZdbdxuzEvsyu4/G5S6JPpqwNVfJzX9jpBqVLOr5JQIS', 2, 0, 0, 0, 0, 'en', 10000),
+(32, '333', 'jonku333l001@gmail.com', '$2a$10$ctL5Kieu38ZdbdxuzEvsyu4/G5S6JPpqwNVfJzX9jpBqVLOr5JQIS', 3, 0, 0, 0, 0, 'en', 10000),
+(33, '444', 'jonku444l001@gmail.com', '$2a$10$ctL5Kieu38ZdbdxuzEvsyu4/G5S6JPpqwNVfJzX9jpBqVLOr5JQIS', 4, 3, 0, 0, 1, 'en', 10000),
+(34, '555', 'jonku555l001@gmail.com', '$2a$10$ctL5Kieu38ZdbdxuzEvsyu4/G5S6JPpqwNVfJzX9jpBqVLOr5JQIS', 5, 0, 0, 0, 0, 'en', 10000),
+(35, '666', 'jonkul066601@gmail.com', '$2a$10$ctL5Kieu38ZdbdxuzEvsyu4/G5S6JPpqwNVfJzX9jpBqVLOr5JQIS', 6, 0, 0, 0, 0, 'en', 10000),
+(36, '777', 'jonku777l001@gmail.com', '$2a$10$ctL5Kieu38ZdbdxuzEvsyu4/G5S6JPpqwNVfJzX9jpBqVLOr5JQIS', 7, 0, 0, 0, 0, 'en', 10000),
+(52, 'newUser', 'new@gmail.com', '$2a$12$gkw35baO4Tw/PerOmfMmvOLGW6dmzqE.7tsyDBMRuTznTbp1ufLve', 0, 0, 0, 0, 0, 'en', 10),
+(53, 'admin1', 'admin1@gmail.com', '$2a$12$vD0YEjmjzxJkOuIV6dza3O9hm8N87bG4XMAz3rj0XhBzhkflk5aRi', 0, 0, 0, 0, 0, 'en', 10),
+(54, 'admin2', 'admin2@gmail.com', '$2a$12$1n2uihc/.4iA1ZlOXsdTRefQD21vaicAFyGrMdb7roeKmkJp7VRii', 0, 0, 0, 0, 0, 'en', 10),
+(55, 'zaq', 'zaq@gmail.com', '$2a$12$OfEIx2TPfnvbNjgqqzaosuaugb9jkjwZbazPxgk.ZVX5EKdTMwoeG', 0, 0, 0, 0, 0, 'en', 10),
+(56, 'zaq1', 'zaq1@gmail.com', '$2a$12$jinG7/4xfN/xN/xhacKjduKtPPTwKpKV5abhudPKBePW/scuxQDfO', 1, 0, 0, 0, 0, 'en', 10),
+(58, 'zaq12wsx', 'zaq12wsx@gmail.com', '$2a$10$l19HitQyw80l4coYdKIhEeLhTgwtyiHKEH0j9QgBVIO0L.z5tI/6K', 0, 0, 2, 2, 2, 'en', 10),
+(59, 'bbbbb', 'bbbbb@wp.pl', '$2a$10$Vm1jj6uG.b8awEih.1zRouNGbJj6e7svfjDb5yXDDT3LXLvCqO5/W', 0, 0, 2, 2, 2, 'en', 10),
+(60, 'mmm', 'mmm@wp.pl', '$2a$10$oxWt7Qsux1nsjCKvhfQEqee1jLqlDr1bxEXrh.jZPhqcqR8p6WmAG', 0, 0, 2, 2, 2, 'en', 10),
+(61, 'nnn', 'nnn@gmail.com', '$2a$10$s.uzXQ0.crK.MZe.4ARoY.iMTPbXSDghDt27tG/BR9y3bmo7PNWEe', 1, 0, 0, 0, 0, 'en', 10),
+(62, 'zxc', 'zxc@gmail.com', '$2a$10$ctL5Kieu38ZdbdxuzEvsyu4/G5S6JPpqwNVfJzX9jpBqVLOr5JQIS', 0, 0, 2, 2, 2, 'en', 10000),
+(63, 'admin', 'admin@gmail.com', '$2a$10$Is35hUrBCHEYfQD7xW0Yt.h7o0pS3PkHOviOgvOGm0tHOoYwlex8e', 1, 0, 0, 0, 0, 'en', 10000);
 
 --
 -- Indeksy dla zrzutów tabel
@@ -443,7 +444,7 @@ ALTER TABLE `language_info`
 -- AUTO_INCREMENT dla tabeli `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT dla tabeli `rebus`
@@ -461,7 +462,7 @@ ALTER TABLE `runner`
 -- AUTO_INCREMENT dla tabeli `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

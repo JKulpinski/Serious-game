@@ -1,6 +1,7 @@
 package pl.edu.utp.po.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,10 +19,12 @@ import java.util.regex.Pattern;
 public class RegistrationController {
 
     private final RegisterService registerService;
+    private PasswordEncoder passwordEncoder;
 
     @Autowired
-    public RegistrationController(RegisterService registerService) {
+    public RegistrationController(RegisterService registerService, PasswordEncoder passwordEncoder) {
         this.registerService = registerService;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @GetMapping("/register")
@@ -58,6 +61,7 @@ public class RegistrationController {
 
         if (pass_validation(pass)) {
             valid[4] = true;
+            user.setPass(passwordEncoder.encode(pass));
             if (pass2.equals(pass)) {
                 valid[5] = true;
             } else error += " Password confirmation error.\n";
