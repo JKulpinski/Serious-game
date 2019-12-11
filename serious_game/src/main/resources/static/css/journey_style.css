@@ -21,6 +21,10 @@ h1, h2 {
     border: 10px dotted black;
 }
 
+#user_info {
+    size: 20px;
+}
+
 #successMessage {
     position: absolute;
     left: 580px;
